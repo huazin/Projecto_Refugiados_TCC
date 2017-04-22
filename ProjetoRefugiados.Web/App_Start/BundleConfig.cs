@@ -24,8 +24,29 @@ namespace ProjetoRefugiados.Web
                       "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/bootstrap.css"
+                      ));
+
+            bundles.Add(new ScriptBundle("~/bundles/Acejs").Include(
+                      "~/ace/js/jquery-ui.custom.min.js",
+                      "~/ace/js/jquery.ui.touch-punch.min.js",
+                      "~/ace/js/jquery.easypiechart.min.js",
+                      "~/ace/js/jquery.sparkline.index.min.js",
+                      "~/ace/js/jquery.flot.min.js",
+                      "~/ace/js/jquery.flot.pie.min.js",
+                      "~/ace/js/jquery.flot.resize.min.js",
+                      "~/ace/js/bootbox.js",
+                      "~/ace/js/ace-elements.min.js",
+                      "~/ace/js/ace.min.js"
+                ));
+
+            bundles.Add(new StyleBundle("~/Content/AceCss").Include(
+                      "~/ace/css/fonts.googleapis.com.css",
+                      "~/ace/css/ace.min.css",
+                      "~/ace/css/ace-skins.min.css",
+                      "~/ace/css/ace-rtl.min.css",
+                      "~/ace/css/fonts.googleapis.com.css"
+                ));
         }
     }
 }

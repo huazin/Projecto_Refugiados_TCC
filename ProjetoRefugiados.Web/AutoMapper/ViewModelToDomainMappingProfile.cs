@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using ProjetoRefugiados.Domain;
 using ProjetoRefugiados.Web.ViewModels;
 using System;
 using System.Collections.Generic;

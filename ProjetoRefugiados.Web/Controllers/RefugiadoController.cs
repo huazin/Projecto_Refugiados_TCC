@@ -1,8 +1,6 @@
 ﻿using System.Web.Mvc;
-using ProjetoRefugiados.Infra.Repository;
 using ProjetoRefugiados.Web.ViewModels;
 using AutoMapper;
-using ProjetoRefugiados.Domain;
 using ProjetoRefugiados.Web;
 using System.Linq;
 using System.Collections.Generic;

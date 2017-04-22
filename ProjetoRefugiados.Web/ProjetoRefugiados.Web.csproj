@@ -201,6 +201,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RefugiadoController.cs" />
     <Compile Include="Controllers\TriagemController.cs" />
+    <Compile Include="Domain\Models\Refugiado.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -218,10 +219,42 @@
     <Compile Include="ViewModels\PessoaViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Ace\Css\ace-ie.min.css" />
+    <Content Include="Ace\Css\ace-part2.min.css" />
+    <Content Include="Ace\Css\ace-rtl.min.css" />
+    <Content Include="Ace\Css\ace-skins.min.css" />
+    <Content Include="Ace\Css\ace.min.css" />
+    <Content Include="Ace\Css\fonts.googleapis.com.css" />
+    <Content Include="Ace\js\ace-elements.min.js" />
+    <Content Include="Ace\js\ace-extra.min.js" />
+    <Content Include="Ace\js\ace.min.js" />
+    <Content Include="Ace\js\bootbox.js" />
+    <Content Include="Ace\js\buttons.html5.min.js" />
+    <Content Include="Ace\js\excanvas.min.js" />
+    <Content Include="Ace\js\html5shiv.min.js" />
+    <Content Include="Ace\js\jquery-ui.custom.min.js" />
+    <Content Include="Ace\js\jquery.dataTables.bootstrap.min.js" />
+    <Content Include="Ace\js\jquery.easypiechart.min.js" />
+    <Content Include="Ace\js\jquery.flot.min.js" />
+    <Content Include="Ace\js\jquery.flot.pie.min.js" />
+    <Content Include="Ace\js\jquery.flot.resize.min.js" />
+    <Content Include="Ace\js\jquery.sparkline.index.min.js" />
+    <Content Include="Ace\js\jquery.ui.touch-punch.min.js" />
+    <Content Include="Ace\js\respond.min.js" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Models\favicon.ico" />
+    <Content Include="fonts\font-awesome.css" />
+    <Content Include="fonts\font-awesome.min.css" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Models\favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
@@ -283,15 +316,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Folder Include="Infra\" />
+    <Folder Include="NewFolder1\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -303,16 +329,6 @@
     <EmbeddedResource Include="Migrations\201704010433095_InitialCreate1.resx">
       <DependentUpon>201704010433095_InitialCreate1.cs</DependentUpon>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ProjetoRefugiados.Domain\ProjetoRefugiados.Domain.csproj">
-      <Project>{499f908c-37d8-44a0-8056-509c58cd3930}</Project>
-      <Name>ProjetoRefugiados.Domain</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ProjetoRefugiados.Infra\ProjetoRefugiados.Infra.csproj">
-      <Project>{f6aa4107-5173-461c-99c2-72761a3b1399}</Project>
-      <Name>ProjetoRefugiados.Infra</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
