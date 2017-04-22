@@ -1,0 +1,80 @@
+﻿
+@{
+    ViewBag.Title = "Home";
+}
+
+<div class="jumbotron col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+    <fieldset>
+        <legend class="text-center">Cadastro de Funcionário</legend>
+
+        <div class="panel panel-primary">
+            <!--primeiro painel-->
+            <div class="panel-heading">
+                <label class="panel-title">Dados pessoais</label>
+            </div>
+            <div class="panel-body">
+                <div class="form-group col-md-6 col-sm-6   ">
+                    <label for="inputDefault" class="control-label">Nome:</label>
+                    <input type="text" class="input-sm form-control" placeholder="Nome Completo" id="inputNome" />
+                </div>
+                <div class="form-group col-md-6 col-sm-6">
+                    <label for="inputDefault" class="control-label">CPF:</label>
+                    <input type="text" maxlength="11" class="form-control input-sm" placeholder="12312312312" id="inputCPF" />
+                </div>
+                <div class="form-group col-md-6 col-sm-6">
+                    <label for="inputDefault" class="control-label">RG:</label>
+                    <input type="text" maxlength="11" class="form-control input-sm" placeholder="12312312312" id="inputRG" />
+                </div>
+
+                <div class="form-group col-md-2 col-sm-6">
+                    <label for="inputDefault" class="control-label">Idade:</label>
+                    <input type="text" maxlength="5" class="form-control input-sm" placeholder="12312312312" id="inputIdade" />
+                </div>
+
+                <div class="form-group">
+                    <!-- botao radio-->
+                    <label class="col-lg-12 control-label">Sexo</label>
+                    <div class="col-lg-12 col-md-9">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="optionsRadios" id="radioM" value="option1" checked="">
+                                Masculino
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="optionsRadios" id="radioF" value="option2">
+                                Feminino
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col-md-6 col-sm-6">
+                    <label for="inputDefault" class="control-label">Telefone:</label>
+                    <input type="text" maxlength="11" class="form-control input-sm" placeholder="12312312312" id="inputTel" />
+                </div>
+
+
+                <div class="form-group">
+                    <label for="select" class="col-lg-12 control-label">Categoria:</label>
+                    <div class="col-lg-12">
+                        <select class="form-control" id="selectCategoria">
+                            <option>Enfermeiro</option>
+                            <option>Estágio</option>
+                            <option>Professor</option>
+                        </select>
+                        <label for="inputDefault" class="control-label">Curso:</label>
+                        <input type="text" maxlength="11" class="form-control input-sm" placeholder="12312312312" id="inputCurso" />
+
+                    </div>
+                </div>
+            </div>
+        </div><!--1º painel-->
+        <a class="btn btn-primary btn-block">Concluir</a>
+        <hr />
+        <footer>
+            <label for="labelDefault" class="control-label">Data do cadastro: @DateTime.Now.Day/@DateTime.Now.Month/@DateTime.Now.Year</label>
+        </footer>
+    </fieldset>
+</div>
+<div class="row"></div>

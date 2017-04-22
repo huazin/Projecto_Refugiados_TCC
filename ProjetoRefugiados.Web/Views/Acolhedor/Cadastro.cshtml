@@ -1,0 +1,363 @@
+﻿
+@{
+    ViewBag.Title = "Cadastro";
+}
+
+<div class="jumbotron col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+    <fieldset>
+        <legend class="text-center">Cadastro de Acolhedor</legend>
+        <div class="alert alert-dismissible alert-info">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <label>Caso exista mais de uma pessoa na casa clique em <strong>"Novo Familiar"</strong> no final!   </label>
+        </div><!--Mini Alerta-->
+        <div class="panel panel-primary">
+            <!--primeiro painel-->
+            <div class="panel-heading">
+                <label class="panel-title">Composição Familiar</label>
+            </div>
+            <div class="panel-body">
+                <div class="form-group col-md-6 col-sm-6">
+                    <label for="inputDefault" class="control-label">Nome:</label>
+                    <input type="text" class="input-sm form-control" placeholder="Nome Completo" />
+                </div>
+                <div class="form-group col-md-3 col-sm-6">
+                    <label for="inputDefault" class="control-label">Sexo:</label>
+                    <select class="input-sm form-control" id="SelectSexo">
+                        <option>Masculino</option>
+                        <option>Feminino</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-3 col-sm-6">
+                    <label for=" inputDefault" class="control-label">Parentesco:</label>
+                    <select class="input-sm form-control" id="SelectParentesco">
+                        <option>Pai</option>
+                        <option>Mãe</option>
+                        <option>Irmão/Irmã</option>
+                        <option>Tio/Tia</option>
+                        <option>Avô/Avó</option>
+                        <option>Outro</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-5 col-sm-6">
+                    <label for="inputDefault" class="control-label">Data de Nascimento:</label>
+                    <input type="date" class="form-control input-sm" />
+                </div>
+                <div class="form-group col-md-4 col-sm-6">
+                    <label for="inputDefault" class="control-label">Possui Alguma Deficiencia:</label>
+                    <div class="radio">
+                        <label class="col-md-4">
+                            <input type="radio" name="Deficiencia" id="radioDeficiencia1" value="Sim" checked="" />
+                            Sim
+                        </label>
+                        <label class="col-md-4">
+                            <input type="radio" name="Deficiencia" id="radioDeficiencia2" value="Nao" />
+                            Não
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group col-md-3 col-sm-6">
+                    <label for="inputDefault" class="control-label">Qual?</label>
+                    <input class="form-control input-sm" placeholder="Ex: Visão" />
+                </div>
+                <div class="page-header">
+                    <label for="inputDefaul">Condições Educacional</label>
+                </div>
+                <div class="form-group col-md-6 col-sm-6">
+                    <label for="inputDefault" class="control-label">Sabe ler?</label>
+                    <div class="radio">
+                        <label class="col-md-4">
+                            <input type="radio" name="Leitura" id="radioLeitura1" value="Sim" checked="" />
+                            Sim
+                        </label>
+                        <label class="col-md-4">
+                            <input type="radio" name="Leitura" id="radioLeitura2" value="Nao" />
+                            Não
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group col-md-6 col-sm-6">
+                    <label for="inputDefault" class="control-label">Escolaridade:</label>
+                    <select class="input-sm form-control" id="SelectParentesco">
+                        <option>Não estuda</option>
+                        <option>Fundamental Concluido</option>
+                        <option>Ensino Medio Concluido</option>
+                        <option>Ensino Superior Concluido</option>
+                        <option>Fundamental Cursando</option>
+                        <option>Ensino Medio Cursando</option>
+                        <option>Ensino Superior Cursando</option>
+                        <option>Parou no Fundamental</option>
+                        <option>Parou no Ensino Medio</option>
+                    </select>
+                </div>
+
+                <div class="page-header">
+                    <label for="inputDefault">Condições de Trabalho</label>
+                </div>
+                <div class="form-group col-md-4 col-sm-6">
+                    <label for="inputDefault" class="control-label">Possui CTPS?</label>
+                    <div class="radio">
+                        <label class="col-md-4">
+                            <input type="radio" name="Cpts" id="radioCpts1" value="Sim" checked="" />
+                            Sim
+                        </label>
+                        <label class="col-md-4">
+                            <input type="radio" name="Cpts" id="radioCpts2" value="Nao" />
+                            Não
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group col-md-4 col-sm-6">
+                    <label for="inputDefault" class="control-label">Qualificaçãos:</label>
+                    <input type="text" class="input-sm form-control" placeholder="Ex: Engenharia Civil" />
+                </div>
+
+                <div class="form-group col-md-4 col-sm-12">
+                    <label for="inputDefault" class="control-label">Renda:</label>
+                    <input type="text" class="input-sm form-control" placeholder="Ex: 1.500" />
+                </div>
+
+                <div class="page-header">
+                    <label for="inputDefault">Saúde</label>
+                </div>
+                <div class="form-group col-md-4 col-sm-6">
+                    <label for="inputDefault" class="control-label">Doença Grave?</label>
+                    <input type="text" class="input-sm form-control" />
+                </div>
+                <div class="form-group col-md-4 col-sm-6">
+                    <label for="inputDefault" class="control-label">Medicamentos Controlados?</label>
+                    <input type="text" class="input-sm form-control" />
+                </div>
+                <div class="form-group col-md-4 col-sm-6">
+                    <label for="inputDefault" class="control-label">Drogas?</label>
+                    <input type="text" class="input-sm form-control" placeholder="Ex: Álcool" />
+                </div>
+                <div class="form-group col-md-4 col-sm-6">
+                    <label for="inputDefault" class="control-label">Gestante?</label>
+                    <div class="radio">
+                        <label class="col-md-4">
+                            <input type="radio" name="Gestante" id="radioGestante1" value="Sim" checked="" />
+                            Sim
+                        </label>
+                        <label class="col-md-4">
+                            <input type="radio" name="Gestante" id="radioGestante2" value="Nao" />
+                            Não
+                        </label>
+                    </div>
+                </div>
+
+                <a href="" class="btn btn-success col-xs-9 col-xs-offset-2 col-sm-4 col-lg-offset-4 col-sm-offset-4 ">
+                    Novo Familiar
+                </a>
+            </div>
+        </div><!--1º painel-->
+
+        <div class="panel panel-primary">
+            <!--2º painel-->
+            <div class="panel-heading">
+                <label class="panel-title">Ingresso ao Projeto</label>
+            </div>
+            <div class="panel-body">
+                <div class="form-group col-md-6 col-sm-6">
+                    <label for="inputDefault" class="control-label">Como Tomou conhecimento do Projeto?</label>
+                    <div class="radio 4">
+                        <label class="col-md-6">
+                            <input type="radio" name="Conhecimento" id="radioConhecimento1" value="Sim" checked="" />
+                            De forma espontânea
+                        </label>
+                        <label class="col-md-6">
+                            <input type="radio" name="Conhecimento" id="radioConhecimento2" value="Nao" />
+                            Indicação
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group col-md-6 col-sm-6">
+                    <label for="inputDefault" class="control-label">Participa de algum programa social?</label>
+                    <div class="radio">
+                        <label class="col-md-6">
+                            <input type="radio" name="ProgramaSocial" id="radioProgramaSocial1" value="Sim" checked="" />
+                            Sim, Qual?
+                        </label>
+                        <input type="text" class="input-sm form-control" />
+                        <label class="col-md-6">
+                            <input type="radio" name="ProgramaSocial" id="radioProgramaSocial2" value="Nao" />
+                            Não
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div><!--2º painel-->
+        <div class="panel panel-primary">
+            <!--3º painel-->
+            <div class="panel-heading">
+                <label class="panel-title">Condições Habitacionais</label>
+            </div>
+            <div class="panel-body">
+                <div class="form-group col-md-6 col-sm-6">
+                    <label for="inputDefault" class="control-label">Tipo de Residencia:</label>
+                    <div class="radio">
+                        <label class="col-md-3">
+                            <input type="radio" name="Residencia" id="radioResidencia1" value="Sim" checked="" />
+                            Propria
+                        </label>
+                        <label class="col-md-3">
+                            <input type="radio" name="Residencia" id="radioResidencia2" value="Nao" />
+                            Alugada
+                        </label>
+                        <label class="col-md-3">
+                            <input type="radio" name="Residencia" id="radioResidencia3" value="Nao" />
+                            Cedida
+                        </label>
+                        <label class="col-md-3">
+                            <input type="radio" name="Residencia" id="radioResidencia4" value="Nao" />
+                            Ocupada
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group col-md-6 col-sm-6">
+                    <label for="inputDefault" class="control-label">Tipo de Construção:</label>
+                    <div class="radio">
+                        <label class="col-md-6">
+                            <input type="radio" name="Contrucao" id="radioContrucao1" value="Sim" checked="" />
+                            Alvenaria
+                        </label>
+                        <label class="col-md-6">
+                            <input type="radio" name="Contrucao" id="radioContrucao2" value="Nao" />
+                            Madeira/Material Precario
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group col-md-12 col-sm-12">
+                    <label for="inputDefault" class="control-label">Acesso à energia elétrica?</label>
+                    <div class="radio 4">
+                        <label class="col-md-6">
+                            <input type="radio" name="eletricidade" id="radioeletricidade1" value="Sim" checked="" />
+                            Medidor próprio
+                        </label>
+                        <label class="col-md-6">
+                            <input type="radio" name="eletricidade" id="radioeletricidade2" value="Nao" />
+                            Sem medidor
+                        </label>
+                        <label class="col-md-6">
+                            <input type="radio" name="eletricidade" id="radioeletricidade3" value="Nao" />
+                            Medidor compartilhado
+                        </label>
+                        <label class="col-md-6">
+                            <input type="radio" name="eletricidade" id="radioeletricidade4" value="Nao" />
+                            Não possui energia eletrica no domiciio
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group col-md-12 col-sm-12">
+                    <label for="inputDefault" class="control-label">Possui água canalizada?</label>
+                    <div class="radio">
+                        <label class="col-md-3">
+                            <input type="radio" name="Agua" id="radioAgua1" value="Sim" checked="" />
+                            Sim
+                        </label>
+                        <label class="col-md-3">
+                            <input type="radio" name="Agua" id="radioAgua2" value="Nao" />
+                            Não
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group col-md-12 col-sm-12">
+                    <label for="inputDefault" class="control-label">Forma de abastecimento de água:</label>
+                    <div class="radio">
+                        <label class="col-md-6">
+                            <input type="radio" name="FormaAgua" id="radioFormaAgua1" value="Sim" checked="" />
+                            Rede geral de distribuição
+                        </label>
+                        <label class="col-md-6">
+                            <input type="radio" name="FormaAgua" id="radioFormaAgua2" value="Nao" />
+                            Poço ou nascente
+                        </label>
+                        <label class="col-md-6">
+                            <input type="radio" name="FormaAgua" id="radioFormaAgua3" value="Nao" />
+                            Cisterna de captação de água da chuva
+                        </label>
+                        <label class="col-md-6">
+                            <input type="radio" name="FormaAgua" id="radioFormaAgua4" value="Nao" />
+                            Carro pipa
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group col-md-12 col-sm-12">
+                    <label for="inputDefault" class="control-label">Escoamento sanitário:</label>
+                    <div class="radio">
+                        <label class="col-md-6">
+                            <input type="radio" name="Esgoto" id="radioEsgoto1" value="Sim" checked="" />
+                            Rede coletora de esgoto ou pluvial
+                        </label>
+                        <label class="col-md-6">
+                            <input type="radio" name="Esgoto" id="radioEsgoto2" value="Nao" />
+                            Fossa séptica
+                        </label>
+                        <label class="col-md-6">
+                            <input type="radio" name="Esgoto" id="radioEsgoto3" value="Nao" />
+                            Fossa rudimentar
+                        </label>
+                        <label class="col-md-6">
+                            <input type="radio" name="Esgoto" id="radioEsgoto4" value="Nao" />
+                            Direto pra vala, rio, lago ou mar
+                        </label>
+                        <label class="col-md-6">
+                            <input type="radio" name="Esgoto" id="radioEsgoto5" value="Nao" />
+                            Domicílio sem banheiro
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group col-md-6 col-sm-6">
+                    <label for="inputDefault" class="control-label">Numero de cômodos no domicílio</label>
+                    <input type="number" min="1" class="input-sm form-control" />
+                </div>
+                <div class="form-group col-md-6 col-sm-6">
+                    <label for="inputDefault" class="control-label">Domicílio com acessibilidade para pessoas com dificuldade de locomoção?</label>
+                    <div class="radio">
+                        <label class="col-md-6">
+                            <input type="radio" name="Acessibildade" id="radioAcessibildade1" value="Sim" checked="" />
+                            Sim
+                        </label>
+                        <label class="col-md-6">
+                            <input type="radio" name="Acessibildade" id="radioAcessibildade2" value="Nao" />
+                            Não
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group col-md-12 col-sm-12">
+                    <label for="inputDefault" class="control-label">Perigo de alagamento ou desabamento?</label>
+                    <div class="radio">
+                        <label class="col-md-3">
+                            <input type="radio" name="Perigo" id="radioPerigo1" value="Sim" checked="" />
+                            Sim
+                        </label>
+                        <label class="col-md-3">
+                            <input type="radio" name="Perigo" id="radioPerigo2" value="Nao" />
+                            Não
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div><!--3º painel-->
+        <div class="alert alert-dismissible alert-warning">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <label>Observações são informações inrelevantes para serem anotadas, porem existem casos em que é importante sabe-las</label>
+        </div><!--Mini Alerta-->
+        <div class="panel panel-primary">
+            <!--4º painel-->
+            <div class="panel-heading">
+                <label for="inputDefault">Observações</label>
+            </div>
+            <div class="panel-body">
+                <div class="form-group col-xs-12">
+                    <label for="inputDefault" class="control-label">Observação do Acolhedor:</label>
+                    <textarea class="form-control" rows="4"></textarea>
+                </div>
+            </div>
+        </div><!--3º painel-->
+        <a href="" class="btn btn-primary col-xs-9 col-xs-offset-2 col-sm-4 col-lg-offset-4 col-sm-offset-4 ">
+            Concluir
+        </a>
+    </fieldset>
+</div>
+<div class="row"></div>
+

@@ -1,0 +1,199 @@
+﻿@using ProjetoRefugiados.Web.ViewModels
+@model PacienteViewModel
+
+@{
+    ViewBag.Title = "Cadastro";
+    var religiao = ViewBag.Religiao;
+    var nascionalidades = ViewBag.Nascionalidade;
+    var profissoes = ViewBag.Profissao;
+    var pais = ViewBag.Pais;
+    var Sexo = new List<SelectListItem>(){
+        new SelectListItem(){Value="M",Text="Masculino"},
+        new SelectListItem(){Value="F",Text="Feminino"}
+    };
+
+}
+
+<div class="jumbotron col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+    <fieldset>
+        <legend class="text-center">Cadastro de Refugiado</legend>
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <label class="panel-title">Dados Pessoais</label>
+            </div>
+            <div class="panel-body">                    
+                    @using (Html.BeginForm("Create", "Refugiado", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary("", new { @class = "text-danger" })
+
+                        <div class="form-group col-sm-7">
+                            @Html.LabelFor(m => m.Pessoa.Nome, new { @class = "control-label" })
+                            @Html.TextBoxFor(m => m.Pessoa.Nome, new { @class = "form-control input-sm"})
+                        </div>
+                        <div class="form-group col-sm-5">
+                            @Html.LabelFor(m => m.Pessoa.Sexo, new { @class = "control-label"})
+                            @Html.DropDownListFor(m => m.Pessoa.Sexo,Sexo, new { @class ="form-control input-sm" })
+                        </div>
+                        <div class="form-group col-sm-12">
+                            @Html.LabelFor(m => m.Pessoa.DataDeNascimento, new { @class = "control-label"})
+                            @Html.TextBoxFor(m => m.Pessoa.DataDeNascimento, "{0:MM/dd/yyyy}", new { size = "12", @class = "form-control input-sm" })
+                        </div>
+                        <div class="form-group col-sm-4">
+                            @Html.LabelFor(m => m.ReligiaoId, new { @class = "control-label"})
+                            @Html.DropDownListFor(m => m.ReligiaoId, new SelectList(religiao, "Value", "Text") , new { @class = "input-sm form-control"})
+                        </div>
+                        <div class="form-group col-sm-4">
+                            @Html.LabelFor(m => m.NascionalidadeId, new { @class ="control-label"})
+                            @Html.DropDownListFor(m => m.NascionalidadeId, new SelectList(nascionalidades, "Value", "Text"), new { @class = "input-sm form-control" })
+                        </div>
+                        <div class="form-group col-sm-4">
+                            @Html.LabelFor(m => m.ProfissaoId, new { @class ="control-label"})
+                            @Html.DropDownListFor(m => m.ProfissaoId, new SelectList(profissoes, "Value", "Text"), new {@class ="input-sm form-control"})
+                        </div>
+                        <div class="form-group col-sm-4">
+                            @Html.LabelFor(m => m.DataChegadda, new { @class ="control-label"})
+                            @Html.TextBoxFor(m => m.DataChegadda, new { @class = "input-sm form-control" })
+                        </div>
+                    }
+                <div class="row"></div>
+                    <div class="form-group col-sm-7">
+                        <label for="inputDefault" class="control-label">Nome:</label>
+                        <input type="text" class="form-control input-sm" id="inputNome" placeholder="Nome Completo" />
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <label for="inputDefault" class="control-label">Sexo:</label>
+                        <select class="input-sm form-control" id="SelectSexo">
+                            <option>Masculino</option>
+                            <option>Feminino</option>
+                        </select>
+                    </div>
+                <div class="row">
+                    <div class="form-group col-sm-12">
+                        <label for="inputDefault" class="control-label">Data de Nascimento:</label>
+                        <input type="date" class="form-control input-sm" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-sm-4">
+                        <label for="inputDefault" class="control-label">Religião:</label>
+                        <select class="input-sm form-control" id="SelectReligiao">
+                            <option>Catolico</option>
+                            <option>Protestante</option>
+                            <option>Outra</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-sm-3">
+                        <label for="inputDefault" class="control-label">Nacionalidade:</label>
+                        <select class="input-sm form-control" id="SelectNacionalidade">
+                            <option>Brasileiro</option>
+                            <option>Português</option>
+                            <option>Outra</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <label for="inputDefault" class="control-label">Profissão:</label>
+                        <select class="input-sm form-control" id="SelectProfissao">
+                            <option>Medico</option>
+                            <option>Advogado</option>
+                            <option>Outra</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-sm-4">
+                        <label for="inputDefault" class="control-label">Data de chegada no Brasil:</label>
+                        <input type="date" class="form-control input-sm" />
+                    </div>
+                    <div class="form-group col-sm-3">
+                        <label for="inputDefault" class="control-label">Pais de Origem:</label>
+                        <select class="input-sm form-control" id="SelectOrigem">
+                            <option>Haiti</option>
+                            <option>Siria</option>
+                            <option>Outros</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-sm-5">
+                        <label for="inputDefault" class="control-label">Possui Carteira de Vascinação:</label>
+                        <div class="radio">
+                            <label class="col-sm-4">
+                                <input type="radio" name="Vascinacao" id="radioVascinacao1" value="Sim" checked="" />
+                                Sim
+                            </label>
+                            <label class="col-sm-4">
+                                <input type="radio" name="Vascinacao" id="radioVascinacao2" value="Nao" />
+                                Não
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-sm-3">
+                        <label for="inputDefault" class="control-label">RG:</label>
+                        <input type="text" maxlength="10" class="form-control input-sm" placeholder="1231231231" id="inputRG" />
+                    </div>
+                    <div class="form-group col-sm-3">
+                        <label for="inputDefault" class="control-label">CPF:</label>
+                        <input type="text" maxlength="11" class="form-control input-sm" placeholder="12312312312" id="inputCPF" />
+                    </div>
+                    <div class="form-group col-sm-5">
+                        <label for="inputDefault" class="control-label">Quantidade de Membros na Familia</label>
+                        <input type="number" min="0" class="form-control input-sm" id="inputFamilia" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-sm-3">
+                        <label for="inputDefault" class="control-label">CEP:</label>
+                        <input type="text" class="form-control input-sm" id="inputCEP" placeholder="03030-0000" />
+                        <input type="button" class="form-control input-sm btn btn-default" id="inputCEPButton" value="Pesquisa" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-sm-5">
+                        <label for="inputDefault" class="control-label">Logradouro:</label>
+                        <input type="text" class="form-control input-sm" placeholder="Ex: Av. Paulista" id="inputLogradouro" />
+                    </div>
+                    <div class="form-group col-sm-2">
+                        <label for="inputDefault" class="control-label">Nº:</label>
+                        <input type="number" min="0" id="inputNumero" placeholder="101" class="form-control input-sm" />
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <label for="inputDefaul" class="control-label">Complemento:</label>
+                        <input type="text" class="form-control col-sm-3 input-sm" id="inputComplemento" placeholder="Bloco 3,Terceiro anda, Sala 3" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-sm-3">
+                        <label for="inputDefault" class="control-label">Bairro:</label>
+                        <input type="text" class="form-control input-sm" placeholder="Ex:Paulista" id="inputBairro" />
+                    </div>
+                    <div class="form-group col-sm-3">
+                        <label for="inputDefault" class="control-label">Cidade:</label>
+                        <input type="text" class="form-control input-sm" id="inputCidade" disabled />
+                    </div>
+                    <div class="form-group col-sm-2">
+                        <label for="inputDefault" class="control-label">Estado:</label>
+                        <input type="text" class="form-control input-sm" id="inputEstado" disabled />
+                    </div>
+                    <div class="form-group col-sm-3">
+                        <label for="inputDefault" class="control-label">Tempo no local:</label>
+                        <input type="number" min="0" class="form-control input-sm" id="inputTempo" />
+                    </div>
+                </div>
+                <div class="row">
+                    <a href="" class="btn btn-success col-xs-9 col-xs-offset-2 col-sm-4 col-lg-offset-4 col-sm-offset-4 ">
+                        Concluir
+                    </a>
+                </div>
+                <div class="row">
+                    <hr />
+                    <footer>
+                        <label for="inputDefault" class="control-label col-sm-offset-1"> Data do cadastro: @DateTime.Now.Day/@DateTime.Now.Month/@DateTime.Now.Year</label>
+                    </footer>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+</div>
+<div class="row"></div>
