@@ -11,9 +11,11 @@ namespace ProjetoRefugiados.Web.Infra.Repository
     public class RefugiadoRepository : ICrud<Refugiado>
     {
         public ProjetoRefugiadosContext Db = new ProjetoRefugiadosContext();
+
         public void Add(Refugiado add)
         {
             Db.Refugiados.Add(add);
+            Db.Entry(add).Property(p => p.Ativo).CurrentValue = true;
             Db.SaveChanges();
         }
 
@@ -40,7 +42,8 @@ namespace ProjetoRefugiados.Web.Infra.Repository
 
         public void Remove(Refugiado remove)
         {
-            Db.Refugiados.Remove(remove);
+            Db.Entry(remove).Property(p => p.Ativo).CurrentValue = false;
+            //Db.Refugiados.Remove(remove);
             Db.SaveChanges();
         }
     }

@@ -14,7 +14,8 @@ namespace ProjetoRefugiados.Web.Infra.EntityConfig.Secundarios
             HasKey(p => p.ProfissaoId);
 
             Property(p => p.Nome)
-                .IsRequired();
+                .IsRequired()
+                .HasMaxLength(200) ;
         }
     }
 }

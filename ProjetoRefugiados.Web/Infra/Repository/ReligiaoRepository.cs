@@ -1,4 +1,5 @@
 ﻿using ProjetoRefugiados.Web.Domain.Models;
+using ProjetoRefugiados.Web.Domain.Models.Secudarias;
 using ProjetoRefugiados.Web.Infra.Context;
 using System;
 using System.Collections.Generic;

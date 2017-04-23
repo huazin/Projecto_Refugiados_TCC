@@ -9,7 +9,9 @@ namespace ProjetoRefugiados.Web
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js"));
+                        "~/Scripts/jquery-{version}.js",
+                        "~/Scripts/Select2.full.min.js",
+                        "~/Scripts/Select2.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
@@ -24,7 +26,8 @@ namespace ProjetoRefugiados.Web
                       "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css"
+                      "~/Content/bootstrap.css",
+                      "~/Content/select2.min.css"
                       ));
 
             bundles.Add(new ScriptBundle("~/bundles/Acejs").Include(

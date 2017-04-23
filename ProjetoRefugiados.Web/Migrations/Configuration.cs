@@ -1,19 +1,20 @@
 namespace ProjetoRefugiados.Web.Migrations
 {
+    using ProjetoRefugiados.Web.Infra.Context;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<ProjetoRefugiados.Web.Models.ApplicationDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<ProjetoRefugiadosContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
-            ContextKey = "ProjetoRefugiados.Web.Models.ApplicationDbContext";
+            //ContextKey = "ProjetoRefugiados.Web.Infra.Context";
         }
 
-        protected override void Seed(ProjetoRefugiados.Web.Models.ApplicationDbContext context)
+        protected override void Seed(ProjetoRefugiadosContext context)
         {
             //  This method will be called after migrating to the latest version.
 

@@ -192,8 +192,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="AutoMapper\AutoMapperConfig.cs" />
-    <Compile Include="AutoMapper\DomainToViewModelMappingProfile.cs" />
-    <Compile Include="AutoMapper\ViewModelToDomainMappingProfile.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AcolhedorController.cs" />
     <Compile Include="Controllers\AdmController.cs" />
@@ -202,21 +200,38 @@
     <Compile Include="Controllers\RefugiadoController.cs" />
     <Compile Include="Controllers\TriagemController.cs" />
     <Compile Include="Domain\Models\Refugiado.cs" />
+    <Compile Include="Domain\Models\Secudarias\Endereco.cs" />
+    <Compile Include="Domain\Models\Secudarias\Nascionalidade.cs" />
+    <Compile Include="Domain\Models\Secudarias\Pais.cs" />
+    <Compile Include="Domain\Models\Secudarias\Profissao.cs" />
+    <Compile Include="Domain\Models\Secudarias\Religiao.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201704010433095_InitialCreate1.cs" />
-    <Compile Include="Migrations\201704010433095_InitialCreate1.Designer.cs">
-      <DependentUpon>201704010433095_InitialCreate1.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Infra\Context\ProjetoRefugiadosContext.cs" />
+    <Compile Include="Infra\EntityConfig\Secundarios\NascionalidadeConfiguration.cs" />
+    <Compile Include="Infra\EntityConfig\Secundarios\PaisConfiguration.cs" />
+    <Compile Include="Infra\EntityConfig\RefugiadoConfiguration.cs" />
+    <Compile Include="Infra\EntityConfig\Secundarios\ProfissaoConfiguration.cs" />
+    <Compile Include="Infra\EntityConfig\Secundarios\ReligiaoConfiguration.cs" />
+    <Compile Include="Infra\Repository\ICrud.cs" />
+    <Compile Include="Infra\Repository\NascionalidadeRepository.cs" />
+    <Compile Include="Infra\Repository\PaisRepository.cs" />
+    <Compile Include="Infra\Repository\ProfissaoRepository.cs" />
+    <Compile Include="Infra\Repository\RefugiadoRepository.cs" />
+    <Compile Include="Infra\Repository\ReligiaoRepository.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="ViewModels\PacienteViewModel.cs" />
-    <Compile Include="ViewModels\PessoaViewModel.cs" />
+    <Compile Include="ViewModels\NascionalidadeViewModel.cs" />
+    <Compile Include="ViewModels\PaisViewModel.cs" />
+    <Compile Include="ViewModels\ProfissaoViewModel.cs" />
+    <Compile Include="ViewModels\RefugiadoViewModel.cs" />
+    <Compile Include="ViewModels\ReligiaoViewModel.cs" />
+    <Compile Include="ViewModels\Validadores\ValidadorCPFAttribute.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Ace\Css\ace-ie.min.css" />
@@ -254,6 +269,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\select2.min.css" />
     <Content Include="Models\favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -273,6 +289,8 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\select2.full.min.js" />
+    <Content Include="Scripts\select2.min.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -309,26 +327,23 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Refugiado\Cadastro.cshtml" />
     <Content Include="Views\Acolhedor\Cadastro.cshtml" />
     <Content Include="Views\Triagem\NovaTriagem.cshtml" />
     <Content Include="Views\Adm\NovoFuncionario.cshtml" />
+    <Content Include="Views\Refugiado\Index.cshtml" />
+    <Content Include="Views\Refugiado\Create.cshtml" />
+    <Content Include="Views\Refugiado\Edit.cshtml" />
+    <Content Include="Views\Refugiado\Delete.cshtml" />
+    <Content Include="Views\Refugiado\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Infra\" />
-    <Folder Include="NewFolder1\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201704010433095_InitialCreate1.resx">
-      <DependentUpon>201704010433095_InitialCreate1.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

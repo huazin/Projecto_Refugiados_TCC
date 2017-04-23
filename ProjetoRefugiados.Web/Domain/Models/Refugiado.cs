@@ -19,6 +19,8 @@ namespace ProjetoRefugiados.Web.Domain.Models
         public bool Vascinacao { get; set; }
         public int MembrosNaFamilia { get; set; }
         public DateTime DataDeModificacao { get; set; }
+        public DateTime DataDeNascimento { get; set; }
+        public bool Ativo { get; set; }
         public virtual Religiao Religiao { get; set; }
         public virtual Nascionalidade Nascionalidade { get; set; }
         public virtual Profissao Profissao { get; set; }

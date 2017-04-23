@@ -137,8 +137,7 @@ namespace ProjetoRefugiados.Web.Controllers
 
         //
         // GET: /Account/Register
-        //[AllowAnonymous]
-        [Authorize(Roles = "Adm")]
+        [AllowAnonymous]
         public ActionResult Register()
         {
             return View();
@@ -147,9 +146,8 @@ namespace ProjetoRefugiados.Web.Controllers
         //
         // POST: /Account/Register
         [HttpPost]
-        //[AllowAnonymous]
+        [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Adm")]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
             if (ModelState.IsValid)

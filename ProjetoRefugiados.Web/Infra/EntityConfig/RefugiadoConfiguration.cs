@@ -44,6 +44,9 @@ namespace ProjetoRefugiados.Web.Infra.EntityConfig
             HasRequired(p => p.Profissao)
                 .WithMany()
                 .HasForeignKey(p => p.ProfissaoId);
+
+            Property(p => p.Ativo)
+                .IsRequired();
         }
     }
 }

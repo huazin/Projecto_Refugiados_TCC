@@ -6,7 +6,6 @@ using System.Web.Mvc;
 
 namespace ProjetoRefugiados.Web.Controllers
 {
-    [Authorize(Roles = "Atendente")]
     public class HomeController : Controller
     {
         public ActionResult Index()

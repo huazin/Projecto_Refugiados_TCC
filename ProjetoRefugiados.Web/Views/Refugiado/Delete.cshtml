@@ -1,0 +1,46 @@
+﻿@model ProjetoRefugiados.Web.ViewModels.RefugiadoViewModel
+
+@{
+    ViewBag.Title = "Deletar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Deletar</h2>
+
+<h3>Você realmente deseja deletar isso?</h3>
+<div>
+    <h4>Refugiado</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CPF)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CPF)
+        </dd>
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+
+            <button type="submit" class="btn btn-white btn-info btn-bold">
+                <i class="ace-icon fa fa-trash-o bigger-120 blue"></i>Deletar
+            </button>
+            | <a href="~/Refugiado/Index" class="btn btn-white btn-info btn-bold">
+                <i class="ace-icon fa fa-undo bigger-120 blue"></i>Voltar para a lista
+            </a>
+        </div>
+    }
+</div>

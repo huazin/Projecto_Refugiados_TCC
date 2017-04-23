@@ -1,63 +1,128 @@
-﻿using System.Web.Mvc;
+﻿using AutoMapper;
+using ProjetoRefugiados.Web.Domain.Models;
+using ProjetoRefugiados.Web.Infra.Repository;
 using ProjetoRefugiados.Web.ViewModels;
-using AutoMapper;
-using ProjetoRefugiados.Web;
-using System.Linq;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
 
 namespace ProjetoRefugiados.Web.Controllers
 {
-    [Authorize(Roles = "Atendente")]
     public class RefugiadoController : Controller
     {
-        public readonly PacienteRepository Repo = new PacienteRepository();
-        public readonly PaisRepository RepoPais = new PaisRepository();
-        public readonly ProfissaoRepository RepoProf = new ProfissaoRepository();
-        public readonly NascionalidadeRepository RepoNasc = new NascionalidadeRepository();
-        public readonly ReligiaoRepository RepoReli = new ReligiaoRepository();
+        public readonly RefugiadoRepository repo = new RefugiadoRepository();
+        public readonly ReligiaoRepository repoReli = new ReligiaoRepository();
+        public readonly NascionalidadeRepository repoNasci = new NascionalidadeRepository();
+        public readonly ProfissaoRepository repoProf = new ProfissaoRepository();
+        public readonly PaisRepository repoPais = new PaisRepository();
 
-        //Tela Default Precisa mudar//
+        // GET: Refugiado
         public ActionResult Index()
         {
-            return Cadastro();
+            return View(Mapper.Map<IEnumerable<RefugiadoViewModel>>(repo.List()));
         }
 
-        public ActionResult Cadastro()
+        // GET: Refugiado/Details/5
+        public ActionResult Details(int id)
         {
-            ViewBag.Pais = RepoPais.ListarPais().Select(x => new SelectListItem()
-                                  {
-                                      Text = x.Nome,
-                                      Value = x.PaisId.ToString()
-                                  });
-            ViewBag.Profissao = RepoProf.ListarProfissao().Select(x => new SelectListItem()
-                                  {
-                                      Text = x.nome ,
-                                      Value = x.ProfissaoId.ToString()
-            }); ;
-            ViewBag.Religiao = RepoReli.ListarReligiao().Select(x => new SelectListItem()
-                                  {
-                                      Text = x.Nome,
-                                      Value = x.ReligiaoId.ToString() 
-                                  });
-            ViewBag.Nascionalidade = RepoNasc.ListarNascionalidade().Select(x => new SelectListItem()
-                                  {
-                                      Text = x.Nome,
-                                      Value = x.NascionalidadeoId.ToString() 
-                                  }); ;
+            return View(Mapper.Map<RefugiadoViewModel>(repo.FindById(id)));
+        }
+
+        // GET: Refugiado/Create
+        public ActionResult Create()
+        {
+            ViewBag.Pais = repoPais.List().Select(x => new SelectListItem()
+            {
+                Text = x.Nome,
+                Value = x.PaisId.ToString()
+            });
+            ViewBag.Profissao = repoProf.List().Select(x => new SelectListItem()
+            {
+                Text = x.Nome,
+                Value = x.ProfissaoId.ToString()
+            });
+            ViewBag.Religiao = repoReli.List().Select(x => new SelectListItem()
+            {
+                Text = x.Nome,
+                Value = x.ReligiaoId.ToString()
+            });
+            ViewBag.Nascionalidade = repoNasci.List().Select(x => new SelectListItem()
+            {
+                Text = x.Nome,
+                Value = x.NascionalidadeId.ToString()
+            });
             return View();
         }
 
+        // POST: Refugiado/Create
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(PacienteViewModel PacienteVM)
+        public ActionResult Create(RefugiadoViewModel refugiado)
         {
             if(ModelState.IsValid)
             {
-                var paciente = Mapper.Map<PacienteViewModel, Paciente>(PacienteVM);
-                Repo.Incluir(paciente);
+                repo.Add(Mapper.Map<Refugiado>(refugiado));
                 return RedirectToAction("Index");
             }
-            return View("Error");
+            var errors = ModelState.Values.SelectMany(v => v.Errors);
+            return Create();
+        }
+
+        // GET: Refugiado/Edit/5
+        public ActionResult Edit(int id)
+        {
+            ViewBag.Pais = repoPais.List().Select(x => new SelectListItem()
+            {
+                Text = x.Nome,
+                Value = x.PaisId.ToString()
+            });
+            ViewBag.Profissao = repoProf.List().Select(x => new SelectListItem()
+            {
+                Text = x.Nome,
+                Value = x.ProfissaoId.ToString()
+            });
+            ViewBag.Religiao = repoReli.List().Select(x => new SelectListItem()
+            {
+                Text = x.Nome,
+                Value = x.ReligiaoId.ToString()
+            });
+            ViewBag.Nascionalidade = repoNasci.List().Select(x => new SelectListItem()
+            {
+                Text = x.Nome,
+                Value = x.NascionalidadeId.ToString()
+            });
+            return View(Mapper.Map<RefugiadoViewModel>(repo.FindById(id)) );
+        }
+
+        // POST: Refugiado/Edit/5
+        [HttpPost]
+        public ActionResult Edit(RefugiadoViewModel refugiado)
+        {
+            if(ModelState.IsValid)
+            {
+                repo.Edit(Mapper.Map<Refugiado>(refugiado));
+                return RedirectToAction("Index");
+            }
+                return Edit(refugiado.RefugiadoId);
+        }
+
+        // GET: Refugiado/Delete/5
+        public ActionResult Delete(int id)
+        {
+            return View(Mapper.Map<RefugiadoViewModel>(repo.FindById(id)) );
+        }
+
+        // POST: Refugiado/Delete/5
+        [HttpPost]
+        public ActionResult Delete(RefugiadoViewModel refugiado)
+        {
+            if(ModelState.IsValid)
+            {
+                repo.Remove(Mapper.Map<Refugiado>(refugiado));
+                return RedirectToAction("Index");
+            }
+                return RedirectToAction("Delete");
         }
     }
 }
