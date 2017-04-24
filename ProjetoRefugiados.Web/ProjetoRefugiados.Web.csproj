@@ -209,11 +209,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infra\Context\ProjetoRefugiadosContext.cs" />
+    <Compile Include="Infra\EntityConfig\Secundarios\EnderecoConfiguration.cs" />
     <Compile Include="Infra\EntityConfig\Secundarios\NascionalidadeConfiguration.cs" />
     <Compile Include="Infra\EntityConfig\Secundarios\PaisConfiguration.cs" />
     <Compile Include="Infra\EntityConfig\RefugiadoConfiguration.cs" />
     <Compile Include="Infra\EntityConfig\Secundarios\ProfissaoConfiguration.cs" />
     <Compile Include="Infra\EntityConfig\Secundarios\ReligiaoConfiguration.cs" />
+    <Compile Include="Infra\Repository\EnderecoRepository.cs" />
     <Compile Include="Infra\Repository\ICrud.cs" />
     <Compile Include="Infra\Repository\NascionalidadeRepository.cs" />
     <Compile Include="Infra\Repository\PaisRepository.cs" />
@@ -226,6 +228,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\EnderecoViewModel.cs" />
     <Compile Include="ViewModels\NascionalidadeViewModel.cs" />
     <Compile Include="ViewModels\PaisViewModel.cs" />
     <Compile Include="ViewModels\ProfissaoViewModel.cs" />

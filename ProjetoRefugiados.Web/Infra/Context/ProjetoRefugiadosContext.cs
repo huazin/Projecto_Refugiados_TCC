@@ -25,6 +25,7 @@ namespace ProjetoRefugiados.Web.Infra.Context
         public DbSet<Pais> Paises { get; set; }
         public DbSet<Profissao> Profissoes { get; set; }
         public DbSet<Religiao> Religoes { get; set; }
+        public DbSet<Endereco> Enderecos { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -55,6 +56,7 @@ namespace ProjetoRefugiados.Web.Infra.Context
             modelBuilder.Configurations.Add(new PaisConfiguration());
             modelBuilder.Configurations.Add(new ProfissaoConfiguration());
             modelBuilder.Configurations.Add(new ReligiaoConfiguration());
+            modelBuilder.Configurations.Add(new EnderecoConfiguration());
 
             base.OnModelCreating(modelBuilder);
         }

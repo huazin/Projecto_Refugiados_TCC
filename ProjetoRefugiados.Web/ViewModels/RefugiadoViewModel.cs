@@ -70,15 +70,18 @@ namespace ProjetoRefugiados.Web.ViewModels
         public DateTime DataDeNascimento { get; set; }
 
         [ScaffoldColumn(false)]
-        public virtual Religiao Religiao { get; set; }
+        public virtual ReligiaoViewModel Religiao { get; set; }
 
         [ScaffoldColumn(false)]
-        public virtual Nascionalidade Nascionalidade { get; set; }
+        public virtual NascionalidadeViewModel Nascionalidade { get; set; }
 
         [ScaffoldColumn(false)]
         public virtual ProfissaoViewModel Profissao { get; set; }
 
         [ScaffoldColumn(false)]
         public virtual PaisViewModel Pais { get; set; }
+
+        [ScaffoldColumn(false)]
+        public virtual EnderecoViewModel Endereco { get; set; }
     }
 }

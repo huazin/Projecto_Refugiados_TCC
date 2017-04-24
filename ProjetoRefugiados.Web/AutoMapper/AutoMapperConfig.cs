@@ -19,14 +19,16 @@ namespace ProjetoRefugiados.Web.AutoMapper
                 x.CreateMap<RefugiadoViewModel, Refugiado>();
 
                 x.CreateMap<Refugiado, RefugiadoViewModel>();
-                
+
                 //Secunrarias
                 x.CreateMap<ReligiaoViewModel, Religiao>();
                 x.CreateMap<PaisViewModel, Pais>();
                 x.CreateMap<ProfissaoViewModel, Profissao>();
                 x.CreateMap<NascionalidadeViewModel, Nascionalidade>();
+                x.CreateMap<EnderecoViewModel, Endereco>();
 
                 x.CreateMap<Profissao, ProfissaoViewModel>();
+                x.CreateMap<Endereco, EnderecoViewModel>();
                 x.CreateMap<Religiao, ReligiaoViewModel>();
                 x.CreateMap<Pais, PaisViewModel>();
                 x.CreateMap<Nascionalidade, NascionalidadeViewModel>();

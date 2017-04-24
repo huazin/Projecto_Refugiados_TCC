@@ -47,6 +47,9 @@ namespace ProjetoRefugiados.Web.Infra.EntityConfig
 
             Property(p => p.Ativo)
                 .IsRequired();
+
+            HasRequired(p => p.Endereco)
+                .WithRequiredPrincipal(p2 => p2.Refugiado);
         }
     }
 }

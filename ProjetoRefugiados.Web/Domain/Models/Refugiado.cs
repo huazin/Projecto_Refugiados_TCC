@@ -25,5 +25,6 @@ namespace ProjetoRefugiados.Web.Domain.Models
         public virtual Nascionalidade Nascionalidade { get; set; }
         public virtual Profissao Profissao { get; set; }
         public virtual Pais Pais { get; set; }
+        public virtual Endereco Endereco { get; set; }
     }
 }

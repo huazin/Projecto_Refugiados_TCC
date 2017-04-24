@@ -1,4 +1,5 @@
 ﻿using ProjetoRefugiados.Web.Domain.Models;
+using ProjetoRefugiados.Web.Domain.Models.Secudarias;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;

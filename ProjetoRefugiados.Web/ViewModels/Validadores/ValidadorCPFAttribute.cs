@@ -12,7 +12,7 @@ namespace ProjetoRefugiados.Web.ViewModels.Validadores
         {
             //  var refugiado = (RefugiadoViewModel)validationContext.ObjectInstance;
             if (value == null) new ValidationResult("CPF não é valido");
-            var cpf = !String.IsNullOrEmpty(value.ToString()) && value.ToString().Length == 11
+            var cpf = value != null && !String.IsNullOrEmpty(value.ToString()) && value.ToString().Length == 11
                 ? CPFValidador(value.ToString()) 
                 : false;
 
