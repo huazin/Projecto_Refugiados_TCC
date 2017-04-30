@@ -200,21 +200,25 @@
     <Compile Include="Controllers\RefugiadoController.cs" />
     <Compile Include="Controllers\TriagemController.cs" />
     <Compile Include="Domain\Models\Refugiado.cs" />
+    <Compile Include="Domain\Models\Secudarias\Cid.cs" />
     <Compile Include="Domain\Models\Secudarias\Endereco.cs" />
     <Compile Include="Domain\Models\Secudarias\Nascionalidade.cs" />
     <Compile Include="Domain\Models\Secudarias\Pais.cs" />
     <Compile Include="Domain\Models\Secudarias\Profissao.cs" />
     <Compile Include="Domain\Models\Secudarias\Religiao.cs" />
+    <Compile Include="Domain\Models\Triagem.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infra\Context\ProjetoRefugiadosContext.cs" />
+    <Compile Include="Infra\EntityConfig\Secundarios\CidConfiguration.cs" />
     <Compile Include="Infra\EntityConfig\Secundarios\EnderecoConfiguration.cs" />
     <Compile Include="Infra\EntityConfig\Secundarios\NascionalidadeConfiguration.cs" />
     <Compile Include="Infra\EntityConfig\Secundarios\PaisConfiguration.cs" />
     <Compile Include="Infra\EntityConfig\RefugiadoConfiguration.cs" />
     <Compile Include="Infra\EntityConfig\Secundarios\ProfissaoConfiguration.cs" />
     <Compile Include="Infra\EntityConfig\Secundarios\ReligiaoConfiguration.cs" />
+    <Compile Include="Infra\EntityConfig\TriagemConfiguration.cs" />
     <Compile Include="Infra\Repository\EnderecoRepository.cs" />
     <Compile Include="Infra\Repository\ICrud.cs" />
     <Compile Include="Infra\Repository\NascionalidadeRepository.cs" />

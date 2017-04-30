@@ -19,6 +19,7 @@ namespace ProjetoRefugiados.Web.Infra.Context
 
         //Principais
         public DbSet<Refugiado> Refugiados { get; set; }
+        public DbSet<Triagem> Triagens { get; set; }
 
         //Secundarias
         public DbSet<Nascionalidade> Nacionalidades { get; set; }
@@ -26,6 +27,7 @@ namespace ProjetoRefugiados.Web.Infra.Context
         public DbSet<Profissao> Profissoes { get; set; }
         public DbSet<Religiao> Religoes { get; set; }
         public DbSet<Endereco> Enderecos { get; set; }
+        public DbSet<Cid> Cids { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -34,7 +36,6 @@ namespace ProjetoRefugiados.Web.Infra.Context
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
             modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
 
-            //Propriedades basicas.
 
             //Propriedades basicas.
             modelBuilder.Properties()
@@ -50,6 +51,7 @@ namespace ProjetoRefugiados.Web.Infra.Context
             //Cria configurações proprias para cada Entidade
             //Principais
             modelBuilder.Configurations.Add(new RefugiadoConfiguration());
+            modelBuilder.Configurations.Add(new TriagemConfiguration());
 
             //Secundarias
             modelBuilder.Configurations.Add(new NascionalidadeConfiguration());
@@ -57,6 +59,7 @@ namespace ProjetoRefugiados.Web.Infra.Context
             modelBuilder.Configurations.Add(new ProfissaoConfiguration());
             modelBuilder.Configurations.Add(new ReligiaoConfiguration());
             modelBuilder.Configurations.Add(new EnderecoConfiguration());
+            modelBuilder.Configurations.Add(new CidConfiguration());
 
             base.OnModelCreating(modelBuilder);
         }

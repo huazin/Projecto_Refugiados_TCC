@@ -17,6 +17,66 @@
 
 @using (Html.BeginForm())
 {
+    <script type="text/javascript">
+
+
+        function meu_callback(conteudo) {
+            if (!("erro" in conteudo)) {
+                //Atualiza os campos com os valores.
+                document.getElementById('Endereco_Longadouro').value = (conteudo.logradouro);
+                document.getElementById('Endereco_Cidade').value = (conteudo.localidade);
+                document.getElementById('Endereco_Estado').value = (conteudo.localidade);
+
+                document.getElementById('Endereco_Longadouro').value = (conteudo.logradouro);
+                document.getElementById('Endereco_Cidade').value = (conteudo.localidade);
+                document.getElementById('Endereco_Estado').value = (conteudo.uf);
+            } //end if.
+            else {
+                //CEP não Encontrado.
+                limpa_formulário_cep();
+                alert("CEP não encontrado.");
+            }
+        }
+        function pesquisacep(valor) {
+
+            //Nova variável "cep" somente com dígitos.
+            var cep = valor.replace(/\D/g, '');
+
+            //Verifica se campo cep possui valor informado.
+            if (cep != "") {
+                //Expressão regular para validar o CEP.
+                var validacep = /^[0-9]{8}$/;
+
+                //Valida o formato do CEP.
+                if (validacep.test(cep)) {
+                    //Preenche os campos com "..." enquanto consulta webservice.
+                    document.getElementById('Endereco_Longadouro').value = "...";
+                    document.getElementById('Endereco_Cidade').value = "...";
+                    document.getElementById('Endereco_Estado').value = "...";
+
+                    //Cria um elemento javascript.
+                    var script = document.createElement('script');
+
+                    //Sincroniza com o callback.
+                    script.src = '//viacep.com.br/ws/' + cep + '/json/?callback=meu_callback';
+
+                    //Insere script no documento e carrega o conteúdo.
+                    document.body.appendChild(script);
+
+                } //end if.
+                else {
+                    //cep é inválido.
+                    limpa_formulário_cep();
+                    alert("Formato de CEP inválido.");
+                }
+            } //end if.
+            else {
+                //cep sem valor, limpa formulário.
+                limpa_formulário_cep();
+            }
+        };
+
+    </script>
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
@@ -26,7 +86,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Nome, new { @onblur = "alert('PASSOU2');" })
                 @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -123,10 +183,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.Endereco.CEP, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.Endereco.CEP, new
-               {
-               htmlAttributes = new { @class = "form -control", @name = "cep", @id = "cep" }
-               })
+                    @Html.EditorFor(model => model.Endereco.CEP, new{ htmlAttributes = new { @class = "form-control", @onblur = "pesquisacep(this.value);" } })
                     @Html.ValidationMessageFor(model => model.Endereco.CEP, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -140,7 +197,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.Endereco.Estado, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.Endereco.Estado, new { id = "uf", htmlAttributes = new { @class = "form-control" } })
+                    @Html.EditorFor(model => model.Endereco.Estado, new { id = "uf", htmlAttributes = new { @class = "form-control", @readonly = "readonly"} })
                     @Html.ValidationMessageFor(model => model.Endereco.Estado, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -154,7 +211,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.Endereco.Cidade, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.Endereco.Cidade, new { id = "cidade", htmlAttributes = new { @class = "form-control" } })
+                    @Html.EditorFor(model => model.Endereco.Cidade, new { id = "cidade", htmlAttributes = new { @class = "form-control", @readonly = "readonly"}})
                     @Html.ValidationMessageFor(model => model.Endereco.Cidade, "", new { @class = "text-danger" })
                 </div>
             </div>
