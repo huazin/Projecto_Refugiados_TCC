@@ -50,6 +50,15 @@ namespace ProjetoRefugiados.Web.Infra.EntityConfig
 
             HasRequired(p => p.Endereco)
                 .WithRequiredPrincipal(p2 => p2.Refugiado);
+
+            Property(p => p.DataDeChegada)
+                .IsRequired();
+
+            Property(p => p.DataDeModificacao)
+                .IsOptional();
+
+            Property(p => p.DataDeNascimento)
+                .IsOptional();
         }
     }
 }

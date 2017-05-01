@@ -24,18 +24,20 @@ namespace ProjetoRefugiados.Web.Domain.Models
         public string Alimentacao { get; set; }
         public string IngestaoHidrica { get; set; }
         public string SonoRepouso { get; set; }
+        public string AtividadeFisica { get; set; }
+        public string Lazer { get; set; }
         public string FrequenciaUrianaria { get; set; }
         public string FrequenciaIntestinal { get; set; }
         public DateTime Menarca { get; set; }
         public DateTime DUM { get; set; }
         public int NParceiros { get; set; }
+        public DateTime Telarca { get; set; }
         public int GestacoesG { get; set; }
         public int GestacoesP { get; set; }
         public int GestacoesA { get; set; }
         public DateTime UltimoPapanicolau { get; set; }
         public string Resultado { get; set; }
         public string ExameDeMama { get; set; }
-
         public double SinaisPA { get; set; }
         public double SinaisP { get; set; }
         public double SinaisTEMP { get; set; }
@@ -47,5 +49,9 @@ namespace ProjetoRefugiados.Web.Domain.Models
         public string Prescricros { get; set; }
         public string Resultados { get; set; }
         public string Obs { get; set; }
+        public bool Ativo { get; set; }
+        public DateTime DataDeCadastro { get; set; }
+        public virtual Refugiado refugiado { get; set; }
+        public int RefugiadoId { get; set; }
     }
 }

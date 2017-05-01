@@ -1,6 +1,6 @@
 ﻿using System;
 using ProjetoRefugiados.Web.Domain.Models.Secudarias;
-
+using System.Collections.Generic;
 
 namespace ProjetoRefugiados.Web.Domain.Models
 {
@@ -26,5 +26,7 @@ namespace ProjetoRefugiados.Web.Domain.Models
         public virtual Profissao Profissao { get; set; }
         public virtual Pais Pais { get; set; }
         public virtual Endereco Endereco { get; set; }
+
+        public virtual ICollection<Triagem> Triagens { get; set; }
     }
 }

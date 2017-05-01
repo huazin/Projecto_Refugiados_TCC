@@ -14,6 +14,6 @@ namespace ProjetoRefugiados.Web.ViewModels
         [Required]
         public string Nome { get; set; }
 
-        public virtual IEnumerable<Refugiado> Refugiados { get; set; }
+        public virtual IEnumerable<RefugiadoViewModel> Refugiados { get; set; }
     }
 }

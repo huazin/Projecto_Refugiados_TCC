@@ -8,13 +8,12 @@ using System.Web;
 
 namespace ProjetoRefugiados.Web.Infra.Repository
 {
-    public class RefugiadoRepository : ICrud<Refugiado>
+    public class TriagemRepository : ICrud<Triagem>
     {
-        public ProjetoRefugiadosContext Db = new ProjetoRefugiadosContext();
-
-        public void Add(Refugiado add)
+        ProjetoRefugiadosContext Db = new ProjetoRefugiadosContext();
+        public void Add(Triagem add)
         {
-            Db.Refugiados.Add(add);
+            Db.Triagens.Add(add);
             Db.Entry(add).Property(p => p.Ativo).CurrentValue = true;
             Db.SaveChanges();
         }
@@ -24,28 +23,28 @@ namespace ProjetoRefugiados.Web.Infra.Repository
             Db.Dispose();
         }
 
-        public void Edit(Refugiado edit)
+        public void Edit(Triagem edit)
         {
             Db.Entry(edit).State = EntityState.Modified;
             Db.Entry(edit).Property(p => p.Ativo).CurrentValue = true;
             Db.SaveChanges();
         }
 
-        public Refugiado FindById(int key)
+        public Triagem FindById(int key)
         {
-            return Db.Refugiados.Find(key);
+            return Db.Triagens.Find(key);
         }
 
-        public IEnumerable<Refugiado> List()
+        public IEnumerable<Triagem> List()
         {
-            return Db.Refugiados.Where(p => true == p.Ativo).ToList();
-            //return Db.Refugiados.ToList();
+            return Db.Triagens.Where(p => p.Ativo == true).ToList();
         }
 
-        public void Remove(Refugiado remove)
+        public void Remove(Triagem remove)
         {
+            
             Db.Entry(remove).Property(p => p.Ativo).CurrentValue = false;
-            //Db.Refugiados.Remove(remove);
+            //Db.Triagens.Remove(remove);
             Db.SaveChanges();
         }
     }

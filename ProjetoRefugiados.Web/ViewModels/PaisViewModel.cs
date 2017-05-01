@@ -13,6 +13,6 @@ namespace ProjetoRefugiados.Web.ViewModels
         public int PaisId { get; set; }
         public string Nome { get; set; }
 
-        public virtual IEnumerable<Refugiado> Refugiados { get; set; }
+        public virtual IEnumerable<RefugiadoViewModel> Refugiados { get; set; }
     }
 }

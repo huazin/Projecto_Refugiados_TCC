@@ -16,22 +16,26 @@ namespace ProjetoRefugiados.Web.AutoMapper
             Mapper.Initialize(x =>
             {
                 //Primeiras
-                x.CreateMap<RefugiadoViewModel, Refugiado>();
+                x.CreateMap<RefugiadoViewModel, Refugiado>().MaxDepth(2);
+                x.CreateMap<TriagemViewModel, Triagem>().MaxDepth(2);
 
-                x.CreateMap<Refugiado, RefugiadoViewModel>();
+                x.CreateMap<Refugiado, RefugiadoViewModel>().MaxDepth(2);
+                x.CreateMap<Triagem, TriagemViewModel>().MaxDepth(2);
 
                 //Secunrarias
-                x.CreateMap<ReligiaoViewModel, Religiao>();
-                x.CreateMap<PaisViewModel, Pais>();
-                x.CreateMap<ProfissaoViewModel, Profissao>();
-                x.CreateMap<NascionalidadeViewModel, Nascionalidade>();
-                x.CreateMap<EnderecoViewModel, Endereco>();
+                x.CreateMap<ReligiaoViewModel, Religiao>().MaxDepth(2);
+                x.CreateMap<PaisViewModel, Pais>().MaxDepth(2);
+                x.CreateMap<ProfissaoViewModel, Profissao>().MaxDepth(2);
+                x.CreateMap<NascionalidadeViewModel, Nascionalidade>().MaxDepth(2);
+                x.CreateMap<EnderecoViewModel, Endereco>().MaxDepth(2);
+                x.CreateMap<CidViewModel, Cid>().MaxDepth(2);
 
-                x.CreateMap<Profissao, ProfissaoViewModel>();
-                x.CreateMap<Endereco, EnderecoViewModel>();
-                x.CreateMap<Religiao, ReligiaoViewModel>();
-                x.CreateMap<Pais, PaisViewModel>();
-                x.CreateMap<Nascionalidade, NascionalidadeViewModel>();
+                x.CreateMap<Profissao, ProfissaoViewModel>().MaxDepth(2);
+                x.CreateMap<Endereco, EnderecoViewModel>().MaxDepth(2);
+                x.CreateMap<Religiao, ReligiaoViewModel>().MaxDepth(2);
+                x.CreateMap<Pais, PaisViewModel>().MaxDepth(2);
+                x.CreateMap<Nascionalidade, NascionalidadeViewModel>().MaxDepth(2);
+                x.CreateMap<Cid, CidViewModel>().MaxDepth(2);
             });
         }
     }

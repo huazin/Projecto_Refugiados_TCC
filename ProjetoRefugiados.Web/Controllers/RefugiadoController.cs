@@ -104,13 +104,14 @@ namespace ProjetoRefugiados.Web.Controllers
                 repo.Edit(Mapper.Map<Refugiado>(refugiado));
                 return RedirectToAction("Index");
             }
-                return Edit(refugiado.RefugiadoId);
+            var errors = ModelState.Values.SelectMany(v => v.Errors);
+            return Edit(refugiado.RefugiadoId);
         }
 
         // GET: Refugiado/Delete/5
         public ActionResult Delete(int id)
         {
-            return View(Mapper.Map<RefugiadoViewModel>(repo.FindById(id)) );
+            return View(Mapper.Map<RefugiadoViewModel>(repo.FindById(id)));
         }
 
         // POST: Refugiado/Delete/5
@@ -122,7 +123,8 @@ namespace ProjetoRefugiados.Web.Controllers
                 repo.Remove(Mapper.Map<Refugiado>(refugiado));
                 return RedirectToAction("Index");
             }
-                return RedirectToAction("Delete");
+            var errors = ModelState.Values.SelectMany(v => v.Errors);
+            return RedirectToAction("Delete");
         }
     }
 }

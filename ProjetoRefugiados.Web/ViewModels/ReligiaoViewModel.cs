@@ -17,6 +17,6 @@ namespace ProjetoRefugiados.Web.ViewModels
         public string Nome { get; set; }
 
         [ScaffoldColumn(false)]
-        public virtual IEnumerable<Refugiado> Refugiados { get; set; }
+        public virtual IEnumerable<RefugiadoViewModel> Refugiados { get; set; }
     }
 }

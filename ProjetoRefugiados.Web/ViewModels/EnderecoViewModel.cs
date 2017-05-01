@@ -28,6 +28,6 @@ namespace ProjetoRefugiados.Web.ViewModels
         public int CEP { get; set; }
 
         [ScaffoldColumn(false)]
-        public virtual Refugiado Refugiado { get; set; }
+        public virtual RefugiadoViewModel Refugiado { get; set; }
     }
 }

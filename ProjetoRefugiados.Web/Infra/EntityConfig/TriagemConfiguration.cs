@@ -52,6 +52,9 @@ namespace ProjetoRefugiados.Web.Infra.EntityConfig
                 .IsOptional()
                 .HasMaxLength(150);
 
+            Property(p => p.MedicacaoTempo)
+                .IsOptional();
+
             HasMany<Cid>(p => p.Antecedentes)
                 .WithMany(c => c.AntecedentesTri)
                 .Map(m =>
@@ -127,15 +130,19 @@ namespace ProjetoRefugiados.Web.Infra.EntityConfig
                 .IsRequired();
 
             Property(p => p.ProblemasEncontrados)
+                .HasMaxLength(255)
                 .IsOptional();
 
             Property(p => p.ExameFisico)
+                .HasMaxLength(255)
                 .IsOptional();
 
             Property(p => p.Diagnostico)
+                .HasMaxLength(255)
                 .IsOptional();
 
             Property(p => p.Prescricros)
+                .HasMaxLength(255)
                 .IsOptional();
 
             Property(p => p.Resultado)
@@ -143,6 +150,26 @@ namespace ProjetoRefugiados.Web.Infra.EntityConfig
 
             Property(p => p.Obs)
                 .IsOptional();
+
+            Property(p => p.Ativo)
+                .IsRequired();
+
+            Property(p => p.DataDeCadastro)
+                .IsOptional();
+
+            Property(p => p.AtividadeFisica)
+                .IsOptional();
+
+            Property(p => p.Lazer)
+                .IsOptional();
+
+            Property(p => p.Telarca)
+                .IsOptional();
+
+            HasRequired<Refugiado>(p => p.refugiado)
+                .WithMany(p => p.Triagens)
+                .HasForeignKey(p => p.RefugiadoId)
+                .WillCascadeOnDelete();
         }
     }
 }

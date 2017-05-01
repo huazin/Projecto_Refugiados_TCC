@@ -12,6 +12,6 @@ namespace ProjetoRefugiados.Web.ViewModels
         [Key]
         public int NascionalidadeId { get; set; }
         public string Nome { get; set; }
-        public virtual IEnumerable<Refugiado> Refugiados { get; set; }
+        public virtual IEnumerable<RefugiadoViewModel> Refugiados { get; set; }
     }
 }
