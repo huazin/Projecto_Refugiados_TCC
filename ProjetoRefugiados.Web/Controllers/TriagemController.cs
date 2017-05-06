@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using ProjetoRefugiados.Web.Domain.Models;
 using ProjetoRefugiados.Web.Infra.Repository;
 using ProjetoRefugiados.Web.ViewModels;
 using System;
@@ -12,6 +13,7 @@ namespace ProjetoRefugiados.Web.Controllers
     public class TriagemController : Controller
     {
         public readonly RefugiadoRepository repoRefu = new RefugiadoRepository();
+        public readonly TriagemRepository repoTri = new TriagemRepository();
         // GET: Triagem
         public ActionResult Index()
         {
@@ -25,25 +27,30 @@ namespace ProjetoRefugiados.Web.Controllers
         }
 
         // GET: Triagem/Create
-        public ActionResult Create()
+        public ActionResult Create(int id)
         {
+            if (repoRefu.FindById(id).Nome == null)
+            {
+                ViewBag.Error = "CPF não encontrado";
+                return View("Index");
+            }
+            Session["id"] = id;
+            ViewBag.Nome = repoRefu.FindById(id).Nome;
             return View();
         }
 
         // POST: Triagem/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(TriagemViewModel triagem)
         {
-            try
+            triagem.RefugiadoId = Convert.ToInt32(Session["Id"]) ;
+            if(ModelState.IsValid)
             {
-                // TODO: Add insert logic here
-
+                repoTri.Add(Mapper.Map<Triagem>(triagem));
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+            var errors = ModelState.Values.SelectMany(v => v.Errors);
+            return View(triagem);
         }
 
         // GET: Triagem/Edit/5

@@ -91,7 +91,8 @@ namespace ProjetoRefugiados.Web.ViewModels
         public int NParceiros { get; set; }
 
         [DisplayName("Data da Telarca:")]
-        [Range(0, int.MaxValue, ErrorMessage = "Data invalida")]
+        [Range(typeof(DateTime), "1900-12-01", "2020-12-31",
+        ErrorMessage = "Data invalida")]
         public DateTime Telarca { get; set; }
 
         [DisplayName("Gestações G:")]

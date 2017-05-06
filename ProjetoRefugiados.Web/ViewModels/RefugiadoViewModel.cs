@@ -22,7 +22,7 @@ namespace ProjetoRefugiados.Web.ViewModels
         public string CPF { get; set; }
 
         [Required(ErrorMessage = "RG é obrigatorio")]
-        [MinLength(10, ErrorMessage = "Esse RG não é valido")]
+        [MinLength(6, ErrorMessage = "Esse RG não é valido")]
         [MaxLength(10, ErrorMessage = "Esse RG não é valido")]
         public string RG { get; set; }
 

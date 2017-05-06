@@ -86,7 +86,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Nome, new { @onblur = "alert('PASSOU2');" })
+                @Html.EditorFor(model => model.Nome, new { @class = "control-label col-md-2" })
                 @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
             </div>
         </div>

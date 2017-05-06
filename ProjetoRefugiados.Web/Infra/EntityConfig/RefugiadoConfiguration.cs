@@ -55,7 +55,7 @@ namespace ProjetoRefugiados.Web.Infra.EntityConfig
                 .IsRequired();
 
             Property(p => p.DataDeModificacao)
-                .IsOptional();
+                .IsOptional(); 
 
             Property(p => p.DataDeNascimento)
                 .IsOptional();

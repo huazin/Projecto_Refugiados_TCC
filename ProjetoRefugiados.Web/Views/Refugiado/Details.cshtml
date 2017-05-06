@@ -107,14 +107,29 @@
         <dd>
             @Html.DisplayFor(model => model.DataDeNascimento)
         </dd>
-
     </dl>
+</div>
+<div>
+    @if (Model.Triagens.Count != 0)
+    {
+        <h4>Triagens</h4>
+        foreach (var item in Model.Triagens)
+        {
+            <div>Triagem feita dia: @item.DataDeCadastro</div>
+        }
+    }
+    
 </div>
 <p>
     <a href="~/Refugiado/Edit/@modelo.RefugiadoId" class="btn btn-white btn-info btn-bold">
         <i class="menu-icon fa fa-pencil"></i>
         <span class="menu-text">Edit</span>
-    </a> | <a href="~/Refugiado/Index" class="btn btn-white btn-info btn-bold">
+    </a> |
+    <a href="~/Triagem/Create/@modelo.RefugiadoId" class="btn btn-white btn-info btn-bold">
+        <i class="menu-icon fa fa-heartbeat"></i>
+        <span class="menu-text">NovaTriagem</span>
+    </a>
+    | <a href="~/Refugiado/Index" class="btn btn-white btn-info btn-bold">
         <i class="ace-icon fa fa-undo bigger-120 blue"></i>Voltar para a lista
     </a>
 </p>

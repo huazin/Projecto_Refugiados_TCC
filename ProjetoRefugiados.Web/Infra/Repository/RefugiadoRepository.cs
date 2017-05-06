@@ -11,7 +11,6 @@ namespace ProjetoRefugiados.Web.Infra.Repository
     public class RefugiadoRepository : ICrud<Refugiado>
     {
         public ProjetoRefugiadosContext Db = new ProjetoRefugiadosContext();
-
         public void Add(Refugiado add)
         {
             Db.Refugiados.Add(add);
@@ -47,6 +46,11 @@ namespace ProjetoRefugiados.Web.Infra.Repository
             Db.Entry(remove).Property(p => p.Ativo).CurrentValue = false;
             //Db.Refugiados.Remove(remove);
             Db.SaveChanges();
+        }
+
+        public Refugiado FindByCPF(string key)
+        {
+            return Db.Refugiados.Where(p => p.CPF == key).SingleOrDefault();
         }
     }
 }
