@@ -16,7 +16,7 @@ namespace ProjetoRefugiados.Web.Infra.EntityConfig.Secundarios
 
             Property(p => p.Descricao)
                 .IsRequired()
-                .HasMaxLength(150);
+                .HasMaxLength(255);
 
             HasMany<Triagem>(p => p.AlergiasTri)
                 .WithMany(c => c.Alergias)

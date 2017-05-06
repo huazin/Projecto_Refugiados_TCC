@@ -347,6 +347,7 @@
     <Content Include="Views\Refugiado\Delete.cshtml" />
     <Content Include="Views\Refugiado\Details.cshtml" />
     <Content Include="Views\Triagem\Index.cshtml" />
+    <Content Include="Views\Triagem\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

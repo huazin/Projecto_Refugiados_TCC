@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ProjetoRefugiados.Web.Domain.Models;
+using ProjetoRefugiados.Web.Infra.Context;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -10,13 +12,13 @@ namespace ProjetoRefugiados.Web.ViewModels.Validadores
     {
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
+            ProjetoRefugiadosContext Db = new ProjetoRefugiadosContext();
             //  var refugiado = (RefugiadoViewModel)validationContext.ObjectInstance;
-            if (value == null) new ValidationResult("CPF não é valido");
-            var cpf = value != null && !String.IsNullOrEmpty(value.ToString()) && value.ToString().Length == 11
-                ? CPFValidador(value.ToString()) 
-                : false;
-
-            return (cpf == true)
+            if (String.IsNullOrEmpty(value.ToString()) ||
+               value.ToString().Length != 11) return new ValidationResult("CPF não é valido");
+            if ( Db.Refugiados.Where(p => p.CPF == value.ToString()).SingleOrDefault() != null ) return new ValidationResult("CPF já utilizado");
+            
+            return CPFValidador(value.ToString())
                 ? ValidationResult.Success
                 : new ValidationResult("CPF não é valido");
                 

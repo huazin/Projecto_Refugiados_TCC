@@ -37,6 +37,11 @@ namespace ProjetoRefugiados.Web.Infra.Repository
             return Db.Cids.ToList();
         }
 
+        public IEnumerable<Cid> FindByDes(string desc)
+        {
+            return Db.Cids.Where(p => p.Descricao.Contains(desc)).ToList().DefaultIfEmpty();
+        }
+
         public void Remove(Cid remove)
         {
             throw new NotImplementedException();
