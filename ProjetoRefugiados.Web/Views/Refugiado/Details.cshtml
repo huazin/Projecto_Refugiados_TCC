@@ -128,6 +128,38 @@
                     @Html.DisplayFor(model => model.DataDeNascimento)
                 </dd>
             </dl>
+                @if (Model.Ativo == false)
+                {
+                    <div class="alert alert-block alert-success">
+                        <p>
+                            Este
+                            <strong>
+                                Refugiado
+                            </strong>
+                            está desativado! Clique para ativa-lo
+                        </p>
+
+                        <p>
+                            <a href="~/Refugiado/Ativa/@Model.RefugiadoId" class="btn btn-white btn-info btn-bold">
+                                <i class="ace-icon fa fa-wrench  blue"></i>Ativar!
+                            </a>
+                        </p>
+                    </div>
+
+                }
+                else
+                {
+                    <div class="alert alert-block alert-success">
+                        <p>
+                            Este
+                            <strong>
+                                Refugiado
+                            </strong>
+                            está Ativo!
+                        </p>
+                    </div>
+                }
+
         </div>
 
         <div id="messages" class="tab-pane fade">

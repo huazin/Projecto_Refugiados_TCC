@@ -24,6 +24,12 @@ namespace ProjetoRefugiados.Web.Controllers
             return View(Mapper.Map<IEnumerable<RefugiadoViewModel>>(repo.List()));
         }
 
+        [HttpPost]
+        public ActionResult Index(int id)
+        {
+            return View(Mapper.Map<IEnumerable<RefugiadoViewModel>>(repo.List()));
+        }
+
         // GET: Refugiado/Details/5
         public ActionResult Details(int id)
         {
@@ -108,23 +114,31 @@ namespace ProjetoRefugiados.Web.Controllers
             return Edit(refugiado.RefugiadoId);
         }
 
+        //Get Refugiado/Ativa/id
+        public ActionResult Ativa(int id)
+        {
+            repo.Ativar(id);
+            return Index();
+        }
+
         // GET: Refugiado/Delete/5
         public ActionResult Delete(int id)
         {
-            return View(Mapper.Map<RefugiadoViewModel>(repo.FindById(id)));
+            repo.Remove(id);
+            return Index();
         }
 
         // POST: Refugiado/Delete/5
-        [HttpPost]
-        public ActionResult Delete(RefugiadoViewModel refugiado)
-        {
-            if(ModelState.IsValid)
-            {
-                repo.Remove(Mapper.Map<Refugiado>(refugiado));
-                return RedirectToAction("Index");
-            }
-            var errors = ModelState.Values.SelectMany(v => v.Errors);
-            return RedirectToAction("Delete");
-        }
+        //[HttpPost]
+        //public ActionResult Delete(RefugiadoViewModel refugiado)
+        //{
+        //    if(ModelState.IsValid)
+        //    {
+        //        repo.Remove(Mapper.Map<Refugiado>(refugiado));
+        //        return RedirectToAction("Index");
+        //    }
+        //    var errors = ModelState.Values.SelectMany(v => v.Errors);
+        //    return RedirectToAction("Delete");
+        //}
     }
 }
