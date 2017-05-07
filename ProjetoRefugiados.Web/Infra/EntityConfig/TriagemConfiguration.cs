@@ -154,7 +154,7 @@ namespace ProjetoRefugiados.Web.Infra.EntityConfig
             Property(p => p.Ativo)
                 .IsRequired();
 
-            Property(p => p.DataDeCadastro)
+            Property(p => p.DataDeModificacao)
                 .IsOptional();
 
             Property(p => p.AtividadeFisica)

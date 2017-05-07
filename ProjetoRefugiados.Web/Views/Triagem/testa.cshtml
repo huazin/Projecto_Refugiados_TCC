@@ -1,0 +1,299 @@
+﻿@model ProjetoRefugiados.Web.ViewModels.TriagemViewModel
+
+@{
+    ViewBag.Title = "testa";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>testa</h2>
+
+<div>
+    <h4>TriagemViewModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.QueixaAtual)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QueixaAtual)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tratamentos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tratamentos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UsoDrogas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UsoDrogas)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UsoDrogaTempo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UsoDrogaTempo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MedicacaoContinua)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MedicacaoContinua)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MedicacaoTempo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MedicacaoTempo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HabitosHigienicos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HabitosHigienicos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Alimentacao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Alimentacao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IngestaoHidrica)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IngestaoHidrica)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SonoRepouso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SonoRepouso)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AtividadeFisica)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AtividadeFisica)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Lazer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Lazer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FrequenciaUrianaria)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FrequenciaUrianaria)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FrequenciaIntestinal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FrequenciaIntestinal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Menarca)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Menarca)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DUM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DUM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NParceiros)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NParceiros)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Telarca)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Telarca)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GestacoesG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GestacoesG)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GestacoesP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GestacoesP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GestacoesA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GestacoesA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UltimoPapanicolau)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UltimoPapanicolau)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Resultado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Resultado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExameDeMama)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExameDeMama)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SinaisPA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SinaisPA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SinaisP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SinaisP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SinaisTEMP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SinaisTEMP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SinaisRESP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SinaisRESP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SinaisDOR)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SinaisDOR)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProblemasEncontrados)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProblemasEncontrados)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExameFisico)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExameFisico)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Diagnostico)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Diagnostico)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Prescricros)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Prescricros)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Resultados)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Resultados)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Obs)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Obs)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TriagemId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

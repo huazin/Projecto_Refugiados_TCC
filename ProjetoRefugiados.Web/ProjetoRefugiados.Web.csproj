@@ -348,6 +348,7 @@
     <Content Include="Views\Refugiado\Details.cshtml" />
     <Content Include="Views\Triagem\Index.cshtml" />
     <Content Include="Views\Triagem\Create.cshtml" />
+    <Content Include="Views\Triagem\testa.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

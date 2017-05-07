@@ -173,7 +173,7 @@ namespace ProjetoRefugiados.Web.ViewModels
         public bool Ativo { get; set; }
 
         [ScaffoldColumn(false)]
-        public DateTime DataDeCadastro { get; set; }
+        public DateTime DataDeModificacao { get; set; }
 
         [ScaffoldColumn(false)]
         public virtual RefugiadoViewModel refugiado { get; set; }

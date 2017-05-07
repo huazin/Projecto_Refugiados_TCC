@@ -50,7 +50,7 @@ namespace ProjetoRefugiados.Web.Domain.Models
         public string Resultados { get; set; }
         public string Obs { get; set; }
         public bool Ativo { get; set; }
-        public DateTime DataDeCadastro { get; set; }
+        public DateTime DataDeModificacao { get; set; }
         public virtual Refugiado refugiado { get; set; }
         public int RefugiadoId { get; set; }
     }
