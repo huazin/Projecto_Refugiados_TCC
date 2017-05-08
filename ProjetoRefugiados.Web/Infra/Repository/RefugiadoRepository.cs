@@ -22,10 +22,11 @@ namespace ProjetoRefugiados.Web.Infra.Repository
         {
             Refugiado refu = FindById(id);
             var verificador = Db.Refugiados.Where(p => p.CPF == refu.CPF && p.Ativo == true).FirstOrDefault();
-            if (verificador != null)
+            if (verificador == null)
             {
                 Db.Entry(refu).Property(p => p.Ativo).CurrentValue = true;
             }
+            Db.SaveChanges();
         }
 
         public void Dispose()
@@ -48,7 +49,20 @@ namespace ProjetoRefugiados.Web.Infra.Repository
         public IEnumerable<Refugiado> List()
         {
             return Db.Refugiados.Where(p => true == p.Ativo).ToList();
-            //return Db.Refugiados.ToList();
+        }
+        public IEnumerable<Refugiado> ListAll()
+        {
+            return Db.Refugiados.ToList();
+        }
+
+        public IEnumerable<Refugiado> ListNome(string nome)
+        {
+            return Db.Refugiados.ToList().Where(p => p.Nome.ToLower().Contains(nome.ToLower()));
+        }
+
+        public IEnumerable<Refugiado> ListCpf(string cpf)
+        {
+            return Db.Refugiados.Where(p => p.CPF.Contains(cpf)).ToList();
         }
 
         public void Remove(Refugiado remove)

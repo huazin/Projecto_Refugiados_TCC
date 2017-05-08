@@ -19,16 +19,27 @@ namespace ProjetoRefugiados.Web.Controllers
         public readonly PaisRepository repoPais = new PaisRepository();
 
         // GET: Refugiado
-        public ActionResult Index()
+        public ActionResult Index(int? id, int? ativador)
         {
+            if(id != null && ativador != null)
+            {
+                if (ativador == 1) repo.Remove(id.Value);
+                else repo.Ativar(id.Value);
+            }
             return View(Mapper.Map<IEnumerable<RefugiadoViewModel>>(repo.List()));
         }
 
         [HttpPost]
-        public ActionResult Index(int id)
+        public ActionResult Index(string tipo, string id)
         {
-            return View(Mapper.Map<IEnumerable<RefugiadoViewModel>>(repo.List()));
+            if (String.IsNullOrEmpty(id))
+                return View(Mapper.Map<IEnumerable<RefugiadoViewModel>>(repo.ListAll()));
+            if (tipo == "nome")
+                return View(Mapper.Map<IEnumerable<RefugiadoViewModel>>(repo.ListNome(id)));
+            return View(Mapper.Map<IEnumerable<RefugiadoViewModel>>(repo.ListCpf(id)));
         }
+
+        //Get
 
         // GET: Refugiado/Details/5
         public ActionResult Details(int id)
@@ -66,7 +77,7 @@ namespace ProjetoRefugiados.Web.Controllers
         [HttpPost]
         public ActionResult Create(RefugiadoViewModel refugiado)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 repo.Add(Mapper.Map<Refugiado>(refugiado));
                 return RedirectToAction("Index");
@@ -98,14 +109,14 @@ namespace ProjetoRefugiados.Web.Controllers
                 Text = x.Nome,
                 Value = x.NascionalidadeId.ToString()
             });
-            return View(Mapper.Map<RefugiadoViewModel>(repo.FindById(id)) );
+            return View(Mapper.Map<RefugiadoViewModel>(repo.FindById(id)));
         }
 
         // POST: Refugiado/Edit/5
         [HttpPost]
         public ActionResult Edit(RefugiadoViewModel refugiado)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 repo.Edit(Mapper.Map<Refugiado>(refugiado));
                 return RedirectToAction("Index");
@@ -115,18 +126,7 @@ namespace ProjetoRefugiados.Web.Controllers
         }
 
         //Get Refugiado/Ativa/id
-        public ActionResult Ativa(int id)
-        {
-            repo.Ativar(id);
-            return Index();
-        }
-
-        // GET: Refugiado/Delete/5
-        public ActionResult Delete(int id)
-        {
-            repo.Remove(id);
-            return Index();
-        }
+       
 
         // POST: Refugiado/Delete/5
         //[HttpPost]
