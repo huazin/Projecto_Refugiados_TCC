@@ -55,6 +55,8 @@ namespace ProjetoRefugiados.Web.Models
         [Display(Name = "CPF")]
         public string CPF { get; set; }
 
+        public string Nome { get; set; }
+
         [Required]
         [DataType(DataType.Password)]
         [Display(Name = "Senha")]

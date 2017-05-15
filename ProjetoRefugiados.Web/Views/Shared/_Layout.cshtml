@@ -29,32 +29,57 @@
                     </small>
                 </a>
             </div>
+            @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "menu-text" }))
+            {    @Html.AntiForgeryToken()
 
-            <div class="navbar-buttons navbar-header pull-right" role="navigation">
-                <ul class="nav ace-nav">
-                    <li class="light-blue dropdown-modal">
-                        <a data-toggle="dropdown" href="#" class="dropdown-toggle" aria-expanded="false">
-                            <span class="user-info" title="@User.Identity.Name">
-                                <small>Bem vindo,</small>
-                                @User.Identity.Name
-                            </span>
+                <div class="navbar-buttons navbar-header pull-right" role="navigation">
+                    <ul class="nav ace-nav">
+                        <li class="light-blue dropdown-modal">
+                            @using Microsoft.AspNet.Identity
+                            @if (Request.IsAuthenticated)
+                            {
+                                <a data-toggle="dropdown" href="#" class="dropdown-toggle" aria-expanded="false">
+                                    <span class="user-info" title="@User.Identity.Name">
+                                        <small>Bem vindo,</small>
+                                        @User.Identity.Name
+                                    </span>
 
-                            <i class="ace-icon fa fa-caret-down"></i>
-                        </a>
+                                    <i class="ace-icon fa fa-caret-down"></i>
+                                </a>
 
-                        <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
-                            <li>
-                                @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "ace-icon fa fa-power-off" }))
-                                {    @Html.AntiForgeryToken()
-                                    <i class="ace-icon fa fa-power-off"></i>
-                                    <a href="javascript:document.getElementById('logoutForm').submit()">Fazer logoff</a>
-                                }
-                            </li>
-                </ul>
-                </li>
-                </ul>
-            </div>
+                                <ul class="user-menu dropdown-menu-right dropdown-menu dropdown- dropdown-yellow dropdown-caret dropdown-close">
+                                    <li>
 
+                                        <a href="javascript:document.getElementById('logoutForm').submit()">
+                                            <i class="ace-icon fa fa-power-off"></i>
+                                            <span class="menu-text">Fazer logoff</span>
+                                        </a>
+                                    </li>
+                                </ul>
+
+                            }
+                            else
+                            {
+                                <a data-toggle="dropdown" href="#" class="dropdown-toggle" aria-expanded="false">
+                                    <span class="user-info" title="@User.Identity.Name">
+                                        <small>Bem Vindo</small>
+                                    </span>
+                                    <i class="ace-icon fa fa-caret-down"></i>
+                                </a>
+                                <ul class="user-menu dropdown-menu-right dropdown-menu">
+                                    <li>
+                                        <a href="~/Account/Login">
+                                            <i class="ace-icon fa fa-sign-in"></i>
+                                            <span class="menu-text">Logar</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            }
+                            }
+                        </li>
+                    </ul>
+                </div>
+            }
         </div>
     </div>
 
@@ -68,44 +93,59 @@
             </script>
 
             <div class="sidebar-shortcuts" id="sidebar-shortcuts"></div>
-
-            <ul class="nav nav-list" style="top: 0px;">
-                <li><a href="~/Home/Index">
-                    <i class="menu-icon fa fa-home"></i>
-                    <span class="menu-text">Home</span>
-                </a>
-                </li>
-                <li>
-                    <a href="~/Refugiado/Index">
-                        <i class="menu-icon fa fa-users"></i>
-                        <span class="menu-text">Refugiados</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="~/Acolhedor/Cadastro">
-                        <i class="menu-icon fa fa-heart"></i>
-                        <span class="menu-text">Acolhedores</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="~/Triagem/Index">
-                        <i class="menu-icon fa fa-heartbeat"></i>
-                        <span class="menu-text">Triagems</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="~/Adm/NovoFuncionario">
-                        <i class="menu-icon fa fa-book"></i>
-                        <span class="menu-text">Administração</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="~/Relatorios/Index">
-                        <i class="menu-icon fa fa-area-chart"></i>
-                        <span class="menu-text">Relatorios</span>
-                    </a>
-                </li>
-            </ul>
+            @using Microsoft.AspNet.Identity
+            @if (Request.IsAuthenticated)
+            {
+                <ul class="nav nav-list" style="top: 0px;">
+                    <li>
+                        <a href="~/Home/Index">
+                            <i class="menu-icon fa fa-home"></i>
+                            <span class="menu-text">Home</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="~/Refugiado/Index">
+                            <i class="menu-icon fa fa-users"></i>
+                            <span class="menu-text">Refugiados</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="~/Acolhedor/Cadastro">
+                            <i class="menu-icon fa fa-heart"></i>
+                            <span class="menu-text">Acolhedores</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="~/Triagem/Index">
+                            <i class="menu-icon fa fa-heartbeat"></i>
+                            <span class="menu-text">Triagems</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="~/Adm/NovoFuncionario">
+                            <i class="menu-icon fa fa-book"></i>
+                            <span class="menu-text">Administração</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="~/Relatorios/Index">
+                            <i class="menu-icon fa fa-area-chart"></i>
+                            <span class="menu-text">Relatorios</span>
+                        </a>
+                    </li>
+                </ul>
+            }
+            else
+            {
+                <ul class="nav nav-list" style="top: 0px;">
+                    <li>
+                        <a href="~/Account/Login">
+                            <i class="menu-icon fa fa-sign-in"></i>
+                            <span class="menu-text">Login</span>
+                        </a>
+                    </li>
+                </ul>
+            }
 
             <div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
                 <i id="sidebar-toggle-icon" class="ace-icon fa fa-angle-double-left ace-save-state" data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>

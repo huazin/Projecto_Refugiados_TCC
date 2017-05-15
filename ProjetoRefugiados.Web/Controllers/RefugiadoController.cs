@@ -18,6 +18,7 @@ namespace ProjetoRefugiados.Web.Controllers
         public readonly ProfissaoRepository repoProf = new ProfissaoRepository();
         public readonly PaisRepository repoPais = new PaisRepository();
 
+        [Authorize(Roles = "Atendente,Enfermeiro,Administrador,Estagiario")]
         // GET: Refugiado
         public ActionResult Index(int? id, int? ativador)
         {
@@ -29,6 +30,7 @@ namespace ProjetoRefugiados.Web.Controllers
             return View(Mapper.Map<IEnumerable<RefugiadoViewModel>>(repo.List()));
         }
 
+        [Authorize(Roles = "Atendente,Enfermeiro,Administrador,Estagiario")]
         [HttpPost]
         public ActionResult Index(string tipo, string id)
         {
@@ -39,14 +41,14 @@ namespace ProjetoRefugiados.Web.Controllers
             return View(Mapper.Map<IEnumerable<RefugiadoViewModel>>(repo.ListCpf(id)));
         }
 
-        //Get
-
+        [Authorize(Roles = "Atendente,Enfermeiro,Administrador,Estagiario")]
         // GET: Refugiado/Details/5
         public ActionResult Details(int id)
         {
             return View(Mapper.Map<RefugiadoViewModel>(repo.FindById(id)));
         }
 
+        [Authorize(Roles = "Atendente,Enfermeiro,Administrador,Estagiario")]
         // GET: Refugiado/Create
         public ActionResult Create()
         {
@@ -73,6 +75,7 @@ namespace ProjetoRefugiados.Web.Controllers
             return View();
         }
 
+        [Authorize(Roles = "Atendente,Enfermeiro,Administrador,Estagiario")]
         // POST: Refugiado/Create
         [HttpPost]
         public ActionResult Create(RefugiadoViewModel refugiado)
@@ -86,6 +89,7 @@ namespace ProjetoRefugiados.Web.Controllers
             return Create();
         }
 
+        [Authorize(Roles = "Atendente,Enfermeiro,Administrador,Estagiario")]
         // GET: Refugiado/Edit/5
         public ActionResult Edit(int id)
         {
@@ -112,6 +116,7 @@ namespace ProjetoRefugiados.Web.Controllers
             return View(Mapper.Map<RefugiadoViewModel>(repo.FindById(id)));
         }
 
+        [Authorize(Roles = "Atendente,Enfermeiro,Administrador,Estagiario")]
         // POST: Refugiado/Edit/5
         [HttpPost]
         public ActionResult Edit(RefugiadoViewModel refugiado)

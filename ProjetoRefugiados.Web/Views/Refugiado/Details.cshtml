@@ -128,37 +128,37 @@
                     @Html.DisplayFor(model => model.DataDeNascimento)
                 </dd>
             </dl>
-                @if (Model.Ativo == false)
-                {
-                    <div class="alert alert-block alert-success">
-                        <p>
-                            Este
-                            <strong>
-                                Refugiado
-                            </strong>
-                            está desativado! Clique para ativa-lo
-                        </p>
+            @if (Model.Ativo == false)
+            {
+                <div class="alert alert-block alert-success">
+                    <p>
+                        Este
+                        <strong>
+                            Refugiado
+                        </strong>
+                        está desativado! Clique para ativa-lo
+                    </p>
 
-                        <p>
-                            <a href="~/Refugiado/Ativa/@Model.RefugiadoId" class="btn btn-white btn-info btn-bold">
-                                <i class="ace-icon fa fa-wrench  blue"></i>Ativar!
-                            </a>
-                        </p>
-                    </div>
+                    <p>
+                        <a href="~/Refugiado/Ativa/@Model.RefugiadoId" class="btn btn-white btn-info btn-bold">
+                            <i class="ace-icon fa fa-wrench  blue"></i>Ativar!
+                        </a>
+                    </p>
+                </div>
 
-                }
-                else
-                {
-                    <div class="alert alert-block alert-success">
-                        <p>
-                            Este
-                            <strong>
-                                Refugiado
-                            </strong>
-                            está Ativo!
-                        </p>
-                    </div>
-                }
+            }
+            else
+            {
+                <div class="alert alert-block alert-success">
+                    <p>
+                        Este
+                        <strong>
+                            Refugiado
+                        </strong>
+                        está Ativo!
+                    </p>
+                </div>
+            }
 
         </div>
 
@@ -166,336 +166,372 @@
             <div>
                 @if (Model.Triagens.Count != 0)
                 {
-                <h4>Triagens</h4>
-                    foreach (var item in Model.Triagens)
-                    {
-                    <a href="#my-modal" role="button" data-toggle="modal">
-                        <i class="menu-icon fa fa-file-text"></i>
-                        <span class="menu-text">Triagem feita dia: @item.DataDeModificacao</span>
-                    </a>
-
-                    <div id="my-modal" class="modal fade" tabindex="-1" style="display: none;">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                    <h3 class="smaller lighter blue no-margin">Triagem feita dia: @item.DataDeModificacao!</h3>
-                                </div>
-
-                                <div class="modal-body">
-                                    <dl class="dl-horizontal">
-                                        <dt>
-                                           QueixaAtual
-                                        :</dt>
-
-                                        <dd>
-                                            @item.QueixaAtual
-                                        </dd>
-
-                                        <dt>
-                                           Tratamentos:
-                                        :</dt>
-
-                                        <dd>
-                                            @item.Tratamentos
-                                        </dd>
-
-                                        <dt>
-                                           UsoDrogas:
-                                        :</dt>
-
-                                        <dd>
-                                            @item.UsoDrogas
-                                        </dd>
-
-                                        <dt>
-                                           UsoDrogaTempo
-                                        :</dt>
-
-                                        <dd>
-                                            @item.UsoDrogaTempo
-                                        </dd>
-
-                                        <dt>
-                                           MedicacaoContinua
-                                        :</dt>
-
-                                        <dd>
-                                            @item.MedicacaoContinua
-                                        </dd>
-
-                                        <dt>
-                                           MedicacaoTempo
-                                        :</dt>
-
-                                        <dd>
-                                            @item.MedicacaoTempo
-                                        </dd>
-
-                                        <dt>
-                                           HabitosHigienicos
-                                        :</dt>
-
-                                        <dd>
-                                            @item.HabitosHigienicos
-                                        </dd>
-
-                                        <dt>
-                                           Alimentacao
-                                        :</dt>
-
-                                        <dd>
-                                            @item.Alimentacao
-                                        </dd>
-
-                                        <dt>
-                                           IngestaoHidrica
-                                        :</dt>
-
-                                        <dd>
-                                            @item.IngestaoHidrica
-                                        </dd>
-
-                                        <dt>
-                                           SonoRepouso
-                                        :</dt>
-
-                                        <dd>
-                                            @item.SonoRepouso
-                                        </dd>
-
-                                        <dt>
-                                           AtividadeFisica
-                                        :</dt>
-
-                                        <dd>
-                                            @item.AtividadeFisica
-                                        </dd>
-
-                                        <dt>
-                                           Lazer
-                                        :</dt>
-
-                                        <dd>
-                                            @item.Lazer
-                                        </dd>
-
-                                        <dt>
-                                           FrequenciaUrianaria
-                                        :</dt>
-
-                                        <dd>
-                                            @item.FrequenciaUrianaria
-                                        </dd>
-
-                                        <dt>
-                                           FrequenciaIntestinal
-                                        :</dt>
-
-                                        <dd>
-                                            @item.FrequenciaIntestinal
-                                        </dd>
-
-                                        <dt>
-                                           Menarca
-                                        :</dt>
-
-                                        <dd>
-                                            @item.Menarca
-                                        </dd>
-
-                                        <dt>
-                                           DUM
-                                        :</dt>
-
-                                        <dd>
-                                            @item.DUM
-                                        </dd>
-
-                                        <dt>
-                                           NParceiros
-                                        :</dt>
-
-                                        <dd>
-                                            @item.NParceiros
-                                        </dd>
-
-                                        <dt>
-                                           Telarca
-                                        :</dt>
-
-                                        <dd>
-                                            @item.Telarca
-                                        </dd>
-
-                                        <dt>
-                                           GestacoesG
-                                        :</dt>
-
-                                        <dd>
-                                            @item.GestacoesG
-                                        </dd>
-
-                                        <dt>
-                                           GestacoesP
-                                        :</dt>
-
-                                        <dd>
-                                            @item.GestacoesP
-                                        </dd>
-
-                                        <dt>
-                                           GestacoesA
-                                        :</dt>
-
-                                        <dd>
-                                            @item.GestacoesA
-                                        </dd>
-
-                                        <dt>
-                                           UltimoPapanicolau
-                                        :</dt>
-
-                                        <dd>
-                                            @item.UltimoPapanicolau
-                                        </dd>
-
-                                        <dt>
-                                           Resultado
-                                        :</dt>
-
-                                        <dd>
-                                            @item.Resultado
-                                        </dd>
-
-                                        <dt>
-                                           ExameDeMama
-                                        :</dt>
-
-                                        <dd>
-                                            @item.ExameDeMama
-                                        </dd>
-
-                                        <dt>
-                                           SinaisPA
-                                        :</dt>
-
-                                        <dd>
-                                            @item.SinaisPA
-                                        </dd>
-
-                                        <dt>
-                                           SinaisP
-                                        :</dt>
-
-                                        <dd>
-                                            @item.SinaisP
-                                        </dd>
-
-                                        <dt>
-                                           SinaisTEMP
-                                        :</dt>
-
-                                        <dd>
-                                            @item.SinaisTEMP
-                                        </dd>
-
-                                        <dt>
-                                           SinaisRESP
-                                        :</dt>
-
-                                        <dd>
-                                            @item.SinaisRESP
-                                        </dd>
-
-                                        <dt>
-                                           SinaisDOR
-                                        :</dt>
-
-                                        <dd>
-                                            @item.SinaisDOR
-                                        </dd>
-
-                                        <dt>
-                                           ProblemasEncontrados
-                                        :</dt>
-
-                                        <dd>
-                                            @item.ProblemasEncontrados
-                                        </dd>
-
-                                        <dt>
-                                           ExameFisico
-                                        :</dt>
-
-                                        <dd>
-                                            @item.ExameFisico
-                                        </dd>
-
-                                        <dt>
-                                           Diagnostico
-                                        :</dt>
-
-                                        <dd>
-                                            @item.Diagnostico
-                                        </dd>
-
-                                        <dt>
-                                           Prescricros
-                                        :</dt>
-
-                                        <dd>
-                                            @item.Prescricros
-                                        </dd>
-
-                                        <dt>
-                                           Resultados
-                                        :</dt>
-
-                                        <dd>
-                                            @item.Resultados
-                                        </dd>
-
-                                        <dt>
-                                           Obs
-                                        :</dt>
-
-                                        <dd>
-                                            @item.Obs
-                                        </dd>
-
-                                    </dl>
-                                </div>
-
-                                <div class="modal-footer">
-                                    <button class="btn btn-white btn-info btn-bold" data-dismiss="modal">
-                                        <i class="ace-icon fa fa-times"></i>
-                                        Close
-                                    </button>
-                                </div>
-                            </div><!-- /.modal-content -->
-                        </div><!-- /.modal-dialog -->
+                    <h4>Triagens</h4>
+                    <div class="form-horizontal">
+                        @foreach (var item in Model.Triagens)
+                        {
+                        <a href="#my-modal" role="button" data-toggle="modal">
+                            <i class="menu-icon fa fa-file-text"></i>
+                            <span class="menu-text">Triagem feita dia: @item.DataDeModificacao</span>
+                        </a>
+
+                        <div id="my-modal" class="modal fade" tabindex="-1" style="display: none;">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                        <h3 class="smaller lighter blue no-margin">Triagem feita dia: @item.DataDeModificacao!</h3>
+                                    </div>
+
+                                    <div class="modal-body">
+                                        <dl class="dl-horizontal">
+                                            <dt>
+                                                QueixaAtual
+                                                :
+                                            </dt>
+
+                                            <dd>
+                                                @item.QueixaAtual
+                                            </dd>
+
+                                            <dt>
+                                                Tratamentos:
+                                                :
+                                            </dt>
+
+                                            <dd>
+                                                @item.Tratamentos
+                                            </dd>
+
+                                            <dt>
+                                                UsoDrogas:
+                                                :
+                                            </dt>
+
+                                            <dd>
+                                                @item.UsoDrogas
+                                            </dd>
+
+                                            <dt>
+                                                UsoDrogaTempo
+                                                :
+                                            </dt>
+
+                                            <dd>
+                                                @item.UsoDrogaTempo
+                                            </dd>
+
+                                            <dt>
+                                                MedicacaoContinua
+                                                :
+                                            </dt>
+
+                                            <dd>
+                                                @item.MedicacaoContinua
+                                            </dd>
+
+                                            <dt>
+                                                MedicacaoTempo
+                                                :
+                                            </dt>
+
+                                            <dd>
+                                                @item.MedicacaoTempo
+                                            </dd>
+
+                                            <dt>
+                                                HabitosHigienicos
+                                                :
+                                            </dt>
+
+                                            <dd>
+                                                @item.HabitosHigienicos
+                                            </dd>
+
+                                            <dt>
+                                                Alimentacao
+                                                :
+                                            </dt>
+
+                                            <dd>
+                                                @item.Alimentacao
+                                            </dd>
+
+                                            <dt>
+                                                IngestaoHidrica
+                                                :
+                                            </dt>
+
+                                            <dd>
+                                                @item.IngestaoHidrica
+                                            </dd>
+
+                                            <dt>
+                                                SonoRepouso
+                                                :
+                                            </dt>
+
+                                            <dd>
+                                                @item.SonoRepouso
+                                            </dd>
+
+                                            <dt>
+                                                AtividadeFisica
+                                                :
+                                            </dt>
+
+                                            <dd>
+                                                @item.AtividadeFisica
+                                            </dd>
+
+                                            <dt>
+                                                Lazer
+                                                :
+                                            </dt>
+
+                                            <dd>
+                                                @item.Lazer
+                                            </dd>
+
+                                            <dt>
+                                                FrequenciaUrianaria
+                                                :
+                                            </dt>
+
+                                            <dd>
+                                                @item.FrequenciaUrianaria
+                                            </dd>
+
+                                            <dt>
+                                                FrequenciaIntestinal
+                                                :
+                                            </dt>
+
+                                            <dd>
+                                                @item.FrequenciaIntestinal
+                                            </dd>
+
+                                            <dt>
+                                                Menarca
+                                                :
+                                            </dt>
+
+                                            <dd>
+                                                @item.Menarca
+                                            </dd>
+
+                                            <dt>
+                                                DUM
+                                                :
+                                            </dt>
+
+                                            <dd>
+                                                @item.DUM
+                                            </dd>
+
+                                            <dt>
+                                                NParceiros
+                                                :
+                                            </dt>
+
+                                            <dd>
+                                                @item.NParceiros
+                                            </dd>
+
+                                            <dt>
+                                                Telarca
+                                                :
+                                            </dt>
+
+                                            <dd>
+                                                @item.Telarca
+                                            </dd>
+
+                                            <dt>
+                                                GestacoesG
+                                                :
+                                            </dt>
+
+                                            <dd>
+                                                @item.GestacoesG
+                                            </dd>
+
+                                            <dt>
+                                                GestacoesP
+                                                :
+                                            </dt>
+
+                                            <dd>
+                                                @item.GestacoesP
+                                            </dd>
+
+                                            <dt>
+                                                GestacoesA
+                                                :
+                                            </dt>
+
+                                            <dd>
+                                                @item.GestacoesA
+                                            </dd>
+
+                                            <dt>
+                                                UltimoPapanicolau
+                                                :
+                                            </dt>
+
+                                            <dd>
+                                                @item.UltimoPapanicolau
+                                            </dd>
+
+                                            <dt>
+                                                Resultado
+                                                :
+                                            </dt>
+
+                                            <dd>
+                                                @item.Resultado
+                                            </dd>
+
+                                            <dt>
+                                                ExameDeMama
+                                                :
+                                            </dt>
+
+                                            <dd>
+                                                @item.ExameDeMama
+                                            </dd>
+
+                                            <dt>
+                                                SinaisPA
+                                                :
+                                            </dt>
+
+                                            <dd>
+                                                @item.SinaisPA
+                                            </dd>
+
+                                            <dt>
+                                                SinaisP
+                                                :
+                                            </dt>
+
+                                            <dd>
+                                                @item.SinaisP
+                                            </dd>
+
+                                            <dt>
+                                                SinaisTEMP
+                                                :
+                                            </dt>
+
+                                            <dd>
+                                                @item.SinaisTEMP
+                                            </dd>
+
+                                            <dt>
+                                                SinaisRESP
+                                                :
+                                            </dt>
+
+                                            <dd>
+                                                @item.SinaisRESP
+                                            </dd>
+
+                                            <dt>
+                                                SinaisDOR
+                                                :
+                                            </dt>
+
+                                            <dd>
+                                                @item.SinaisDOR
+                                            </dd>
+
+                                            <dt>
+                                                ProblemasEncontrados
+                                                :
+                                            </dt>
+
+                                            <dd>
+                                                @item.ProblemasEncontrados
+                                            </dd>
+
+                                            <dt>
+                                                ExameFisico
+                                                :
+                                            </dt>
+
+                                            <dd>
+                                                @item.ExameFisico
+                                            </dd>
+
+                                            <dt>
+                                                Diagnostico
+                                                :
+                                            </dt>
+
+                                            <dd>
+                                                @item.Diagnostico
+                                            </dd>
+
+                                            <dt>
+                                                Prescricros
+                                                :
+                                            </dt>
+
+                                            <dd>
+                                                @item.Prescricros
+                                            </dd>
+
+                                            <dt>
+                                                Resultados
+                                                :
+                                            </dt>
+
+                                            <dd>
+                                                @item.Resultados
+                                            </dd>
+
+                                            <dt>
+                                                Obs
+                                                :
+                                            </dt>
+
+                                            <dd>
+                                                @item.Obs
+                                            </dd>
+
+                                        </dl>
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <button class="btn btn-white btn-info btn-bold" data-dismiss="modal">
+                                            <i class="ace-icon fa fa-times"></i>
+                                            Close
+                                        </button>
+                                    </div>
+                                </div><!-- /.modal-content -->
+                            </div><!-- /.modal-dialog -->
+                        </div>
+                        }
                     </div>
-                    }
                 }
-
+                </div>
             </div>
         </div>
     </div>
-</div>
-<div class="form-group">
-    <hr />
-    <p>
-        <a href="~/Refugiado/Edit/@modelo.RefugiadoId" class="btn btn-white btn-info btn-bold">
-            <i class="menu-icon fa fa-pencil"></i>
-            <span class="menu-text">Edit</span>
-        </a> |
-        <a href="~/Triagem/Create/@modelo.RefugiadoId" class="btn btn-white btn-info btn-bold">
-            <i class="menu-icon fa fa-heartbeat"></i>
-            <span class="menu-text">NovaTriagem</span>
-        </a>
-        | <a href="~/Refugiado/Index" class="btn btn-white btn-info btn-bold">
-            <i class="ace-icon fa fa-undo blue"></i>Voltar para a lista
-        </a>
-    </p>
-</div>
+    <div class="form-group">
+        <hr />
+        <p>
+            <a href="~/Refugiado/Edit/@modelo.RefugiadoId" class="btn btn-white btn-info btn-bold">
+                <i class="menu-icon fa fa-pencil"></i>
+                <span class="menu-text">Edit</span>
+            </a> |
+            <a href="~/Triagem/Create/@modelo.RefugiadoId" class="btn btn-white btn-info btn-bold">
+                <i class="menu-icon fa fa-heartbeat"></i>
+                <span class="menu-text">NovaTriagem</span>
+            </a>
+            | <a href="~/Refugiado/Index" class="btn btn-white btn-info btn-bold">
+                <i class="ace-icon fa fa-undo blue"></i>Voltar para a lista
+            </a>
+        </p>
+    </div>

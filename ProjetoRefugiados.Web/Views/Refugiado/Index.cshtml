@@ -18,25 +18,23 @@
 {
     @Html.AntiForgeryToken()
     <div>
-        <div class="widget-box collapsed col-sm-4 col-xs-12">
-            <div class="widget-header">
-                <h4 class="widget-title">Pesquisa</h4>
-
-                <div class="widget-toolbar">
-                    <a href="#" data-action="collapse">
-                        <i class="ace-icon fa fa-chevron-up"></i>
+        <div class="tabbable col-sm-4 col-xs-12">
+            <ul class="nav nav-tabs" id="myTab">
+                <li class="active">
+                    <a data-toggle="tab" href="#home" aria-expanded="true">
+                        <i class="ace-icon fa fa-search"></i>
+                        Pesquisa
                     </a>
-                </div>
-            </div>
-
-            <div class="widget-body" style="display: none;">
-                <div class="widget-main">
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div id="home" class="tab-pane fade active in">
                     <div class="form-horizontal">
                         <div class="input-group">
                             <div class="form-group">
                                 <div class="radio col-xs-6">
                                     <label>
-                                        <input name="Tipo" id="Tipo" type="radio" checked value ="nome"class="ace form-control">
+                                        <input name="Tipo" id="Tipo" type="radio" checked value="nome" class="ace form-control">
                                         <span class="lbl">Nome</span>
                                     </label>
                                 </div>
@@ -65,7 +63,12 @@
             </div>
         </div>
     </div>
+
 }
+<div class="col-xs-12">
+    <hr />
+</div>
+
 <table class="table">
     <tr>
         <th>
