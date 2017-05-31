@@ -5,14 +5,14 @@ using System.Web;
 
 namespace ProjetoRefugiados.Web.Domain.Models.Secudarias
 {
-    public class Endereco
+    public class EnderecoProjeto
     {
-        public int RefugiadoId { get; set; }
+        public int ProjetoId { get; set; }
         public string Longadouro { get; set; }
         public string Complemento { get; set; }
         public string Cidade { get; set; }
         public string Estado { get; set; }
         public int CEP { get; set; }
-        public virtual Refugiado Refugiado { get; set; }
+        public virtual Projeto Projeto { get; set; }
     }
 }

@@ -1,5 +1,4 @@
-﻿using ProjetoRefugiados.Web.Domain.Models.Secudarias;
-using ProjetoRefugiados.Web.ViewModels.Validadores;
+﻿using ProjetoRefugiados.Web.ViewModels.Validadores;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

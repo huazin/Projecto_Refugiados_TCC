@@ -1,0 +1,83 @@
+﻿@model ProjetoRefugiados.Web.ViewModels.ProjetoViewModel
+
+@{
+    var Tipo = Model.Tipo;
+    var modelo = Model;
+    var nome = "";
+
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (Tipo == "Abrigo")
+{ <h2>Detalhes do Abrigo</h2>
+    nome = "do Abrigo";
+}
+
+else
+{ <h2>Detalhes da Empresa</h2>
+    nome = "da Empresa";
+}
+
+<div>
+    <h4>Projeto</h4>
+    <hr />
+</div>
+<div class="tabbable">
+    <ul class="nav nav-tabs" id="myTab">
+        <li class="active">
+            <a data-toggle="tab" href="#home" aria-expanded="true">
+                <i class="ace-icon fa fa-user"></i>
+                Dados @nome
+            </a>
+        </li>
+
+        <li class="">
+            <a data-toggle="tab" href="#messages" aria-expanded="false">
+                <i class="menu-icon fa fa-industry"></i>
+                Oportunidades
+            </a>
+        </li>
+    </ul>
+
+    <div class="tab-content">
+        <div id="home" class="tab-pane fade active in">
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Nome)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Nome)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.CNPJ)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.CNPJ)
+                </dd>
+            </dl>
+        </div>
+        <div id="messages" class="tab-pane fade">
+        </div>
+    </div>
+</div>
+<div class="form-group">
+    <hr />
+    <p>
+        <a href="~/Projeto/Edit/@modelo.ProjetoId" class="btn btn-white btn-info btn-bold">
+            <i class="menu-icon fa fa-pencil"></i>
+            <span class="menu-text">Edit</span>
+        </a> |
+        <a href="~/Oportunidade/Create/@modelo.ProjetoId" class="btn btn-white btn-info btn-bold">
+            <i class="menu-icon fa fa-industry"></i>
+            <span class="menu-text">Nova Oportunidade</span>
+        </a>
+        | <a href="~/Projeto/Index" class="btn btn-white btn-info btn-bold">
+            <i class="ace-icon fa fa-undo blue"></i>Voltar para a lista
+        </a>
+    </p>
+</div>
+

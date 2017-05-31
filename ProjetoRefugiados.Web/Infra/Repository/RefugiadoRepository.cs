@@ -13,8 +13,8 @@ namespace ProjetoRefugiados.Web.Infra.Repository
         public ProjetoRefugiadosContext Db = new ProjetoRefugiadosContext();
         public void Add(Refugiado add)
         {
+            add.Ativo = true;
             Db.Refugiados.Add(add);
-            Db.Entry(add).Property(p => p.Ativo).CurrentValue = true;
             Db.SaveChanges();
         }
 

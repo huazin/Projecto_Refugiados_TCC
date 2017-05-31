@@ -23,7 +23,11 @@ namespace ProjetoRefugiados.Web.ViewModels
         [DisplayName("Tratamentos anteriores:")]
         [MaxLength(255, ErrorMessage = "Tamanho Maximo atingido")]
         public string Tratamentos { get; set; }
+
+        public int AlergiasId { get; set; }
         public virtual ICollection<CidViewModel> Alergias { get; set; }
+
+        public int DoencasInfectId { get; set; }
         public virtual ICollection<CidViewModel> DoencasInfecto { get; set; }
 
         [Required]
@@ -42,6 +46,7 @@ namespace ProjetoRefugiados.Web.ViewModels
         [Range(0, int.MaxValue, ErrorMessage = "Numeração invalida")]
         public int MedicacaoTempo { get; set; }
 
+        public int AntecedentesId { get; set; }
         public virtual ICollection<CidViewModel> Antecedentes { get; set; }
 
         [Required]

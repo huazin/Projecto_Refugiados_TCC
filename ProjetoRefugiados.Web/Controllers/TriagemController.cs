@@ -14,37 +14,38 @@ namespace ProjetoRefugiados.Web.Controllers
     {
         public readonly RefugiadoRepository repoRefu = new RefugiadoRepository();
         public readonly TriagemRepository repoTri = new TriagemRepository();
+        public readonly CidRepository repoCid = new CidRepository();
 
         [Authorize(Roles = "Enfermeiro,Administrador,Estagiario")]
-        // GET: Triagem
         public ActionResult Index()
         {
             return View(Mapper.Map<IEnumerable<RefugiadoViewModel>>(repoRefu.List()));
         }
 
         [Authorize(Roles = "Enfermeiro,Administrador,Estagiario")]
-        // GET: Triagem/Details/5
-
-        [Authorize(Roles = "Enfermeiro,Administrador,Estagiario")]
-        // GET: Triagem/Create
         public ActionResult Create(int id)
         {
-            if (repoRefu.FindById(id).Nome == null)
+            var nome = repoRefu.FindById(id).Nome;
+            var sexo = repoRefu.FindById(id).Sexo;
+            if (nome == null)
             {
                 ViewBag.Error = "CPF não encontrado";
                 return View("Index");
             }
-            Session["id"] = id;
-            ViewBag.Nome = repoRefu.FindById(id).Nome;
+            ViewBag.Cid = repoCid.List().Select(x => new SelectListItem()
+            {
+                Text = x.Descricao,
+                Value = x.CidId.ToString()
+            });
+            ViewBag.refugiado = nome;
+            ViewBag.sexo = sexo;
             return View();
         }
 
         [Authorize(Roles = "Enfermeiro,Administrador,Estagiario")]
-        // POST: Triagem/Create
         [HttpPost]
         public ActionResult Create(TriagemViewModel triagem)
         {
-            triagem.RefugiadoId = Convert.ToInt32(Session["Id"]) ;
             if(ModelState.IsValid)
             {
                 repoTri.Add(Mapper.Map<Triagem>(triagem));

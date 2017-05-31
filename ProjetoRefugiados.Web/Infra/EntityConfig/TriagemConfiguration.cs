@@ -22,6 +22,9 @@ namespace ProjetoRefugiados.Web.Infra.EntityConfig
                 .IsOptional()
                 .HasMaxLength(255);
 
+            Property(p => p.AlergiasId)
+                .IsOptional();
+
             HasMany<Cid>(p => p.Alergias)
                 .WithMany(c => c.AlergiasTri)
                 .Map(m =>
@@ -31,6 +34,9 @@ namespace ProjetoRefugiados.Web.Infra.EntityConfig
                     m.MapRightKey("CidId");
                 }
                 );
+
+            Property(p => p.DoencasInfectId)
+                .IsOptional();
 
             HasMany<Cid>(p => p.DoencasInfecto)
                 .WithMany(c => c.DoencasInfectoTri)
@@ -53,6 +59,9 @@ namespace ProjetoRefugiados.Web.Infra.EntityConfig
                 .HasMaxLength(150);
 
             Property(p => p.MedicacaoTempo)
+                .IsOptional();
+
+            Property(p => p.AntecedentesId)
                 .IsOptional();
 
             HasMany<Cid>(p => p.Antecedentes)
@@ -94,7 +103,7 @@ namespace ProjetoRefugiados.Web.Infra.EntityConfig
                 .IsOptional();
 
             Property(p => p.NParceiros)
-                .IsRequired();
+                .IsOptional();
 
             Property(p => p.GestacoesG)
                 .IsOptional();
