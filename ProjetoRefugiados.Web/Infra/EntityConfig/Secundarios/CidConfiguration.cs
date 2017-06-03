@@ -18,34 +18,34 @@ namespace ProjetoRefugiados.Web.Infra.EntityConfig.Secundarios
                 .IsRequired()
                 .HasMaxLength(255);
 
-            HasMany<Triagem>(p => p.AlergiasTri)
-                .WithMany(c => c.Alergias)
-                .Map(m =>
-                {
-                    m.ToTable("Triagem_Alergias");
-                    m.MapLeftKey("TriagemId");
-                    m.MapRightKey("CidId");
-                }
-                );
+            //HasMany<Triagem>(p => p.AlergiasTri)
+            //    .WithMany(c => c.Alergias)
+            //    .Map(m =>
+            //    {
+            //        m.ToTable("Triagem_Alergias");
+            //        m.MapLeftKey("TriagemId");
+            //        m.MapRightKey("CidId");
+            //    }
+            //    );
 
-            HasMany<Triagem>(p => p.DoencasInfectoTri)
-                .WithMany(c => c.DoencasInfecto)
-                .Map(m =>
-                {
-                    m.ToTable("DoencasTriagem");
-                    m.MapLeftKey("TriagemId");
-                    m.MapRightKey("CidId");
-                }
-                );
+            //HasMany<Triagem>(p => p.DoencasInfectoTri)
+            //    .WithMany(c => c.DoencasInfecto)
+            //    .Map(m =>
+            //    {
+            //        m.ToTable("DoencasTriagem");
+            //        m.MapLeftKey("TriagemId");
+            //        m.MapRightKey("CidId");
+            //    }
+            //    );
 
-            HasMany<Triagem>(p => p.AntecedentesTri)
-                .WithMany(c => c.Antecedentes)
-                .Map(m =>
-                {
-                    m.ToTable("AntecedentesTriagem");
-                    m.MapLeftKey("TriagemId");
-                    m.MapRightKey("CidId");
-                });
+            //HasMany<Triagem>(p => p.AntecedentesTri)
+            //    .WithMany(c => c.Antecedentes)
+            //    .Map(m =>
+            //    {
+            //        m.ToTable("AntecedentesTriagem");
+            //        m.MapLeftKey("TriagemId");
+            //        m.MapRightKey("CidId");
+            //    });
         }
     }
 }

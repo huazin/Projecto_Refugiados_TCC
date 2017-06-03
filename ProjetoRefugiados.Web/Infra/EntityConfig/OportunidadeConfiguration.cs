@@ -29,15 +29,6 @@ namespace ProjetoRefugiados.Web.Infra.EntityConfig
                 .HasForeignKey(p => p.ProjetoId)
                 .WillCascadeOnDelete();
 
-            HasMany<Refugiado>(p => p.Associados)
-                .WithMany(c => c.Oportunidades)
-                .Map(m =>
-                {
-                    m.ToTable("Refugiados_Oportunidades");
-                    m.MapLeftKey("OportunidadeId");
-                    m.MapRightKey("RefugiadoId");
-                }
-                );
         }
     }
 }

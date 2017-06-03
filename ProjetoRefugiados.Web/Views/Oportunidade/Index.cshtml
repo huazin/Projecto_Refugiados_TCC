@@ -7,13 +7,6 @@
 
 <h2>Oportunidades</h2>
 
-<p>
-    <a href="~/Oportunidade/Create">
-        <i class="menu-icon fa fa-plus"></i>
-        <span class="menu-text">Nova Oportunidade</span>
-    </a>
-</p>
-
 @using (@Html.BeginForm())
 {
     @Html.AntiForgeryToken()
@@ -83,28 +76,45 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model.Where(p => p.projeto.Tipo == "Abrigo")) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Titulo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Descricao)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Quantidade)
-        </td>
-        <td>
-            <a href="~/Oportunidade/Edit/@item.OportunidadeId">
-                <i class="menu-icon fa fa-pencil"></i>
-                <span class="menu-text">Editar</span>
-            </a> | <a href="~/Oportunidade/Details/@item.OportunidadeId">
-                <i class="menu-icon fa fa-info"></i>
-                <span class="menu-text">Detalhes</span>
-            </a> |
-        </td>
-    </tr>
-}
+    @foreach (var item in Model.Where(p => p.projeto.Tipo == "Abrigo"))
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Titulo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantidade)
+            </td>
+            <td>
+                @if (item.Ativo)
+                {
+                    <a href="~/Oportunidade/Index/?id=@item.OportunidadeId&ativador=1">
+                        <i class="menu-icon fa fa-trash"></i>
+                        <span class="menu-text">Inativar</span>
+                    </a>
+                }
+                else
+                {
+                    <a href="~/Oportunidade/Index/?id=@item.OportunidadeId&ativador=0">
+                        <i class="menu-icon fa fa-check"></i>
+                        <span class="menu-text">Ativar</span>
+                    </a>
+                } | <a href="~/Oportunidade/Details/@item.OportunidadeId">
+                    <i class="menu-icon fa fa-info"></i>
+                    <span class="menu-text">Detalhes</span>
+                </a> | <a href="~/Oportunidade/Edit/@item.OportunidadeId">
+                    <i class="menu-icon fa fa-pencil"></i>
+                    <span class="menu-text">Edit</span>
+                </a> |<a href="~/Oportunidade/CartaDeEncaminhamento/@item.OportunidadeId">
+                    <i class="menu-icon fa fa-plus"></i>
+                    <span class="menu-text">Gera Carta de Encaminhamento</span>
+                </a>
+            </td>
+        </tr>
+    }
 </table>
 <div class="col-xs-12">
     <hr />
@@ -138,13 +148,29 @@
                 @Html.DisplayFor(modelItem => item.Quantidade)
             </td>
             <td>
-                <a href="~/Oportunidade/Edit/@item.OportunidadeId">
-                    <i class="menu-icon fa fa-pencil"></i>
-                    <span class="menu-text">Editar</span>
-                </a> | <a href="~/Oportunidade/Details/@item.OportunidadeId">
+                @if (item.Ativo)
+                {
+                    <a href="~/Oportunidade/Index/?id=@item.OportunidadeId&ativador=1">
+                        <i class="menu-icon fa fa-trash"></i>
+                        <span class="menu-text">Inativar</span>
+                    </a>
+                }
+                else
+                {
+                    <a href="~/Oportunidade/Index/?id=@item.OportunidadeId&ativador=0">
+                        <i class="menu-icon fa fa-check"></i>
+                        <span class="menu-text">Ativar</span>
+                    </a>
+                } | <a href="~/Oportunidade/Details/@item.OportunidadeId">
                     <i class="menu-icon fa fa-info"></i>
                     <span class="menu-text">Detalhes</span>
-                </a> |
+                </a> | <a href="~/Oportunidade/Edit/@item.OportunidadeId">
+                    <i class="menu-icon fa fa-pencil"></i>
+                    <span class="menu-text">Edit</span>
+                </a> |<a href="~/Oportunidade/CartaDeEncaminhamento/@item.OportunidadeId">
+                    <i class="menu-icon fa fa-plus"></i>
+                    <span class="menu-text">Gera Carta de Encaminhamento</span>
+                </a>
             </td>
         </tr>
     }

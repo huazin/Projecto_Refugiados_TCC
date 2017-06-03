@@ -11,6 +11,10 @@
     <a href="~/Projeto/Create">
         <i class="menu-icon fa fa-plus"></i>
         <span class="menu-text">Novo Projeto</span>
+    </a> |
+    <a href="~/Oportunidade/Index">
+        <i class="menu-icon fa fa-university"></i>
+        <span class="menu-text">Pagina Oportunidade</span>
     </a>
 </p>
 @using (@Html.BeginForm())
@@ -75,41 +79,45 @@
         <th>
             @Html.DisplayNameFor(model => model.CNPJ)
         </th>
-        <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CNPJ)
-        </td>
-        <td>
-            <a href="~/Projeto/Edit/@item.ProjetoId">
-                <i class="menu-icon fa fa-pencil"></i>
-                <span class="menu-text">Editar</span>
-            </a> | <a href="~/Projeto/Details/@item.ProjetoId">
-                <i class="menu-icon fa fa-info"></i>
-                <span class="menu-text">Detalhes</span>
-            </a> |
-            @if (item.Ativo)
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CNPJ)
+            </td>
+            <td>
+                <a href="~/Views/Projeto/Edit/@item.ProjetoId">
+                    <i class="menu-icon fa fa-pencil"></i>
+                    <span class="menu-text">Editar</span>
+                </a> |
+                <a href="~/Projeto/Details/@item.ProjetoId">
+                    <i class="menu-icon fa fa-info"></i>
+                    <span class="menu-text">Detalhes</span>
+                </a> |
+                @if (item.Ativo)
                 {
-                <a href="~/Projeto/Index/?id=@item.ProjetoId&ativador=1">
-                    <i class="menu-icon fa fa-trash"></i>
-                    <span class="menu-text">Inativar</span>
-                </a>
-            }
-            else
-            {
-                <a href="~/Projeto/Index/?id=@item.ProjetoId&ativador=0">
-                    <i class="menu-icon fa fa-check"></i>
-                    <span class="menu-text">Ativar</span>
-                </a>
-            }
-        </td>
-    </tr>
-}
+                    <a href="~/Projeto/Index/?id=@item.ProjetoId&ativador=1">
+                        <i class="menu-icon fa fa-trash"></i>
+                        <span class="menu-text">Inativar</span>
+                    </a> <span>|</span> <a href="~/Oportunidade/Create/@item.ProjetoId">
+                            <i class="menu-icon fa fa-plus"></i>
+                            <span class="menu-text">Nova Oportunidade</span>
+                        </a>
+                }
+                else
+                {
+                    <a href="~/Projeto/Index/?id=@item.ProjetoId&ativador=0">
+                        <i class="menu-icon fa fa-check"></i>
+                        <span class="menu-text">Ativar</span>
+                    </a>
+                }
+            </td>
+        </tr>
+    }
 
 </table>

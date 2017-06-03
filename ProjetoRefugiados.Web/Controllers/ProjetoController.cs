@@ -14,6 +14,7 @@ namespace ProjetoRefugiados.Web.Controllers
     {
         ProjetoRepository repoPro = new ProjetoRepository();
         // GET: Projeto
+        [Authorize(Roles = "Administrador,Estagiario,Atendente")]
         public ActionResult Index(int? id, int? ativador)
         {
             if (id != null && ativador != null)
@@ -24,6 +25,7 @@ namespace ProjetoRefugiados.Web.Controllers
             return View(Mapper.Map<IEnumerable<ProjetoViewModel>>(repoPro.List()));
         }
 
+        [Authorize(Roles = "Administrador,Estagiario,Atendente")]
         [HttpPost]
         public ActionResult Index(string tipo, string id)
         {
@@ -35,12 +37,14 @@ namespace ProjetoRefugiados.Web.Controllers
         }
 
         // GET: Projeto/Details/5
+        [Authorize(Roles = "Administrador,Estagiario,Atendente")]
         public ActionResult Details(int id)
         {
             return View(Mapper.Map<ProjetoViewModel>(repoPro.FindById(id)));
         }
 
         // GET: Projeto/Create
+        [Authorize(Roles = "Administrador,Estagiario,Atendente")]
         public ActionResult Create()
         {
             return View();
@@ -48,6 +52,7 @@ namespace ProjetoRefugiados.Web.Controllers
 
         // POST: Projeto/Create
         [HttpPost]
+        [Authorize(Roles = "Administrador,Estagiario,Atendente")]
         public ActionResult Create(ProjetoViewModel projeto)
         {
             if(ModelState.IsValid)
@@ -59,6 +64,7 @@ namespace ProjetoRefugiados.Web.Controllers
         }
 
         // GET: Projeto/Edit/5
+        [Authorize(Roles = "Administrador,Estagiario,Atendente")]
         public ActionResult Edit(int id)
         {
             return View(Mapper.Map<ProjetoViewModel>(repoPro.FindById(id)));
@@ -66,6 +72,7 @@ namespace ProjetoRefugiados.Web.Controllers
 
         // POST: Projeto/Edit/5
         [HttpPost]
+        [Authorize(Roles = "Administrador,Estagiario,Atendente")]
         public ActionResult Edit(Projeto projeto)
         {
             if (ModelState.IsValid)

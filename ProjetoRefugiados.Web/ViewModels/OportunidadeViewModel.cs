@@ -25,11 +25,12 @@ namespace ProjetoRefugiados.Web.ViewModels
 
         [Required(ErrorMessage = "A quantiade de vagas é obrigatoria")]
         [DisplayName("Quantidade de Vagas")]
-        [Range(0,100,ErrorMessage = "Quantidade invalida")]
+        [Range(1,100,ErrorMessage = "Quantidade invalida")]
         public int Quantidade { get; set; }
+        public bool Ativo { get; set; }
 
         [ScaffoldColumn(false)]
-        public virtual ICollection<Refugiado> Associados { get; set; }
+        public virtual ICollection<CartaDeEncaminhamento> Associados { get; set; }
         [ScaffoldColumn(false)]
         public int ProjetoId { get; set; }
         [ScaffoldColumn(false)]

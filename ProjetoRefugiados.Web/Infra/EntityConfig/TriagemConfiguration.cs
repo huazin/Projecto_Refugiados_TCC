@@ -22,31 +22,39 @@ namespace ProjetoRefugiados.Web.Infra.EntityConfig
                 .IsOptional()
                 .HasMaxLength(255);
 
-            Property(p => p.AlergiasId)
-                .IsOptional();
+            //Property(p => p.AlergiasId)
+            //    .IsOptional();
 
-            HasMany<Cid>(p => p.Alergias)
-                .WithMany(c => c.AlergiasTri)
-                .Map(m =>
-                {
-                    m.ToTable("Triagem_Alergias");
-                    m.MapLeftKey("TriagemId");
-                    m.MapRightKey("CidId");
-                }
-                );
+            //HasMany<Cid>(p => p.Alergias)
+            //    .WithMany(c => c.AlergiasTri)
+            //    .Map(m =>
+            //    {
+            //        m.ToTable("Triagem_Alergias");
+            //        m.MapLeftKey("TriagemId");
+            //        m.MapRightKey("CidId");
+            //    }
+            //    );
 
-            Property(p => p.DoencasInfectId)
-                .IsOptional();
+            HasRequired(p => p.Alergias)
+                .WithMany()
+                .HasForeignKey(p => p.AlergiasId);
 
-            HasMany<Cid>(p => p.DoencasInfecto)
-                .WithMany(c => c.DoencasInfectoTri)
-                .Map(m =>
-                {
-                    m.ToTable("DoencasTriagem");
-                    m.MapLeftKey("TriagemId");
-                    m.MapRightKey("CidId");
-                }
-                );
+            //Property(p => p.DoencasInfectId)
+            //    .IsOptional();
+
+            //HasMany<Cid>(p => p.DoencasInfecto)
+            //    .WithMany(c => c.DoencasInfectoTri)
+            //    .Map(m =>
+            //    {
+            //        m.ToTable("DoencasTriagem");
+            //        m.MapLeftKey("TriagemId");
+            //        m.MapRightKey("CidId");
+            //    }
+            //    );
+
+            HasRequired(p => p.DoencasInfecto)
+               .WithMany()
+               .HasForeignKey(p => p.DoencasInfectId);
 
             Property(p => p.UsoDrogas)
                 .IsRequired();
@@ -64,14 +72,18 @@ namespace ProjetoRefugiados.Web.Infra.EntityConfig
             Property(p => p.AntecedentesId)
                 .IsOptional();
 
-            HasMany<Cid>(p => p.Antecedentes)
-                .WithMany(c => c.AntecedentesTri)
-                .Map(m =>
-                {
-                    m.ToTable("AntecedentesTriagem");
-                    m.MapLeftKey("TriagemId");
-                    m.MapRightKey("CidId");
-                });
+            //HasMany<Cid>(p => p.Antecedentes)
+            //    .WithMany(c => c.AntecedentesTri)
+            //    .Map(m =>
+            //    {
+            //        m.ToTable("AntecedentesTriagem");
+            //        m.MapLeftKey("TriagemId");
+            //        m.MapRightKey("CidId");
+            //    });
+
+            HasRequired(p => p.Antecedentes)
+                .WithMany()
+                .HasForeignKey(p => p.AntecedentesId);
 
             Property(p => p.HabitosHigienicos)
                 .IsRequired();

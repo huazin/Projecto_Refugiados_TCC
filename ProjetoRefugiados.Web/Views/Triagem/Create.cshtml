@@ -13,6 +13,7 @@
     {
         visivel = "Hidden";
     }
+    var id = ViewBag.id;
 }
 
 <h2>Nova Triagem</h2>
@@ -31,6 +32,9 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.QueixaAtual, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.QueixaAtual, "", new { @class = "text-danger" })
+            </div>
+            <div hidden>
+                @Html.EditorFor(model => model.RefugiadoId, new { htmlAttributes = new { @class = "form-control", @Value = @id } })
             </div>
         </div>
 

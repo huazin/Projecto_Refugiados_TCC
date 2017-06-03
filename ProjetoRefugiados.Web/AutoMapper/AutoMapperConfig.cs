@@ -28,6 +28,9 @@ namespace ProjetoRefugiados.Web.AutoMapper
                 x.CreateMap<Oportunidade, OportunidadeViewModel>().MaxDepth(2);
                 x.CreateMap<OportunidadeViewModel, Oportunidade>().MaxDepth(2);
 
+                x.CreateMap<CartaDeEncaminhamento, CartaDeEncaminhamentoViewModel>().MaxDepth(2);
+                x.CreateMap<CartaDeEncaminhamentoViewModel, CartaDeEncaminhamento>().MaxDepth(2);
+
                 //Secunrarias
                 x.CreateMap<ReligiaoViewModel, Religiao>().MaxDepth(2);
                 x.CreateMap<PaisViewModel, Pais>().MaxDepth(2);

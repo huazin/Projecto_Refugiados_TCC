@@ -24,11 +24,13 @@ namespace ProjetoRefugiados.Web.ViewModels
         [MaxLength(255, ErrorMessage = "Tamanho Maximo atingido")]
         public string Tratamentos { get; set; }
 
-        public int AlergiasId { get; set; }
-        public virtual ICollection<CidViewModel> Alergias { get; set; }
+        [DisplayName("Alergias:")]
+        public string AlergiasId { get; set; }
+        public virtual CidViewModel Alergias { get; set; }
 
-        public int DoencasInfectId { get; set; }
-        public virtual ICollection<CidViewModel> DoencasInfecto { get; set; }
+        [DisplayName("Doencas Infec:")]
+        public string DoencasInfectId { get; set; }
+        public virtual CidViewModel DoencasInfecto { get; set; }
 
         [Required]
         [DisplayName("Uso de Drogas líctas ou ilícitas?")]
@@ -46,8 +48,9 @@ namespace ProjetoRefugiados.Web.ViewModels
         [Range(0, int.MaxValue, ErrorMessage = "Numeração invalida")]
         public int MedicacaoTempo { get; set; }
 
-        public int AntecedentesId { get; set; }
-        public virtual ICollection<CidViewModel> Antecedentes { get; set; }
+        [DisplayName("Antecedentes:")]
+        public string AntecedentesId { get; set; }
+        public virtual CidViewModel Antecedentes { get; set; }
 
         [Required]
         [DisplayName("Hábitos higiênicos satisfatórios?")]

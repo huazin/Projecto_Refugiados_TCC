@@ -14,8 +14,9 @@ namespace ProjetoRefugiados.Web.Domain.Models
         public string Descricao { get; set; }
 
         public int Quantidade { get; set; }
+        public bool Ativo { get; set; }
 
-        public virtual ICollection<Refugiado> Associados { get; set; }
+        public virtual ICollection<CartaDeEncaminhamento> Associados { get; set; }
         public int ProjetoId { get; set; }
         public virtual Projeto projeto { get; set; }
     }

@@ -29,6 +29,6 @@ namespace ProjetoRefugiados.Web.Domain.Models
 
         public virtual ICollection<Triagem> Triagens { get; set; }
 
-        public virtual ICollection<Oportunidade> Oportunidades { get; set; }
+        public virtual ICollection<CartaDeEncaminhamento> Oportunidades { get; set; }
     }
 }

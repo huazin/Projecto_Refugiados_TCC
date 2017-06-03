@@ -11,16 +11,16 @@ namespace ProjetoRefugiados.Web.Domain.Models
         public int TriagemId { get; set; }
         public string QueixaAtual { get; set; }
         public string Tratamentos { get; set; }
-        public int AlergiasId { get; set; }
-        public virtual ICollection<Cid> Alergias { get; set; }
-        public int DoencasInfectId { get; set; }
-        public virtual ICollection<Cid> DoencasInfecto { get; set; }
+        public string AlergiasId { get; set; }
+        public virtual Cid Alergias { get; set; }
+        public string DoencasInfectId { get; set; }
+        public virtual Cid DoencasInfecto { get; set; }
         public bool UsoDrogas { get; set; }
         public int UsoDrogaTempo { get; set; }
         public string MedicacaoContinua { get; set; }
         public int MedicacaoTempo { get; set; }
-        public int AntecedentesId { get; set; }
-        public virtual ICollection<Cid> Antecedentes { get; set; }
+        public string AntecedentesId { get; set; }
+        public virtual Cid Antecedentes { get; set; }
         public bool HabitosHigienicos { get; set; }
         public string Alimentacao { get; set; }
         public string IngestaoHidrica { get; set; }

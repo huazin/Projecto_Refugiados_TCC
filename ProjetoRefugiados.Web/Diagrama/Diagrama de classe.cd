@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ProjetoRefugiados.Web.Domain.Models.Oportunidade">
+    <Position X="13.25" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAAAEAAAAAwAAAAAQAAAAQBAAAABA=</HashCode>
+      <FileName>Domain\Models\Oportunidade.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Associados" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="ProjetoRefugiados.Web.Domain.Models.Projeto">
+    <Position X="9.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAEAAAAAgAAJAAAAAAAAAAEAEAQ=</HashCode>
+      <FileName>Domain\Models\Projeto.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Endereco" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Oportunidades" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="ProjetoRefugiados.Web.Domain.Models.Refugiado">
+    <Position X="9.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>oCAQAAIAAAQAAgAAgGEAAACAAACBAAAIEAABIAEAGAA=</HashCode>
+      <FileName>Domain\Models\Refugiado.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Religiao" />
+      <Property Name="Nascionalidade" />
+      <Property Name="Profissao" />
+      <Property Name="Pais" />
+      <Property Name="Endereco" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Triagens" />
+      <Property Name="Oportunidades" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="ProjetoRefugiados.Web.Domain.Models.Triagem">
+    <Position X="5.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>JyEAAoAAIAEAWgAIEGNQBAkCAggACAAEAFFAAEIIDBA=</HashCode>
+      <FileName>Domain\Models\Triagem.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="refugiado" />
+      <Property Name="DoencasInfecto" />
+      <Property Name="Antecedentes" />
+      <Property Name="Alergias" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ProjetoRefugiados.Web.Domain.Models.Secudarias.Cid">
+    <Position X="1.5" Y="1" Width="1.5" />
+    <Members>
+      <Property Name="AlergiasTri" Hidden="true" />
+      <Property Name="AntecedentesTri" Hidden="true" />
+      <Property Name="DoencasInfectoTri" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAAAAgAAAAAAAAAIAAAAAAAIACAAA=</HashCode>
+      <FileName>Domain\Models\Secudarias\Cid.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjetoRefugiados.Web.Domain.Models.Secudarias.Endereco">
+    <Position X="7.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAEAAAAAABAACAAAAAAAACAAAAAAAAAAAAAAAAACAg=</HashCode>
+      <FileName>Domain\Models\Secudarias\Endereco.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Refugiado" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ProjetoRefugiados.Web.Domain.Models.Secudarias.EnderecoProjeto">
+    <Position X="7" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAABAACAAAABAAACAgAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Domain\Models\Secudarias\EnderecoProjeto.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Projeto" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ProjetoRefugiados.Web.Domain.Models.Secudarias.Nascionalidade">
+    <Position X="9.5" Y="0.5" Width="1.5" />
+    <Members>
+      <Property Name="Refugiados" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAMAAAA=</HashCode>
+      <FileName>Domain\Models\Secudarias\Nascionalidade.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjetoRefugiados.Web.Domain.Models.Secudarias.Pais">
+    <Position X="12.25" Y="4.25" Width="1.5" />
+    <Members>
+      <Property Name="Refugiados" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAAA=</HashCode>
+      <FileName>Domain\Models\Secudarias\Pais.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjetoRefugiados.Web.Domain.Models.Secudarias.Profissao">
+    <Position X="11.75" Y="0.5" Width="1.5" />
+    <Members>
+      <Property Name="Refugiados" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAMAAAA=</HashCode>
+      <FileName>Domain\Models\Secudarias\Profissao.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjetoRefugiados.Web.Domain.Models.Secudarias.Religiao">
+    <Position X="12.25" Y="2.5" Width="1.5" />
+    <Members>
+      <Property Name="Refugiados" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAMAAAA=</HashCode>
+      <FileName>Domain\Models\Secudarias\Religiao.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjetoRefugiados.Web.Domain.Models.CartaDeEncaminhamento">
+    <Position X="15.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAAACgAAAAAAAACBAAAAAAAAAAgABAAADAA=</HashCode>
+      <FileName>Domain\Models\CartaDeEncaminhamento.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="refugiado" />
+      <Property Name="oportunidade" />
+    </ShowAsAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

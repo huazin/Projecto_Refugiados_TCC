@@ -35,10 +35,11 @@ namespace ProjetoRefugiados.Web.Controllers
             ViewBag.Cid = repoCid.List().Select(x => new SelectListItem()
             {
                 Text = x.Descricao,
-                Value = x.CidId.ToString()
+                Value = x.CidId
             });
             ViewBag.refugiado = nome;
             ViewBag.sexo = sexo;
+            ViewBag.id = id;
             return View();
         }
 

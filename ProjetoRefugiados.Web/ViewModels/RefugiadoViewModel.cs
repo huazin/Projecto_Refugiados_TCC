@@ -1,4 +1,5 @@
-﻿using ProjetoRefugiados.Web.ViewModels.Validadores;
+﻿using ProjetoRefugiados.Web.Domain.Models;
+using ProjetoRefugiados.Web.ViewModels.Validadores;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -83,7 +84,8 @@ namespace ProjetoRefugiados.Web.ViewModels
 
         [ScaffoldColumn(false)]
         public virtual EnderecoViewModel Endereco { get; set; }
-        //[ScaffoldColumn(false)]
+        [ScaffoldColumn(false)]
         public virtual ICollection<TriagemViewModel> Triagens { get; set; }
+        public virtual ICollection<CartaDeEncaminhamento> Oportunidades { get; set; }
     }
 }

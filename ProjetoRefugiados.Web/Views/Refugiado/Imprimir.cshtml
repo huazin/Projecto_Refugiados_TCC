@@ -1,0 +1,80 @@
+﻿@model ProjetoRefugiados.Web.ViewModels.CartaDeEncaminhamentoViewModel
+@{
+    Layout = "~/Views/Shared/_PDF.cshtml";
+    ;// ViewBag.Title = "Carta de encaminhamento";
+}
+<style type="text/css">
+    h1 {font-size: 40px;}
+    p {font-size: 30px;}
+    span{font-size: 25px;}
+</style>
+<div>
+    <div>
+        <h1 class="col-xs-offset-3">Carta de Encaminhamento</h1>
+    </div>
+    <div>
+        <p class="col-xs-offset-2">(Projetos de Saúde/Moradia/Educação/Trabalho)</p>
+    </div>
+    <div>
+        <hr />
+    </div>
+    <div class="col-xs-12">
+        <p>Encaminho o Sr(a) @Model.refugiado.Nome Imigrante de Nacionalidade @Model.refugiado.Nascionalidade.Nome e solicito atenção para seu atendimento, no projeto @Model.oportunidade.projeto.Nome localizado(a) na(o) @Model.oportunidade.projeto.Endereco.Longadouro, @Model.oportunidade.projeto.Endereco.Complemento, tendo em consideração as necessidades identificadas pelos responsáveis neste projeto, e expostas a seguir:</p>
+    </div>
+    <div class="col-xs-12">
+        <p>
+            ____________________________________________________________________________
+        </p>
+    </div>
+    <div class="col-xs-12">
+        <p>
+            ____________________________________________________________________________
+        </p>
+    </div>
+    <div class="col-xs-12">
+        <p>
+            ____________________________________________________________________________
+        </p>
+    </div>
+    <div class="col-xs-12">
+        <p>
+            ____________________________________________________________________________
+        </p>
+    </div>
+    <div class="col-xs-12">
+        <p>
+            ____________________________________________________________________________
+        </p>
+    </div>
+    <div class="col-xs-12">
+        <p>
+            ____________________________________________________________________________
+        </p>
+    </div>
+    <div class="col-xs-12">
+        <p>
+            ____________________________________________________________________________
+        </p>
+    </div>
+    <div class="col-xs-12">
+        <p>São Paulo, @DateTime.Now.Day de @DateTime.Now.Month de @DateTime.Now.Year.</p>
+    </div>
+    <div>
+        <hr />
+    </div>
+    <div class="col-xs-offset-1 col-xs-4">
+        <div class="dl-horizontal text-center">
+            <span>Sindicomunitário-SP</span>
+            <span> ___________________________</span>
+            <span>José Roberto Prebill</span>
+            <span>Presidente</span>
+        </div>
+    </div>
+    <div class="col-xs-offset-1 col-xs-6 text-center">
+        <div class="dl-horizontal">
+            <span>Responsável pelo encaminhamento</span>
+            <span>________________________</span>
+            <span>Carimbo/Assinatura</span>
+        </div>
+    </div>
+</div>

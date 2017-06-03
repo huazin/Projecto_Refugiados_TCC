@@ -2,6 +2,7 @@
 using ProjetoRefugiados.Web.Domain.Models;
 using ProjetoRefugiados.Web.Infra.Repository;
 using ProjetoRefugiados.Web.ViewModels;
+using RazorPDF;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,13 +14,22 @@ namespace ProjetoRefugiados.Web.Controllers
     public class OportunidadeController : Controller
     {
         OportunidadeRepository repo = new OportunidadeRepository();
+        CartaDeEncaminhamentoRepository repoCarta = new CartaDeEncaminhamentoRepository();
+        RefugiadoRepository repoRefu = new RefugiadoRepository();
         // GET: Oportunidade
-        public ActionResult Index()
+        [Authorize(Roles = "Administrador,Estagiario,Atendente")]
+        public ActionResult Index(int? id, int? ativador)
         {
+            if (id != null && ativador != null)
+            {
+                if (ativador == 1) repo.Remove(id.Value);
+                else repo.Ativar(id.Value);
+            }
             return View(Mapper.Map<IEnumerable<OportunidadeViewModel>>(repo.ListVagos()));
         }
 
         [HttpPost]
+        [Authorize(Roles = "Administrador,Estagiario,Atendente")]
         public ActionResult Index(string tipo, string id)
         {
             if (String.IsNullOrEmpty(id))
@@ -29,19 +39,23 @@ namespace ProjetoRefugiados.Web.Controllers
             return View(Mapper.Map<IEnumerable<ProjetoViewModel>>(repo.ListEmpresa(id)));
         }
         // GET: Oportunidade/Details/5
+        [Authorize(Roles = "Administrador,Estagiario,Atendente")]
         public ActionResult Details(int id)
         {
             return View(Mapper.Map<OportunidadeViewModel>(repo.FindById(id)));
         }
 
         // GET: Oportunidade/Create
-        public ActionResult Create()
+        [Authorize(Roles = "Administrador,Estagiario,Atendente")]
+        public ActionResult Create(int id)
         {
+            ViewBag.id = id;
             return View();
         }
 
         // POST: Oportunidade/Create
         [HttpPost]
+        [Authorize(Roles = "Administrador,Estagiario,Atendente")]
         public ActionResult Create(OportunidadeViewModel oportunidade)
         {
             if(ModelState.IsValid)
@@ -49,10 +63,12 @@ namespace ProjetoRefugiados.Web.Controllers
                 repo.Add(Mapper.Map<Oportunidade>(oportunidade));
                 return RedirectToAction("Index");
             }
+            var errors = ModelState.Values.SelectMany(v => v.Errors);
             return View(oportunidade);
         }
 
         // GET: Oportunidade/Edit/5
+        [Authorize(Roles = "Administrador,Estagiario,Atendente")]
         public ActionResult Edit(int id)
         {
             return View(Mapper.Map<OportunidadeViewModel>(repo.FindById(id)));
@@ -60,6 +76,7 @@ namespace ProjetoRefugiados.Web.Controllers
 
         // POST: Oportunidade/Edit/5
         [HttpPost]
+        [Authorize(Roles = "Administrador,Estagiario,Atendente")]
         public ActionResult Edit(OportunidadeViewModel oportunidade)
         {
             if (ModelState.IsValid)
@@ -68,6 +85,25 @@ namespace ProjetoRefugiados.Web.Controllers
                 return RedirectToAction("Index");
             }
             return View(oportunidade);
+        }
+        [Authorize(Roles = "Administrador,Estagiario,Atendente")]
+        public ActionResult CartaDeEncaminhamento(int id)
+        {
+            ViewBag.id = id;
+            return View();
+        }
+
+        [HttpPost]
+        [Authorize(Roles = "Administrador,Estagiario,Atendente")]
+        public ActionResult CartaDeEncaminhamento(CartaDeEncaminhamentoViewModel carta)
+        {
+            if(ModelState.IsValid)
+            {
+                carta.RefugiadoId = repoRefu.FindByCPF(carta.CPF).RefugiadoId;
+                repoCarta.Add(Mapper.Map<CartaDeEncaminhamento>(carta));
+                return RedirectToAction("~/Refugiado/Details/" + carta.RefugiadoId);
+            }
+            return View(carta);
         }
     }
 }

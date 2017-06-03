@@ -23,22 +23,28 @@
                                 <div class="form-group">
                                     @Html.LabelFor(m => m.CPF, new { @class = "control-label" })
                                     @Html.TextBoxFor(m => m.CPF, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.CPF, "", new { @class = "text-danger" })
                                 </div>
                                 <div class="form-group">
                                     @Html.LabelFor(m => m.Email, new { @class = "control-label" })
                                     @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
                                 </div>
                                 <div class="form-group">
                                     @Html.LabelFor(m => m.Nome, new { @class = "control-label" })
                                     @Html.TextBoxFor(m => m.Nome, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.Nome, "", new { @class = "text-danger" })
+
                                 </div>
                                 <div class="form-group">
                                     @Html.LabelFor(m => m.Password, new { @class = "control-label" })
                                     @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
                                 </div>
                                 <div class="form-group">
                                     @Html.LabelFor(m => m.ConfirmPassword, new { @class = "control-label" })
                                     @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
                                 </div>
                                 <div class="form-group">
                                     <div class="col-sm-offset-1 colsm11 col-md-offset-2 col-md-10">
