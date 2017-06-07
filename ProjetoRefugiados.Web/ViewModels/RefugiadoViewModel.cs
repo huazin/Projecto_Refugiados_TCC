@@ -18,7 +18,7 @@ namespace ProjetoRefugiados.Web.ViewModels
         public string Nome { get; set; }
 
         [Required(ErrorMessage = "CPF é obrigatorio")]
-        [ValidadorCPF]
+        [ValidadorCPFAttribute]
         public string CPF { get; set; }
 
         [Required(ErrorMessage = "RG é obrigatorio")]
@@ -54,7 +54,7 @@ namespace ProjetoRefugiados.Web.ViewModels
         public bool Vascinacao { get; set; }
 
         [Required(ErrorMessage = "Quantidade de membros na familia é obrigatorio")]
-        [Range(0, int.MaxValue, ErrorMessage = "Numeração invalida")]
+        [Range(0, 20, ErrorMessage = "Numeração invalida")]
         [DisplayName("Quantidade de membros na familia?")]
         public int MembrosNaFamilia { get; set; }
 

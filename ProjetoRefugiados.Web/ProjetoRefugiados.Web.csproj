@@ -211,7 +211,9 @@
     <Compile Include="Controllers\ProjetoController.cs" />
     <Compile Include="Controllers\RefugiadoController.cs" />
     <Compile Include="Controllers\TriagemController.cs" />
+    <Compile Include="Domain\Models\Acolhedor.cs" />
     <Compile Include="Domain\Models\CartaDeEncaminhamento.cs" />
+    <Compile Include="Domain\Models\FamiliarAcolhedor.cs" />
     <Compile Include="Domain\Models\Oportunidade.cs" />
     <Compile Include="Domain\Models\Projeto.cs" />
     <Compile Include="Domain\Models\Refugiado.cs" />
@@ -227,7 +229,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infra\Context\ProjetoRefugiadosContext.cs" />
+    <Compile Include="Infra\EntityConfig\AcolhedorConfiguration.cs" />
     <Compile Include="Infra\EntityConfig\CartaDeEncaminhamentoConfiguration.cs" />
+    <Compile Include="Infra\EntityConfig\FamiliarAcolhedorConfiguration.cs" />
     <Compile Include="Infra\EntityConfig\OportunidadeConfiguration.cs" />
     <Compile Include="Infra\EntityConfig\ProjetoConfiguration.cs" />
     <Compile Include="Infra\EntityConfig\Secundarios\CidConfiguration.cs" />
@@ -239,10 +243,12 @@
     <Compile Include="Infra\EntityConfig\Secundarios\ProfissaoConfiguration.cs" />
     <Compile Include="Infra\EntityConfig\Secundarios\ReligiaoConfiguration.cs" />
     <Compile Include="Infra\EntityConfig\TriagemConfiguration.cs" />
+    <Compile Include="Infra\Repository\AcolhedorRepository.cs" />
     <Compile Include="Infra\Repository\CartaDeEncaminhamentoRepository.cs" />
     <Compile Include="Infra\Repository\CidRepository.cs" />
     <Compile Include="Infra\Repository\EnderecoProjetoRepository.cs" />
     <Compile Include="Infra\Repository\EnderecoRepository.cs" />
+    <Compile Include="Infra\Repository\FamiliarAcolhedorRepository.cs" />
     <Compile Include="Infra\Repository\ICrud.cs" />
     <Compile Include="Infra\Repository\NascionalidadeRepository.cs" />
     <Compile Include="Infra\Repository\OportunidadeRepository.cs" />
@@ -258,10 +264,12 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\AcolhedorViewModel.cs" />
     <Compile Include="ViewModels\CartaDeEncaminhamentoViewModel.cs" />
     <Compile Include="ViewModels\CidViewModel.cs" />
     <Compile Include="ViewModels\EnderecoProjetoViewModel.cs" />
     <Compile Include="ViewModels\EnderecoViewModel.cs" />
+    <Compile Include="ViewModels\FamiliarAcolhedorViewModel.cs" />
     <Compile Include="ViewModels\NascionalidadeViewModel.cs" />
     <Compile Include="ViewModels\OportunidadeViewModel.cs" />
     <Compile Include="ViewModels\PaisViewModel.cs" />
@@ -272,6 +280,7 @@
     <Compile Include="ViewModels\TriagemViewModel.cs" />
     <Compile Include="ViewModels\Validadores\PropriedadesFemeninasAttribute.cs" />
     <Compile Include="ViewModels\Validadores\ValidadorCPF.cs" />
+    <Compile Include="ViewModels\Validadores\ValidadorCPFAcolhedorAttribute.cs" />
     <Compile Include="ViewModels\Validadores\ValidadorCPFAttribute.cs" />
     <Compile Include="ViewModels\Validadores\ValidadorCPFCartaAttribute.cs" />
   </ItemGroup>

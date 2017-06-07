@@ -16,14 +16,14 @@ namespace ProjetoRefugiados.Web.Infra.Context
         {
 
         }
-
         //Principais
         public DbSet<Refugiado> Refugiados { get; set; }
         public DbSet<Triagem> Triagens { get; set; }
         public DbSet<Projeto> Projetos { get; set; }
         public DbSet<Oportunidade> Oportunidades { get; set; }
         public DbSet<CartaDeEncaminhamento> CartaoDeEncaminhamento { get; set; }
-
+        public DbSet<Acolhedor> Acolhedores { get; set; }
+        public DbSet<FamiliarAcolhedor> FamiliarAcolhedores { get; set; }
         //Secundarias
         public DbSet<Nascionalidade> Nacionalidades { get; set; }
         public DbSet<Pais> Paises { get; set; }
@@ -59,6 +59,8 @@ namespace ProjetoRefugiados.Web.Infra.Context
             modelBuilder.Configurations.Add(new ProjetoConfiguration());
             modelBuilder.Configurations.Add(new OportunidadeConfiguration());
             modelBuilder.Configurations.Add(new CartaDeEncaminhamentoConfiguration());
+            modelBuilder.Configurations.Add(new AcolhedorConfiguration());
+            modelBuilder.Configurations.Add(new FamiliarAcolhedorConfiguration());
 
             //Secundarias
             modelBuilder.Configurations.Add(new NascionalidadeConfiguration());

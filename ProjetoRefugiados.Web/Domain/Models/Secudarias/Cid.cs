@@ -13,6 +13,8 @@ namespace ProjetoRefugiados.Web.Domain.Models.Secudarias
         public ICollection<Triagem> AlergiasTri { get; set; }
         public ICollection<Triagem> DoencasInfectoTri { get; set; }
         public ICollection<Triagem> AntecedentesTri { get; set; }
+        public ICollection<Acolhedor> Deficiencia { get; set; }
+        public ICollection<FamiliarAcolhedor> DeficienciaFamiliar { get; set; }
 
     }
 }
