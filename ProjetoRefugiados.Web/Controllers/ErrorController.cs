@@ -6,15 +6,10 @@ using System.Web.Mvc;
 
 namespace ProjetoRefugiados.Web.Controllers
 {
-    public class AdmController : Controller
+    public class ErrorController : Controller
     {
-        // GET: Adm
+        // GET: Error
         public ActionResult Index()
-        {
-            return View();
-        }
-        
-        public ActionResult NovoFuncionario()
         {
             return View();
         }

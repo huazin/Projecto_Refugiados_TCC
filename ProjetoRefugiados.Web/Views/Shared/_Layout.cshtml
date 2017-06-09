@@ -103,36 +103,51 @@
                             <span class="menu-text">Home</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="~/Refugiado/Index">
-                            <i class="menu-icon fa fa-users"></i>
-                            <span class="menu-text">Refugiados</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="~/Acolhedor/Cadastro">
-                            <i class="menu-icon fa fa-heart"></i>
-                            <span class="menu-text">Acolhedores</span>
-                        </a>
-                    </li>
+                    @if (User.IsInRole("Administrador") || User.IsInRole("Estagiario") || User.IsInRole("Atendente"))
+                    {
+                        <li>
+                            <a href="~/Refugiado/Index">
+                                <i class="menu-icon fa fa-users"></i>
+                                <span class="menu-text">Refugiados</span>
+                            </a>
+                        </li>
+                    }
+                    @if (User.IsInRole("Administrador") || User.IsInRole("Estagiario") || User.IsInRole("Atendente"))
+                    {
+                        <li>
+                            <a href="~/Acolhedor/Index">
+                                <i class="menu-icon fa fa-heart"></i>
+                                <span class="menu-text">Acolhedores</span>
+                            </a>
+                        </li>
+                    }
+                    @if(User.IsInRole("Administrador") || User.IsInRole("Estagiario") || User.IsInRole("Enfermeiro"))
+                    { 
                     <li>
                         <a href="~/Triagem/Index">
                             <i class="menu-icon fa fa-heartbeat"></i>
                             <span class="menu-text">Triagem</span>
                         </a>
                     </li>
+                    }
+                    @if (User.IsInRole("Administrador") || User.IsInRole("Estagiario") || User.IsInRole("Atendente"))
+                    {
                     <li>
                         <a href="~/Projeto/Index">
                             <i class="menu-icon fa fa-industry"></i>
                             <span class="menu-text">Projetos</span>
                         </a>
                     </li>
+                    }
+                    @if(User.IsInRole("Administrador"))
+                    {
                     <li>
-                        <a href="~/Adm/NovoFuncionario">
+                        <a href="~/Administrador/Index">
                             <i class="menu-icon fa fa-book"></i>
                             <span class="menu-text">Administração</span>
                         </a>
                     </li>
+                    }
                 </ul>
             }
             else
@@ -165,7 +180,7 @@
                         <div class="col-xs-12">
                             @RenderBody()
                         </div>
-                       
+
                     </div>
                 </div>
             </div>

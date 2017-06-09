@@ -1,4 +1,8 @@
-﻿using System;
+﻿using AutoMapper;
+using ProjetoRefugiados.Web.Domain.Models;
+using ProjetoRefugiados.Web.Infra.Repository;
+using ProjetoRefugiados.Web.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,82 +12,89 @@ namespace ProjetoRefugiados.Web.Controllers
 {
     public class AcolhedorController : Controller
     {
+        AcolhedorRepository repo = new AcolhedorRepository();
+        CidRepository repoCid = new CidRepository();
         // GET: Acolhedor
-        public ActionResult Index()
+        [Authorize(Roles = "Administrador,Estagiario,Atendente")]
+        public ActionResult Index(int? id, int? ativador)
         {
-            return View();
+            if (id != null && ativador != null)
+            {
+                if (ativador == 1) repo.Remove(id.Value);
+                else repo.Ativar(id.Value);
+            }
+            return View(Mapper.Map<IEnumerable<AcolhedorViewModel>>(repo.List()));
         }
 
+        [Authorize(Roles = "Administrador,Estagiario,Atendente")]
+        [HttpPost]
+        public ActionResult Index(string tipo, string id)
+        {
+            if (String.IsNullOrEmpty(id))
+                return View(Mapper.Map<IEnumerable<AcolhedorViewModel>>(repo.ListAll()));
+            if (tipo == "nome")
+                return View(Mapper.Map<IEnumerable<AcolhedorViewModel>>(repo.ListNome(id)));
+            return View(Mapper.Map<IEnumerable<AcolhedorViewModel>>(repo.ListCpf(id)));
+        }
+
+        [Authorize(Roles = "Administrador,Estagiario,Atendente")]
         // GET: Acolhedor/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            return View(Mapper.Map<Acolhedor>(repo.FindById(id)));
         }
 
+        [Authorize(Roles = "Administrador,Estagiario,Atendente")]
         // GET: Acolhedor/Create
         public ActionResult Create()
         {
+            ViewBag.Cid = repoCid.List().Select(x => new SelectListItem()
+            {
+                Text = x.Descricao,
+                Value = x.CidId
+            });
             return View();
         }
 
+        [Authorize(Roles = "Administrador,Estagiario,Atendente")]
         // POST: Acolhedor/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(AcolhedorViewModel acolhedor)
         {
-            try
+            if(!ModelState.IsValid)
             {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
+                repo.Add(Mapper.Map<Acolhedor>(acolhedor));
+                var acolhedorTemp = repo.ListCpf(acolhedor.Cpf);
+                int id = acolhedorTemp.Where(p => p.Ativo == true).Single().AcolhedorId;
+                return (Details(id));
             }
-            catch
-            {
-                return View();
-            }
+            return View(acolhedor);
         }
 
+        [Authorize(Roles = "Administrador,Estagiario,Atendente")]
         // GET: Acolhedor/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            ViewBag.Cid = repoCid.List().Select(x => new SelectListItem()
+            {
+                Text = x.Descricao,
+                Value = x.CidId
+            });
+            return View(Mapper.Map<AcolhedorViewModel>(repo.FindById(id)));
         }
 
         // POST: Acolhedor/Edit/5
+        [Authorize(Roles = "Administrador,Estagiario,Atendente")]
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(AcolhedorViewModel acolhedor)
         {
-            try
+            if(!ModelState.IsValid)
             {
-                // TODO: Add update logic here
-
+                repo.Edit(Mapper.Map<Acolhedor>(acolhedor));
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+            return View(acolhedor);
         }
 
-        // GET: Acolhedor/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: Acolhedor/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
     }
 }

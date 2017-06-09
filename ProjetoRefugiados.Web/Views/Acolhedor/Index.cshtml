@@ -1,0 +1,122 @@
+﻿@model IEnumerable<ProjetoRefugiados.Web.ViewModels.AcolhedorViewModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Acolhedores</h2>
+
+<p>
+    <a href="~/Acolhedor/Create">
+        <i class="menu-icon fa fa-plus"></i>
+        <span class="menu-text">Novo Acolhedor</span>
+    </a>
+</p>
+@using (@Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div>
+        <div class="tabbable col-sm-4 col-xs-12">
+            <ul class="nav nav-tabs" id="myTab">
+                <li class="active">
+                    <a data-toggle="tab" href="#home" aria-expanded="true">
+                        <i class="ace-icon fa fa-search"></i>
+                        Pesquisa
+                    </a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div id="home" class="tab-pane fade active in">
+                    <div class="form-horizontal">
+                        <div class="input-group">
+                            <div class="form-group">
+                                <div class="radio col-xs-6">
+                                    <label>
+                                        <input name="Tipo" id="Tipo" type="radio" checked value="nome" class="ace form-control">
+                                        <span class="lbl">Nome</span>
+                                    </label>
+                                </div>
+                                <div class="radio col-xs-6">
+                                    <label>
+                                        <input name="Tipo" id="Tipo" type="radio" value="cpf" class="ace form-control">
+                                        <span class="lbl">CPF</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="ace-icon fa fa-check"></i>
+                                </span>
+                                <input type="text" id="Id" name="Id" class="form-control search-query" placeholder="Pesquisa">
+                                <span class="input-group-btn">
+                                    <button type="submit" class="btn btn-purple btn-sm">
+                                        <span class="ace-icon fa fa-search icon-on-right bigger-110"></span>
+                                        Search
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+<div class="col-xs-12">
+    <hr />
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cpf)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TipoResidencia)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cpf)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TipoResidencia)
+        </td>
+        <td>
+            <a href="~/Acolhedor/Edit/@item.AcolhedorId">
+                <i class="menu-icon fa fa-pencil"></i>
+                <span class="menu-text">Editar</span>
+            </a> | <a href="~/Acolhedor/Details/@item.AcolhedorId">
+                <i class="menu-icon fa fa-info"></i>
+                <span class="menu-text">Detalhes</span>
+            </a> |
+            @if (item.Ativo)
+                {
+                <a href="~/Acolhedor/Index/?id=@item.AcolhedorId&ativador=1">
+                    <i class="menu-icon fa fa-trash"></i>
+                    <span class="menu-text">Inativar</span>
+                </a>
+            }
+            else
+            {
+                <a href="~/Acolhedor/Index/?id=@item.AcolhedorId&ativador=0">
+                    <i class="menu-icon fa fa-check"></i>
+                    <span class="menu-text">Ativar</span>
+                </a>
+            }
+        </td>
+
+    </tr>
+}
+
+</table>

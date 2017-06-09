@@ -42,6 +42,6 @@ namespace ProjetoRefugiados.Web.Domain.Models
         public string Obervacao { get; set; }
         public DateTime DataDeModificacao { get; set; }
         public virtual ICollection<FamiliarAcolhedor> Familiares { get; set; }
-
+        public bool Ativo { get; set; }
     }
 }

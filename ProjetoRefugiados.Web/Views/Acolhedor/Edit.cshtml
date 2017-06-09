@@ -1,0 +1,301 @@
+﻿@model ProjetoRefugiados.Web.ViewModels.AcolhedorViewModel
+
+@{
+    ViewBag.Title = "Editar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var Cid = ViewBag.Cid;
+    var Sexo = new List<SelectListItem>(){
+        new SelectListItem(){Value="M",Text="Masculino"},
+        new SelectListItem(){Value="F",Text="Feminino"}
+    };
+    var Serie = new List<SelectListItem>(){
+        new SelectListItem(){Value="Ensino fundamental 1º ano",Text="Ensino fundamental 1º ano"},
+        new SelectListItem(){Value="Ensino fundamental 2º ano",Text="Ensino fundamental 2º ano"},
+        new SelectListItem(){Value="Ensino fundamental 3º ano",Text="Ensino fundamental 3º ano"},
+        new SelectListItem(){Value="Ensino fundamental 4º ano",Text="Ensino fundamental 4º ano"},
+        new SelectListItem(){Value="Ensino fundamental 5º ano",Text="Ensino fundamental 5º ano"},
+        new SelectListItem(){Value="Ensino fundamental 6º ano",Text="Ensino fundamental 6º ano"},
+        new SelectListItem(){Value="Ensino fundamental 7º ano",Text="Ensino fundamental 7º ano"},
+        new SelectListItem(){Value="Ensino fundamental 8º ano",Text="Ensino fundamental 8º ano"},
+        new SelectListItem(){Value="Ensino fundamental 9º ano",Text="Ensino fundamental 9º ano"},
+        new SelectListItem(){Value="Ensino medio 1º ano",Text="Ensino medio 1º ano"},
+        new SelectListItem(){Value="Ensino medio 2º ano",Text="Ensino medio 2º ano"},
+        new SelectListItem(){Value="Ensino medio 3º ano",Text="Ensino medio 3º ano"},
+        new SelectListItem(){Value="Ensino superior",Text="Ensino superior"}
+    };
+    var TipoResidencia = new List<SelectListItem>()
+    {
+        new SelectListItem(){Value = "Prória", Text= "Prória"},
+        new SelectListItem(){Value = "Alugada", Text= "Alugada"},
+        new SelectListItem(){Value = "Cedida", Text= "Cedida"},
+        new SelectListItem(){Value = "Ocupada", Text= "Ocupada"}
+    };
+    var TipoConstrucao = new List<SelectListItem>()
+    {
+        new SelectListItem(){Value = "Alvenaria", Text= "Alvenaria"},
+        new SelectListItem(){Value = "Alugada", Text= "Alugada"},
+        new SelectListItem(){Value = "Madeira/Materiais precários", Text= "Madeira/Materiais precários"}
+    };
+    var AcessoEnergia = new List<SelectListItem>()
+    {
+        new SelectListItem(){Value = "Medidor Proprio", Text= "Medidor Proprio"},
+        new SelectListItem(){Value = "Medidor Compartilhado", Text= "Medidor Compartilhado"},
+        new SelectListItem(){Value = "Sem Mediidor", Text= "Sem Medidor"},
+        new SelectListItem(){Value = "Não possui energia eletrica", Text= "Não possui energia eletrica"}
+    };
+    var Escoamento = new List<SelectListItem>()
+    {
+        new SelectListItem(){Value = "Rede coletora de esgoto ou pluvial", Text= "Rede coletora de esgoto ou pluvial"},
+        new SelectListItem(){Value = "Fossa séptica", Text= "Fossa séptica"},
+        new SelectListItem(){Value = "Fossa Rudimentar", Text= "Fossa Rudimentar"},
+        new SelectListItem(){Value = "Direto pra vala, rio, lago ou mar", Text= "Direto pra vala, rio, lago ou mar "},
+        new SelectListItem(){Value = "Domicílio sem banheiro", Text= "Domicílio sem banheiro"}
+    };
+    var Conhecimento = new List<SelectListItem>(){
+        new SelectListItem(){Value="Espontanea",Text="Espontânea"},
+        new SelectListItem(){Value="Indicacao",Text="Indicação"}
+    };
+    var Abastecimento = new List<SelectListItem>(){
+        new SelectListItem(){Value="Rede geral de distribuição",Text="Rede geral de distribuição"},
+        new SelectListItem(){Value="Poço ou nascente",Text="Poço ou nascente"},
+        new SelectListItem(){Value="Cisterna de captação de água de chuva",Text="Cisterna de captação de água de chuva"},
+        new SelectListItem(){Value="Carro Pipa",Text="Carro Pipa"}
+    };
+}
+
+<h2>Editar</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Acolhedor</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Conhecimento, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(m => m.Conhecimento, Conhecimento, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Conhecimento, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ProgramaSocial, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.ProgramaSocial)
+                    @Html.ValidationMessageFor(model => model.ProgramaSocial, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ProgramaSocialString, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ProgramaSocialString, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ProgramaSocialString, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Cpf, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Cpf, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Cpf, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Sexo, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(m => m.Sexo, Sexo, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Sexo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DataNascimento, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DataNascimento, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DataNascimento, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Deficiencia, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.Deficiencia)
+                    @Html.ValidationMessageFor(model => model.Deficiencia, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DeficienciaId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(m => m.DeficienciaCid, new SelectList(Cid, "Value", "Text"), new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.DeficienciaId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RemedioControlado, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.RemedioControlado, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.RemedioControlado, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SabeLer, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.SabeLer)
+                    @Html.ValidationMessageFor(model => model.SabeLer, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FrequentaEscola, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.FrequentaEscola)
+                    @Html.ValidationMessageFor(model => model.FrequentaEscola, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.UltimaSerie, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(m => m.UltimaSerie, Serie, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.UltimaSerie, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CPTS, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.CPTS)
+                    @Html.ValidationMessageFor(model => model.CPTS, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Qualificacao, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Qualificacao, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Qualificacao, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TipoResidencia, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(m => m.TipoResidencia, TipoResidencia, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.TipoResidencia, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TipoConstrucao, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(m => m.TipoConstrucao, TipoConstrucao, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.TipoConstrucao, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AcessoEnergia, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(m => m.AcessoEnergia, AcessoEnergia, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.AcessoEnergia, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AguaCanalizada, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.AguaCanalizada)
+                    @Html.ValidationMessageFor(model => model.AguaCanalizada, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FormaAbastecimentoAgua, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(m => m.FormaAbastecimentoAgua, Abastecimento, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.FormaAbastecimentoAgua, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.EscoamentoSanitario, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(m => m.EscoamentoSanitario, Escoamento, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.EscoamentoSanitario, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NumerosDeComodos, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NumerosDeComodos, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NumerosDeComodos, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Acebilidade, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.Acebilidade)
+                    @Html.ValidationMessageFor(model => model.Acebilidade, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AreaDesabamentoOuAlagamento, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.AreaDesabamentoOuAlagamento)
+                    @Html.ValidationMessageFor(model => model.AreaDesabamentoOuAlagamento, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Obervacao, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Obervacao, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Obervacao, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-white btn-info btn-bold">
+                <i class="ace-icon fa fa-pencil bigger-120 blue"></i>Salvar
+            </button>
+            | <a href="~/Acolhedor/Index" class="btn btn-white btn-info btn-bold">
+                <i class="ace-icon fa fa-undo bigger-120 blue"></i>Voltar para a lista
+            </a>
+        </div>
+    </div>
+}

@@ -1,0 +1,265 @@
+﻿@model ProjetoRefugiados.Web.ViewModels.AcolhedorViewModel
+
+@{
+    var modelo = @Model;
+    ViewBag.Title = "Detalhes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>Detalhes</h2>
+
+<div>
+    <h4>Acolhedor</h4>
+    <hr />
+</div>
+<div class="tabbable">
+    <ul class="nav nav-tabs" id="myTab">
+        <li class="active">
+            <a data-toggle="tab" href="#home" aria-expanded="true">
+                <i class="ace-icon fa fa-user"></i>
+                Dados
+            </a>
+        </li>
+        @*<li class="">
+            <a data-toggle="tab" href="#messages" aria-expanded="false">
+                <i class="menu-icon fa fa-heartbeat"></i>
+                Familiares
+            </a>
+        </li>*@
+        <li class="">
+            <a data-toggle="tab" href="#refugiados" aria-expanded="false">
+                <i class="menu-icon fa fa-university"></i>
+                Refugiados
+            </a>
+        </li>
+    </ul>
+
+    <div class="tab-content">
+        <div id="home" class="tab-pane fade active in">
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Conhecimento)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Conhecimento)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.ProgramaSocial)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ProgramaSocial)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.ProgramaSocialString)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ProgramaSocialString)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Nome)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Nome)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Cpf)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Cpf)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Sexo)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Sexo)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.DataNascimento)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.DataNascimento)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Deficiencia)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Deficiencia)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.DeficienciaId)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.DeficienciaId)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.RemedioControlado)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.RemedioControlado)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.SabeLer)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.SabeLer)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.FrequentaEscola)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.FrequentaEscola)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.UltimaSerie)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.UltimaSerie)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.CPTS)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.CPTS)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Qualificacao)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Qualificacao)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.TipoResidencia)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.TipoResidencia)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.TipoConstrucao)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.TipoConstrucao)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.AcessoEnergia)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.AcessoEnergia)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.AguaCanalizada)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.AguaCanalizada)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.FormaAbastecimentoAgua)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.FormaAbastecimentoAgua)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.EscoamentoSanitario)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.EscoamentoSanitario)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.NumerosDeComodos)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.NumerosDeComodos)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Acebilidade)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Acebilidade)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.AreaDesabamentoOuAlagamento)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.AreaDesabamentoOuAlagamento)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Obervacao)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Obervacao)
+                </dd>
+
+            </dl>
+        </div>
+        @*<div id="messages" class="tab-pane fade">
+        </div>*@
+        <div id="refugiados" class="tab-pane fade">
+
+        </div>
+    </div>
+    <div class="form-group col-xs-12">
+        <hr />
+        <p>
+            <a href="~/Acolhedor/Edit/@modelo.AcolhedorId" class="btn btn-white btn-info btn-bold">
+                <i class="menu-icon fa fa-pencil"></i>
+                <span class="menu-text">Edit</span>
+            </a> |
+            <a href="~/Acolhedor/CreateFamiliar/@modelo.AcolhedorId" class="btn btn-white btn-info btn-bold">
+                <i class="menu-icon fa fa-heartbeat"></i>
+                <span class="menu-text">Nova Familiar</span>
+            </a>
+            | <a href="~/Acolhedor/Index" class="btn btn-white btn-info btn-bold">
+                <i class="ace-icon fa fa-undo blue"></i>Voltar para a lista
+            </a>
+        </p>
+    </div>
+</div>

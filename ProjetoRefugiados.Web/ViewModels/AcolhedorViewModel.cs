@@ -107,5 +107,7 @@ namespace ProjetoRefugiados.Web.ViewModels
         public DateTime DataDeModificacao { get; set; }
         [ScaffoldColumn(false)]
         public virtual ICollection<FamiliarAcolhedor> Familiares { get; set; }
+        [ScaffoldColumn(false)]
+        public bool Ativo { get; set; }
     }
 }

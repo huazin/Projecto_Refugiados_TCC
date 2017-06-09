@@ -89,7 +89,7 @@ namespace ProjetoRefugiados.Web.Controllers
                 return RedirectToAction("Index");
             }
             var errors = ModelState.Values.SelectMany(v => v.Errors);
-            return Create();
+            return View(refugiado);
         }
 
         [Authorize(Roles = "Atendente,Enfermeiro,Administrador,Estagiario")]
