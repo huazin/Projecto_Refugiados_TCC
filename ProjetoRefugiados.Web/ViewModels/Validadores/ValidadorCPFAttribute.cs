@@ -14,6 +14,7 @@ namespace ProjetoRefugiados.Web.ViewModels.Validadores
         {
             ProjetoRefugiadosContext Db = new ProjetoRefugiadosContext();
             //  var refugiado = (RefugiadoViewModel)validationContext.ObjectInstance;
+            if(value == null) return new ValidationResult("CPF não é valido");
             if (String.IsNullOrEmpty(value.ToString()) ||
                value.ToString().Length != 11) return new ValidationResult("CPF não é valido");
             if ( Db.Refugiados.Where(p => p.CPF == value.ToString() && p.Ativo == true ).SingleOrDefault() != null ) return new ValidationResult("CPF já utilizado");

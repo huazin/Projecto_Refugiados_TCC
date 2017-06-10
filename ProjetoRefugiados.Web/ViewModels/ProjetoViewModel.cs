@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjetoRefugiados.Web.ViewModels.Validadores;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -16,6 +17,7 @@ namespace ProjetoRefugiados.Web.ViewModels
         [MaxLength(255, ErrorMessage = "Numero de caracteres excede o limite")]
         [Required(ErrorMessage = "Razão Social é obrigatorio")]
         [MinLength(3, ErrorMessage = "Nome muito curto")]
+        [SomenteLetras]
         public string Nome { get; set; }
 
         [Required(ErrorMessage = "CNPJ é obrigatorio")]

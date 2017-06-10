@@ -22,7 +22,7 @@ namespace ProjetoRefugiados.Web.Controllers
         {
         }
 
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
+        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
             UserManager = userManager;
             SignInManager = signInManager;
@@ -34,9 +34,9 @@ namespace ProjetoRefugiados.Web.Controllers
             {
                 return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
-            private set 
-            { 
-                _signInManager = value; 
+            private set
+            {
+                _signInManager = value;
             }
         }
 
@@ -70,7 +70,7 @@ namespace ProjetoRefugiados.Web.Controllers
         {
             if (!ModelState.IsValid)
             {
-                
+
                 return View(model);
             }
 
@@ -94,6 +94,7 @@ namespace ProjetoRefugiados.Web.Controllers
 
         //
         // GET: /Account/VerifyCode
+        [Authorize(Roles = "Administrador")]
         [AllowAnonymous]
         public async Task<ActionResult> VerifyCode(string provider, string returnUrl, bool rememberMe)
         {
@@ -107,6 +108,7 @@ namespace ProjetoRefugiados.Web.Controllers
 
         //
         // POST: /Account/VerifyCode
+        [Authorize(Roles = "Administrador")]
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -121,7 +123,7 @@ namespace ProjetoRefugiados.Web.Controllers
             // Se um usuário inserir códigos incorretos para uma quantidade especificada de tempo, então a conta de usuário 
             // será bloqueado por um período especificado de tempo. 
             // Você pode configurar os ajustes de bloqueio da conta em IdentityConfig
-            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent:  model.RememberMe, rememberBrowser: model.RememberBrowser);
+            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent: model.RememberMe, rememberBrowser: model.RememberBrowser);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -137,6 +139,7 @@ namespace ProjetoRefugiados.Web.Controllers
 
         //
         // GET: /Account/Register
+        [Authorize(Roles = "Administrador")]
         [AllowAnonymous]
         public ActionResult Register()
         {
@@ -145,6 +148,7 @@ namespace ProjetoRefugiados.Web.Controllers
 
         //
         // POST: /Account/Register
+        [Authorize(Roles = "Administrador")]
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -175,6 +179,7 @@ namespace ProjetoRefugiados.Web.Controllers
 
         //
         // GET: /Account/ConfirmEmail
+        [Authorize(Roles = "Administrador")]
         [AllowAnonymous]
         public async Task<ActionResult> ConfirmEmail(string userId, string code)
         {
@@ -188,6 +193,7 @@ namespace ProjetoRefugiados.Web.Controllers
 
         //
         // GET: /Account/ForgotPassword
+        [Authorize(Roles = "Administrador")]
         [AllowAnonymous]
         public ActionResult ForgotPassword()
         {
@@ -199,6 +205,7 @@ namespace ProjetoRefugiados.Web.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrador")]
         public async Task<ActionResult> ForgotPassword(ForgotPasswordViewModel model)
         {
             if (ModelState.IsValid)
@@ -225,6 +232,7 @@ namespace ProjetoRefugiados.Web.Controllers
         //
         // GET: /Account/ForgotPasswordConfirmation
         [AllowAnonymous]
+        [Authorize(Roles = "Administrador")]
         public ActionResult ForgotPasswordConfirmation()
         {
             return View();
@@ -233,36 +241,45 @@ namespace ProjetoRefugiados.Web.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrador")]
         public async Task<ActionResult> RemoveUsuario(RemoveUsuarioViewModel model)
         {
-            if (!ModelState.IsValid)
+            if (User.Identity.Name != model.CPF)
             {
-                return View(model);
+                if (!ModelState.IsValid)
+                {
+                    return View(model);
+                }
+                var user = await UserManager.FindByNameAsync(model.CPF);
+                if (user == null)
+                {
+                    // Não revelar que o usuário não existe
+                    return View(model);
+                }
+
+                var remove = await UserManager.DeleteAsync(user);
+                if (remove.Succeeded)
+                {
+                    return View("DeleteConfirmacao");
+                }
+                AddErrors(remove);
+                return View();
             }
-            var user = await UserManager.FindByNameAsync(model.CPF);
-            if (user == null)
-            {
-                // Não revelar que o usuário não existe
-                return RedirectToAction("ResetPasswordConfirmation", "Account");
-            }
-            var remove = await UserManager.DeleteAsync(user);
-            if (remove.Succeeded)
-            {
-                return RedirectToAction("Delete", "Account");
-            }
-            AddErrors(remove);
-            return View();
+            ViewBag.Error = "Não é possivel deletar o usuario que esteja usando";
+            return View("DeleteConfirmacao");
         }
 
         //
         // GET: /Account/ResetPassword
         [AllowAnonymous]
+        [Authorize(Roles = "Administrador")]
         public ActionResult RemoveUsuario()
         {
             return View();
         }
 
         [AllowAnonymous]
+        [Authorize(Roles = "Administrador")]
         public ActionResult ResetPassword()
         {
             return View();
@@ -273,6 +290,7 @@ namespace ProjetoRefugiados.Web.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrador")]
         public async Task<ActionResult> ResetPassword(ResetPasswordViewModel model)
         {
             if (!ModelState.IsValid)
@@ -298,6 +316,7 @@ namespace ProjetoRefugiados.Web.Controllers
         //
         // GET: /Account/ResetPasswordConfirmation
         [AllowAnonymous]
+        [Authorize(Roles = "Administrador")]
         public ActionResult ResetPasswordConfirmation()
         {
             return View();
@@ -308,6 +327,7 @@ namespace ProjetoRefugiados.Web.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrador")]
         public ActionResult ExternalLogin(string provider, string returnUrl)
         {
             // Solicitar um redirecionamento para o provedor de logon externo
@@ -317,6 +337,7 @@ namespace ProjetoRefugiados.Web.Controllers
         //
         // GET: /Account/SendCode
         [AllowAnonymous]
+        [Authorize(Roles = "Administrador")]
         public async Task<ActionResult> SendCode(string returnUrl, bool rememberMe)
         {
             var userId = await SignInManager.GetVerifiedUserIdAsync();
@@ -334,6 +355,7 @@ namespace ProjetoRefugiados.Web.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrador")]
         public async Task<ActionResult> SendCode(SendCodeViewModel model)
         {
             if (!ModelState.IsValid)
@@ -352,6 +374,7 @@ namespace ProjetoRefugiados.Web.Controllers
         //
         // GET: /Account/ExternalLoginCallback
         [AllowAnonymous]
+        [Authorize(Roles = "Administrador")]
         public async Task<ActionResult> ExternalLoginCallback(string returnUrl)
         {
             var loginInfo = await AuthenticationManager.GetExternalLoginInfoAsync();
@@ -384,6 +407,7 @@ namespace ProjetoRefugiados.Web.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrador")]
         public async Task<ActionResult> ExternalLoginConfirmation(ExternalLoginConfirmationViewModel model, string returnUrl)
         {
             if (User.Identity.IsAuthenticated)

@@ -1,4 +1,5 @@
 ﻿using ProjetoRefugiados.Web.Domain.Models;
+using ProjetoRefugiados.Web.ViewModels.Validadores;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,11 +17,15 @@ namespace ProjetoRefugiados.Web.ViewModels
         [Required(ErrorMessage = "Titulo é obrigatorio")]
         [MinLength(10,ErrorMessage = "O titulo é muito curto")]
         [MaxLength(255, ErrorMessage = "Tamanho maximo atingido")]
+        [DisplayName("Título")]
+        [SomenteLetras]
         public string Titulo { get; set; }
 
         [Required(ErrorMessage = "Descrição é obrigatorio")]
         [MinLength(10, ErrorMessage = "O descrição é muito curto")]
         [MaxLength(255, ErrorMessage = "Tamanho maximo atingido")]
+        [DisplayName("Descrição")]
+        [SomenteLetras]
         public string Descricao { get; set; }
 
         [Required(ErrorMessage = "A quantiade de vagas é obrigatoria")]

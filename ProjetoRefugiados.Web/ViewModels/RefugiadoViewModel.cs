@@ -1,4 +1,5 @@
 ﻿using ProjetoRefugiados.Web.Domain.Models;
+using ProjetoRefugiados.Web.Domain.Models.Secudarias;
 using ProjetoRefugiados.Web.ViewModels.Validadores;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,7 @@ namespace ProjetoRefugiados.Web.ViewModels
         [Required(ErrorMessage = "O nome é obrigatorio")]
         [MinLength(5, ErrorMessage = "Nome muito pequeno")]
         [MaxLength(150, ErrorMessage = "Tamanho maximo atingido")]
+        [SomenteLetras]
         public string Nome { get; set; }
 
         [Required(ErrorMessage = "CPF é obrigatorio")]
@@ -32,6 +34,7 @@ namespace ProjetoRefugiados.Web.ViewModels
         [DisplayName("Data de chegada no brasil?")]
         [Range(typeof(DateTime), "1900-12-01", "2020-12-31",
         ErrorMessage = "Data invalida")]
+        [DataAttribute]
         public DateTime DataDeChegada { get; set; }
 
         [Required(ErrorMessage = "Religião é obrigatorio")]
@@ -68,24 +71,28 @@ namespace ProjetoRefugiados.Web.ViewModels
         [Range(typeof(DateTime), "1900-12-01", "2020-12-31",
         ErrorMessage = "Data invalida")]
         [DisplayName("Data de Nascimento")]
+       [DataAniversario]
         public DateTime DataDeNascimento { get; set; }
 
         [ScaffoldColumn(false)]
-        public virtual ReligiaoViewModel Religiao { get; set; }
+        public virtual Religiao Religiao { get; set; }
 
         [ScaffoldColumn(false)]
-        public virtual NacionalidadeViewModel Nascionalidade { get; set; }
+        public virtual Nacionalidade Nacionalidade { get; set; }
 
         [ScaffoldColumn(false)]
-        public virtual ProfissaoViewModel Profissao { get; set; }
+        public virtual Profissao Profissao { get; set; }
 
         [ScaffoldColumn(false)]
-        public virtual PaisViewModel Pais { get; set; }
+        public virtual Pais Pais { get; set; }
 
         [ScaffoldColumn(false)]
-        public virtual EnderecoViewModel Endereco { get; set; }
+        public virtual Endereco Endereco { get; set; }
         [ScaffoldColumn(false)]
-        public virtual ICollection<TriagemViewModel> Triagens { get; set; }
+        public virtual ICollection<Triagem> Triagens { get; set; }
+        [ScaffoldColumn(false)]
         public virtual ICollection<CartaDeEncaminhamento> Oportunidades { get; set; }
+        [ScaffoldColumn(false)]
+        public virtual ICollection<Exame> Exames { get; set; }
     }
 }

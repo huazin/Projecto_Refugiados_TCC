@@ -3,7 +3,8 @@
 @{
     ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    var cid = ViewBag.Cid;
+    var cid = (IEnumerable<SelectListItem>)TempData["Cid"];
+    TempData.Keep("Cid");
     var visivel = "";
     if (ViewBag.sexo == "F")
     {
@@ -13,7 +14,8 @@
     {
         visivel = "Hidden";
     }
-    var id = ViewBag.id;
+    var id = TempData["id"];
+
 }
 
 <h2>Nova Triagem</h2>

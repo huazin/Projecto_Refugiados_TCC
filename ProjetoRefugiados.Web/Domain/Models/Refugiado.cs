@@ -28,6 +28,7 @@ namespace ProjetoRefugiados.Web.Domain.Models
         public virtual Endereco Endereco { get; set; }
 
         public virtual ICollection<Triagem> Triagens { get; set; }
+        public virtual ICollection<Exame> Exames { get; set; }
 
         public virtual ICollection<CartaDeEncaminhamento> Oportunidades { get; set; }
     }

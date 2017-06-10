@@ -26,6 +26,7 @@ namespace ProjetoRefugiados.Web.Infra.Repository
         public void Resultado(int id, int flag) // 1 Ativo -- 2 Reprovado
         {
             Db.Entry(FindById(id)).Property(p => p.resultado).CurrentValue = flag;
+            Db.SaveChanges();
         }
 
         public void Edit(CartaDeEncaminhamento edit)

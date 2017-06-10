@@ -32,14 +32,14 @@ namespace ProjetoRefugiados.Web.Controllers
                 ViewBag.Error = "CPF não encontrado";
                 return View("Index");
             }
-            ViewBag.Cid = repoCid.List().Select(x => new SelectListItem()
+            TempData["Cid"] = repoCid.List().Select(x => new SelectListItem()
             {
                 Text = x.Descricao,
                 Value = x.CidId
             });
             ViewBag.refugiado = nome;
             ViewBag.sexo = sexo;
-            ViewBag.id = id;
+            TempData["id"] = id;
             return View();
         }
 

@@ -3,7 +3,9 @@
 @{
     ViewBag.Title = "Criar";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    var Cid = ViewBag.Cid;
+    TempData.Keep("cid");
+    var Cid = (IEnumerable<SelectListItem>)TempData["cid"];
+    TempData.Keep("cid");
     var Sexo = new List<SelectListItem>(){
         new SelectListItem(){Value="M",Text="Masculino"},
         new SelectListItem(){Value="F",Text="Feminino"}
@@ -52,8 +54,8 @@
         new SelectListItem(){Value = "Domicílio sem banheiro", Text= "Domicílio sem banheiro"}
     };
     var Conhecimento = new List<SelectListItem>(){
-        new SelectListItem(){Value="Espontanea",Text="Espontânea"},
-        new SelectListItem(){Value="Indicacao",Text="Indicação"}
+        new SelectListItem(){Value="0",Text="Espontânea"},
+        new SelectListItem(){Value="1",Text="Indicação"}
     };
     var Abastecimento = new List<SelectListItem>(){
         new SelectListItem(){Value="Rede geral de distribuição",Text="Rede geral de distribuição"},
@@ -122,6 +124,13 @@
                 @Html.ValidationMessageFor(model => model.Sexo, "", new { @class = "text-danger" })
             </div>
         </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Telefone, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Telefone, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Telefone, "", new { @class = "text-danger" })
+            </div>
+        </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.DataNascimento, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -144,7 +153,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.DeficienciaId, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(m => m.DeficienciaCid, new SelectList(Cid, "Value", "Text"), new { @class = "form-control" })
+                @Html.DropDownListFor(m => m.DeficienciaId, new SelectList(Cid, "Value", "Text"), new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.DeficienciaId, "", new { @class = "text-danger" })
             </div>
         </div>

@@ -68,7 +68,82 @@
     <hr />
 </div>
 
-<table class="table">
+
+<div class="col-xs-12">
+    <div class="widget-box" id="widget-box-2" style="opacity: 1;">
+        <div class="widget-header">
+            <h5 class="widget-title bigger lighter">
+                Triagens disponiveis
+            </h5>
+        </div>
+        <div class="widget-body">
+            <div class="widget-main no-padding">
+                <table class="table table-striped table-bordered table-hover">
+                    <thead class="thin-border-bottom">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Nome)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Cpf)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.TipoResidencia)
+                            </th>
+                            <th>
+                                Ações
+                            </th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Nome)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Cpf)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TipoResidencia)
+                                </td>
+                                <td>
+                                    <a href="~/Acolhedor/Edit/@item.AcolhedorId">
+                                        <i class="menu-icon fa fa-pencil"></i>
+                                        <span class="menu-text">Editar</span>
+                                    </a> | <a href="~/Acolhedor/Details/@item.AcolhedorId">
+                                        <i class="menu-icon fa fa-info"></i>
+                                        <span class="menu-text">Detalhes</span>
+                                    </a> |
+                                    @if (item.Ativo)
+                {
+                                        <a href="~/Acolhedor/Index/?id=@item.AcolhedorId&ativador=1">
+                                            <i class="menu-icon fa fa-trash"></i>
+                                            <span class="menu-text">Inativar</span>
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        <a href="~/Acolhedor/Index/?id=@item.AcolhedorId&ativador=0">
+                                            <i class="menu-icon fa fa-check"></i>
+                                            <span class="menu-text">Ativar</span>
+                                        </a>
+                                    }
+                                </td>
+
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@*<table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Nome)
@@ -81,42 +156,43 @@
         </th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cpf)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TipoResidencia)
-        </td>
-        <td>
-            <a href="~/Acolhedor/Edit/@item.AcolhedorId">
-                <i class="menu-icon fa fa-pencil"></i>
-                <span class="menu-text">Editar</span>
-            </a> | <a href="~/Acolhedor/Details/@item.AcolhedorId">
-                <i class="menu-icon fa fa-info"></i>
-                <span class="menu-text">Detalhes</span>
-            </a> |
-            @if (item.Ativo)
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cpf)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TipoResidencia)
+            </td>
+            <td>
+                <a href="~/Acolhedor/Edit/@item.AcolhedorId">
+                    <i class="menu-icon fa fa-pencil"></i>
+                    <span class="menu-text">Editar</span>
+                </a> | <a href="~/Acolhedor/Details/@item.AcolhedorId">
+                    <i class="menu-icon fa fa-info"></i>
+                    <span class="menu-text">Detalhes</span>
+                </a> |
+                @if (item.Ativo)
                 {
-                <a href="~/Acolhedor/Index/?id=@item.AcolhedorId&ativador=1">
-                    <i class="menu-icon fa fa-trash"></i>
-                    <span class="menu-text">Inativar</span>
-                </a>
-            }
-            else
-            {
-                <a href="~/Acolhedor/Index/?id=@item.AcolhedorId&ativador=0">
-                    <i class="menu-icon fa fa-check"></i>
-                    <span class="menu-text">Ativar</span>
-                </a>
-            }
-        </td>
+                    <a href="~/Acolhedor/Index/?id=@item.AcolhedorId&ativador=1">
+                        <i class="menu-icon fa fa-trash"></i>
+                        <span class="menu-text">Inativar</span>
+                    </a>
+                }
+                else
+                {
+                    <a href="~/Acolhedor/Index/?id=@item.AcolhedorId&ativador=0">
+                        <i class="menu-icon fa fa-check"></i>
+                        <span class="menu-text">Ativar</span>
+                    </a>
+                }
+            </td>
 
-    </tr>
-}
+        </tr>
+    }
 
-</table>
+</table>*@

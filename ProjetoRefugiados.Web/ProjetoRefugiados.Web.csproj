@@ -204,8 +204,8 @@
     <Compile Include="AutoMapper\AutoMapperConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AcolhedorController.cs" />
-    <Compile Include="Controllers\AdministradorController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\ExamesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\OportunidadeController.cs" />
@@ -214,6 +214,7 @@
     <Compile Include="Controllers\TriagemController.cs" />
     <Compile Include="Domain\Models\Acolhedor.cs" />
     <Compile Include="Domain\Models\CartaDeEncaminhamento.cs" />
+    <Compile Include="Domain\Models\Exame.cs" />
     <Compile Include="Domain\Models\FamiliarAcolhedor.cs" />
     <Compile Include="Domain\Models\Oportunidade.cs" />
     <Compile Include="Domain\Models\Projeto.cs" />
@@ -232,6 +233,7 @@
     <Compile Include="Infra\Context\ProjetoRefugiadosContext.cs" />
     <Compile Include="Infra\EntityConfig\AcolhedorConfiguration.cs" />
     <Compile Include="Infra\EntityConfig\CartaDeEncaminhamentoConfiguration.cs" />
+    <Compile Include="Infra\EntityConfig\ExameConfiguration.cs" />
     <Compile Include="Infra\EntityConfig\FamiliarAcolhedorConfiguration.cs" />
     <Compile Include="Infra\EntityConfig\OportunidadeConfiguration.cs" />
     <Compile Include="Infra\EntityConfig\ProjetoConfiguration.cs" />
@@ -249,6 +251,7 @@
     <Compile Include="Infra\Repository\CidRepository.cs" />
     <Compile Include="Infra\Repository\EnderecoProjetoRepository.cs" />
     <Compile Include="Infra\Repository\EnderecoRepository.cs" />
+    <Compile Include="Infra\Repository\ExameRepository.cs" />
     <Compile Include="Infra\Repository\FamiliarAcolhedorRepository.cs" />
     <Compile Include="Infra\Repository\ICrud.cs" />
     <Compile Include="Infra\Repository\NascionalidadeRepository.cs" />
@@ -270,6 +273,7 @@
     <Compile Include="ViewModels\CidViewModel.cs" />
     <Compile Include="ViewModels\EnderecoProjetoViewModel.cs" />
     <Compile Include="ViewModels\EnderecoViewModel.cs" />
+    <Compile Include="ViewModels\ExameViewModel.cs" />
     <Compile Include="ViewModels\FamiliarAcolhedorViewModel.cs" />
     <Compile Include="ViewModels\NacionalidadeViewModel.cs" />
     <Compile Include="ViewModels\OportunidadeViewModel.cs" />
@@ -279,7 +283,11 @@
     <Compile Include="ViewModels\RefugiadoViewModel.cs" />
     <Compile Include="ViewModels\ReligiaoViewModel.cs" />
     <Compile Include="ViewModels\TriagemViewModel.cs" />
+    <Compile Include="ViewModels\Validadores\Data.cs" />
+    <Compile Include="ViewModels\Validadores\DataAniversarioAttribute.cs" />
+    <Compile Include="ViewModels\Validadores\DataAttribute.cs" />
     <Compile Include="ViewModels\Validadores\PropriedadesFemeninasAttribute.cs" />
+    <Compile Include="ViewModels\Validadores\SomenteLetrasAttribute.cs" />
     <Compile Include="ViewModels\Validadores\ValidadorCPF.cs" />
     <Compile Include="ViewModels\Validadores\ValidadorCPFAcolhedorAttribute.cs" />
     <Compile Include="ViewModels\Validadores\ValidadorCPFAttribute.cs" />
@@ -404,7 +412,9 @@
     <Content Include="Views\Acolhedor\Details.cshtml" />
     <Content Include="Views\Error\Index.cshtml" />
     <Content Include="Views\Administrador\Index.cshtml" />
-    <Content Include="Views\Account\Delete.cshtml" />
+    <Content Include="Views\Account\DeleteConfirmacao.cshtml" />
+    <Content Include="Views\Account\RemoveUsuario.cshtml" />
+    <Content Include="Views\Exames\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -41,14 +41,14 @@ namespace ProjetoRefugiados.Web.Controllers
         // GET: Acolhedor/Details/5
         public ActionResult Details(int id)
         {
-            return View(Mapper.Map<Acolhedor>(repo.FindById(id)));
+            return View(Mapper.Map<AcolhedorViewModel>(repo.FindById(id)));
         }
 
         [Authorize(Roles = "Administrador,Estagiario,Atendente")]
         // GET: Acolhedor/Create
         public ActionResult Create()
         {
-            ViewBag.Cid = repoCid.List().Select(x => new SelectListItem()
+            TempData["cid"] = repoCid.List().Select(x => new SelectListItem()
             {
                 Text = x.Descricao,
                 Value = x.CidId
@@ -61,7 +61,7 @@ namespace ProjetoRefugiados.Web.Controllers
         [HttpPost]
         public ActionResult Create(AcolhedorViewModel acolhedor)
         {
-            if(!ModelState.IsValid)
+            if(ModelState.IsValid)
             {
                 repo.Add(Mapper.Map<Acolhedor>(acolhedor));
                 var acolhedorTemp = repo.ListCpf(acolhedor.Cpf);
@@ -75,7 +75,7 @@ namespace ProjetoRefugiados.Web.Controllers
         // GET: Acolhedor/Edit/5
         public ActionResult Edit(int id)
         {
-            ViewBag.Cid = repoCid.List().Select(x => new SelectListItem()
+            TempData["cid"] = repoCid.List().Select(x => new SelectListItem()
             {
                 Text = x.Descricao,
                 Value = x.CidId

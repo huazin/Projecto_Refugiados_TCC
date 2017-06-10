@@ -37,6 +37,9 @@ namespace ProjetoRefugiados.Web.AutoMapper
                 x.CreateMap<FamiliarAcolhedor, FamiliarAcolhedorViewModel>().MaxDepth(2);
                 x.CreateMap<FamiliarAcolhedorViewModel, FamiliarAcolhedor>().MaxDepth(2);
 
+                x.CreateMap<Exame, ExameViewModel>().MaxDepth(2);
+                x.CreateMap<ExameViewModel, Exame>().MaxDepth(2);
+
                 //Secunrarias
                 x.CreateMap<ReligiaoViewModel, Religiao>().MaxDepth(2);
                 x.CreateMap<PaisViewModel, Pais>().MaxDepth(2);

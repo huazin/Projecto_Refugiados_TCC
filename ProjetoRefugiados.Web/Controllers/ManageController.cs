@@ -52,6 +52,7 @@ namespace ProjetoRefugiados.Web.Controllers
 
         //
         // GET: /Manage/Index
+        [Authorize(Roles = "Administrador")]
         public async Task<ActionResult> Index(ManageMessageId? message)
         {
             ViewBag.StatusMessage =
@@ -79,6 +80,7 @@ namespace ProjetoRefugiados.Web.Controllers
         // POST: /Manage/RemoveLogin
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrador")]
         public async Task<ActionResult> RemoveLogin(string loginProvider, string providerKey)
         {
             ManageMessageId? message;
@@ -101,6 +103,7 @@ namespace ProjetoRefugiados.Web.Controllers
 
         //
         // GET: /Manage/AddPhoneNumber
+        [Authorize(Roles = "Administrador")]
         public ActionResult AddPhoneNumber()
         {
             return View();
@@ -108,6 +111,7 @@ namespace ProjetoRefugiados.Web.Controllers
 
         //
         // POST: /Manage/AddPhoneNumber
+        [Authorize(Roles = "Administrador")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> AddPhoneNumber(AddPhoneNumberViewModel model)
@@ -134,6 +138,7 @@ namespace ProjetoRefugiados.Web.Controllers
         // POST: /Manage/EnableTwoFactorAuthentication
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrador")]
         public async Task<ActionResult> EnableTwoFactorAuthentication()
         {
             await UserManager.SetTwoFactorEnabledAsync(User.Identity.GetUserId(), true);
@@ -149,6 +154,7 @@ namespace ProjetoRefugiados.Web.Controllers
         // POST: /Manage/DisableTwoFactorAuthentication
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrador")]
         public async Task<ActionResult> DisableTwoFactorAuthentication()
         {
             await UserManager.SetTwoFactorEnabledAsync(User.Identity.GetUserId(), false);
@@ -162,6 +168,7 @@ namespace ProjetoRefugiados.Web.Controllers
 
         //
         // GET: /Manage/VerifyPhoneNumber
+        [Authorize(Roles = "Administrador")]
         public async Task<ActionResult> VerifyPhoneNumber(string phoneNumber)
         {
             var code = await UserManager.GenerateChangePhoneNumberTokenAsync(User.Identity.GetUserId(), phoneNumber);
@@ -173,6 +180,7 @@ namespace ProjetoRefugiados.Web.Controllers
         // POST: /Manage/VerifyPhoneNumber
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrador")]
         public async Task<ActionResult> VerifyPhoneNumber(VerifyPhoneNumberViewModel model)
         {
             if (!ModelState.IsValid)
@@ -198,6 +206,7 @@ namespace ProjetoRefugiados.Web.Controllers
         // POST: /Manage/RemovePhoneNumber
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrador")]
         public async Task<ActionResult> RemovePhoneNumber()
         {
             var result = await UserManager.SetPhoneNumberAsync(User.Identity.GetUserId(), null);
@@ -215,6 +224,7 @@ namespace ProjetoRefugiados.Web.Controllers
 
         //
         // GET: /Manage/ChangePassword
+        [Authorize(Roles = "Administrador")]
         public ActionResult ChangePassword()
         {
             return View();
@@ -223,6 +233,7 @@ namespace ProjetoRefugiados.Web.Controllers
         //
         // POST: /Manage/ChangePassword
         [HttpPost]
+        [Authorize(Roles = "Administrador")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> ChangePassword(ChangePasswordViewModel model)
         {
@@ -246,6 +257,7 @@ namespace ProjetoRefugiados.Web.Controllers
 
         //
         // GET: /Manage/SetPassword
+        [Authorize(Roles = "Administrador")]
         public ActionResult SetPassword()
         {
             return View();
@@ -254,6 +266,7 @@ namespace ProjetoRefugiados.Web.Controllers
         //
         // POST: /Manage/SetPassword
         [HttpPost]
+        [Authorize(Roles = "Administrador")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> SetPassword(SetPasswordViewModel model)
         {
@@ -278,6 +291,7 @@ namespace ProjetoRefugiados.Web.Controllers
 
         //
         // GET: /Manage/ManageLogins
+        [Authorize(Roles = "Administrador")]
         public async Task<ActionResult> ManageLogins(ManageMessageId? message)
         {
             ViewBag.StatusMessage =
@@ -302,6 +316,7 @@ namespace ProjetoRefugiados.Web.Controllers
         //
         // POST: /Manage/LinkLogin
         [HttpPost]
+        [Authorize(Roles = "Administrador")]
         [ValidateAntiForgeryToken]
         public ActionResult LinkLogin(string provider)
         {
@@ -311,6 +326,7 @@ namespace ProjetoRefugiados.Web.Controllers
 
         //
         // GET: /Manage/LinkLoginCallback
+        [Authorize(Roles = "Administrador")]
         public async Task<ActionResult> LinkLoginCallback()
         {
             var loginInfo = await AuthenticationManager.GetExternalLoginInfoAsync(XsrfKey, User.Identity.GetUserId());

@@ -14,7 +14,7 @@
     </a> |
     <a href="~/Oportunidade/Index">
         <i class="menu-icon fa fa-university"></i>
-        <span class="menu-text">Pagina Oportunidade</span>
+        <span class="menu-text">Página Oportunidade</span>
     </a>
 </p>
 @using (@Html.BeginForm())
@@ -71,7 +71,76 @@
 <div class="col-xs-12">
     <hr />
 </div>
-<table class="table">
+<div class="col-xs-12">
+    <div class="widget-box" id="widget-box-2" style="opacity: 1;">
+        <div class="widget-header">
+
+        </div>
+
+        <div class="widget-body">
+            <div class="widget-main no-padding">
+                <table class="table table-striped table-bordered table-hover">
+                    <thead class="thin-border-bottom">
+                        <tr>
+                            <th>
+                                Nome
+                            </th>
+
+                            <th>
+                                CNPJ
+                            </th>
+                            <th>
+                                Ações
+                            </th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Nome)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CNPJ)
+                                </td>
+                                <td>
+                                    <a href="~/Views/Projeto/Edit/@item.ProjetoId">
+                                        <i class="menu-icon fa fa-pencil"></i>
+                                        <span class="menu-text">Editar</span>
+                                    </a> |
+                                    <a href="~/Projeto/Details/@item.ProjetoId">
+                                        <i class="menu-icon fa fa-info"></i>
+                                        <span class="menu-text">Detalhes</span>
+                                    </a> |
+                                    @if (item.Ativo)
+                {
+                                        <a href="~/Projeto/Index/?id=@item.ProjetoId&ativador=1">
+                                            <i class="menu-icon fa fa-trash"></i>
+                                            <span class="menu-text">Inativar</span>
+                                        </a> <span>|</span> <a href="~/Oportunidade/Create/@item.ProjetoId">
+                                            <i class="menu-icon fa fa-plus"></i>
+                                            <span class="menu-text">Nova Oportunidade</span>
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        <a href="~/Projeto/Index/?id=@item.ProjetoId&ativador=0">
+                                            <i class="menu-icon fa fa-check"></i>
+                                            <span class="menu-text">Ativar</span>
+                                        </a>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+@*<table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Nome)
@@ -120,4 +189,4 @@
         </tr>
     }
 
-</table>
+</table>*@

@@ -7,10 +7,15 @@
         new SelectListItem(){Value="M",Text="Masculino"},
         new SelectListItem(){Value="F",Text="Feminino"}
     };
-    var religiao = ViewBag.Religiao;
-    var nascionalidades = ViewBag.Nascionalidade;
-    var profissoes = ViewBag.Profissao;
-    var pais = ViewBag.Pais;
+    var religiao = (IEnumerable<SelectListItem>)TempData["reli"];
+    var nascionalidades = (IEnumerable<SelectListItem>)TempData["naci"];
+    var profissoes = (IEnumerable<SelectListItem>)TempData["prof"];
+    //var pais = ViewBag.Pais;
+    var pais = (IEnumerable<SelectListItem>)TempData["pais"];
+    TempData.Keep("pais");
+    TempData.Keep("prof");
+    TempData.Keep("naci");
+    TempData.Keep("reli");
 }
 
 <h2>Novo</h2>
@@ -22,11 +27,11 @@
         function meu_callback(conteudo) {
             if (!("erro" in conteudo)) {
                 //Atualiza os campos com os valores.
-                document.getElementById('Endereco_Longadouro').value = (conteudo.logradouro);
+                document.getElementById('Endereco_Logradouro').value = (conteudo.logradouro);
                 document.getElementById('Endereco_Cidade').value = (conteudo.localidade);
                 document.getElementById('Endereco_Estado').value = (conteudo.localidade);
 
-                document.getElementById('Endereco_Longadouro').value = (conteudo.logradouro);
+                document.getElementById('Endereco_Logradouro').value = (conteudo.logradouro);
                 document.getElementById('Endereco_Cidade').value = (conteudo.localidade);
                 document.getElementById('Endereco_Estado').value = (conteudo.uf);
             } //end if.
@@ -49,7 +54,7 @@
                 //Valida o formato do CEP.
                 if (validacep.test(cep)) {
                     //Preenche os campos com "..." enquanto consulta webservice.
-                    document.getElementById('Endereco_Longadouro').value = "...";
+                    document.getElementById('Endereco_Logradouro').value = "...";
                     document.getElementById('Endereco_Cidade').value = "...";
                     document.getElementById('Endereco_Estado').value = "...";
 
@@ -85,7 +90,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Nome, new { @class = "control-label col-md-2" })
+                @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -125,7 +130,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.ReligiaoId, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(m => m.ReligiaoId, new SelectList(religiao, "Value", "Text"), new { @class = "form-control" })
+                @Html.DropDownListFor(model => model.ReligiaoId, new SelectList(religiao, "Value", "Text"), new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.ReligiaoId, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -149,17 +154,17 @@
         <div class="form-group">
             @Html.LabelFor(model => model.PaisId, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(m => m.PaisId, new SelectList(pais, "Value", "Text"), new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.PaisId, "", new { @class = "text-danger" })
+               @Html.DropDownListFor(m => m.PaisId, new SelectList(pais, "Value", "Text"), new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.PaisId, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Vascinacao, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Vacinacao, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <div class="checkbox">
-                    @Html.EditorFor(model => model.Vascinacao)
-                    @Html.ValidationMessageFor(model => model.Vascinacao, "", new { @class = "text-danger" })
+                    @Html.EditorFor(model => model.Vacinacao)
+                    @Html.ValidationMessageFor(model => model.Vacinacao, "", new { @class = "text-danger" })
                 </div>
             </div>
         </div>
@@ -171,7 +176,6 @@
                 @Html.ValidationMessageFor(model => model.MembrosNaFamilia, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.DataDeNascimento, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -187,10 +191,10 @@
             </div>
         </div>
         <div class="form-group">
-            @Html.LabelFor(model => model.Endereco.Longadouro, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Endereco.Logradouro, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Endereco.Longadouro, new { id = "rua", htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Endereco.Longadouro, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Endereco.Logradouro, new { id = "rua", htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Endereco.Logradouro, "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="form-group">

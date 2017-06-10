@@ -8,16 +8,71 @@
 
 <h2>Refugiados</h2>
 
-<table class="table">
+<div class="col-xs-12">
+    <div class="widget-box" id="widget-box-2" style="opacity: 1;">
+        <div class="widget-header">
+            <h5 class="widget-title bigger lighter">
+                Triagens disponiveis
+            </h5>
+        </div>
+        <div class="widget-body">
+            <div class="widget-main no-padding">
+                <table class="table table-striped table-bordered table-hover">
+                    <thead class="thin-border-bottom">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Nome)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CPF)
+                            </th>
+                            <th class="hidden-480">
+                                @Html.DisplayNameFor(model => model.Sexo)
+                            </th>
+                            <th>
+                                Ações
+                            </th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach (var item in Model.Where(p =>p.Triagens.Count == 0))
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Nome)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CPF)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Sexo)
+                                </td>
+                                <td>
+                                    <a href="~/Triagem/Create/@item.RefugiadoId">
+                                        <i class="menu-icon fa fa-heartbeat"></i>
+                                        <span class="menu-text">NovaTriagem</span>
+                                    </a> | <a href="~/Refugiado/Details/@item.RefugiadoId">
+                                        <i class="menu-icon fa fa-info"></i>
+                                        <span class="menu-text">Detalhes</span>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@*<table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Nome)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.CPF)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Nascionalidade)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Sexo)
@@ -50,4 +105,4 @@
     </tr>
 }
 
-</table>
+</table>*@

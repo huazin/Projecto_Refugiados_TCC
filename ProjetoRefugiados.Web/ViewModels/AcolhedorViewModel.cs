@@ -25,11 +25,19 @@ namespace ProjetoRefugiados.Web.ViewModels
         public bool ProgramaSocial { get; set; }
 
         [DisplayName("Qual?")]
+        [SomenteLetras]
         public string ProgramaSocialString { get; set; }
 
         //Sobre o acolhedor
         [DisplayName("Nome Completo:")]
+        [SomenteLetras]
+        [Required]
         public string Nome { get; set; }
+        [Required]
+        [MinLength(10)]
+        [MaxLength(11)]
+        [DisplayName("Telefone para contato:")]
+        public string Telefone { get; set; }
 
         [DisplayName("CPF")]
         [ValidadorCPFAcolhedor]
@@ -38,18 +46,20 @@ namespace ProjetoRefugiados.Web.ViewModels
         public string Sexo { get; set; }
 
         [Required(ErrorMessage = "Data de nascimento é obrigatoria")]
-        [Range(typeof(DateTime), "1900-12-01", "2020-12-31",
-        ErrorMessage = "Data invalida")]
+        [DataAniversarioAttribute]
+        [DisplayName("Data de Nascimento")]
         public DateTime DataNascimento { get; set; }
 
         [DisplayName("Possui alguma deficiência?")]
         public bool Deficiencia { get; set; }
         [DisplayName("Qual?")]
+        [Required]
         public string DeficienciaId { get; set; }
 
         [ScaffoldColumn(false)]
         public virtual Cid DeficienciaCid { get; set; }
         [DisplayName("Faz uso de medicação controlada, qual?")]
+        [SomenteLetras]
         public string RemedioControlado { get; set; }
 
         //Escolaridade
@@ -59,7 +69,7 @@ namespace ProjetoRefugiados.Web.ViewModels
         [DisplayName("Frequenta escola atualmente?")]
         public bool FrequentaEscola { get; set; }
 
-        [DisplayName("Ultima serie concluida")]
+        [DisplayName("Ultima série concluida")]
         public string UltimaSerie { get; set; }
 
         //Trabalhos
@@ -68,11 +78,12 @@ namespace ProjetoRefugiados.Web.ViewModels
         public bool CPTS { get; set; }
 
         [DisplayName("Possui Qualificação? qual?")]
+        [SomenteLetras]
         public string Qualificacao { get; set; }
 
         //Sobre a casa
 
-        [DisplayName("Tipo de Residencia?")]
+        [DisplayName("Tipo de Residência?")]
         public string TipoResidencia { get; set; }
 
         [DisplayName("Tipo de Construção?")]
@@ -87,10 +98,11 @@ namespace ProjetoRefugiados.Web.ViewModels
         [DisplayName("Forma de abastecimento d'água:")]
         public string FormaAbastecimentoAgua { get; set; }
 
-        [DisplayName("Escoamento sanitario:")]
+        [DisplayName("Escoamento sanitário:")]
         public string EscoamentoSanitario { get; set; }
 
         [DisplayName("Numero de cômodos na casa:")]
+        [Range(0,int.MaxValue, ErrorMessage = "Numeração invalida")]
         public int NumerosDeComodos { get; set; }
 
         [DisplayName("O local possui acessibilidade para portadores de deficiência?")]
@@ -101,6 +113,7 @@ namespace ProjetoRefugiados.Web.ViewModels
 
         //Observação do acolhedor
         [DisplayName("Observações do acolhedor:")]
+        [SomenteLetras]
         public string Obervacao { get; set; }
 
         [ScaffoldColumn(false)]

@@ -41,6 +41,8 @@ namespace ProjetoRefugiados.Web.Controllers
                 return View(Mapper.Map<IEnumerable<RefugiadoViewModel>>(repo.ListAll()));
             if (tipo == "nome")
                 return View(Mapper.Map<IEnumerable<RefugiadoViewModel>>(repo.ListNome(id)));
+            else if (tipo == "prof")
+                return View(Mapper.Map<IEnumerable<ProjetoViewModel>>(repo.ListProf(id)));
             return View(Mapper.Map<IEnumerable<RefugiadoViewModel>>(repo.ListCpf(id)));
         }
 
@@ -55,22 +57,23 @@ namespace ProjetoRefugiados.Web.Controllers
         // GET: Refugiado/Create
         public ActionResult Create()
         {
-            ViewBag.Pais = repoPais.List().Select(x => new SelectListItem()
+            //ViewBag.Pais
+            TempData["pais"] = repoPais.List().Select(x => new SelectListItem()
             {
                 Text = x.Nome,
                 Value = x.PaisId.ToString()
             });
-            ViewBag.Profissao = repoProf.List().Select(x => new SelectListItem()
+            TempData["prof"] = repoProf.List().Select(x => new SelectListItem()
             {
                 Text = x.Nome,
                 Value = x.ProfissaoId.ToString()
             });
-            ViewBag.Religiao = repoReli.List().Select(x => new SelectListItem()
+            TempData["reli"] = repoReli.List().Select(x => new SelectListItem()
             {
                 Text = x.Nome,
                 Value = x.ReligiaoId.ToString()
             });
-            ViewBag.Nascionalidade = repoNasci.List().Select(x => new SelectListItem()
+            TempData["naci"] = repoNasci.List().Select(x => new SelectListItem()
             {
                 Text = x.Nome,
                 Value = x.NacionalidadeId.ToString()
@@ -96,22 +99,22 @@ namespace ProjetoRefugiados.Web.Controllers
         // GET: Refugiado/Edit/5
         public ActionResult Edit(int id)
         {
-            ViewBag.Pais = repoPais.List().Select(x => new SelectListItem()
+            TempData["pais"] = repoPais.List().Select(x => new SelectListItem()
             {
                 Text = x.Nome,
                 Value = x.PaisId.ToString()
             });
-            ViewBag.Profissao = repoProf.List().Select(x => new SelectListItem()
+            TempData["prof"] = repoProf.List().Select(x => new SelectListItem()
             {
                 Text = x.Nome,
                 Value = x.ProfissaoId.ToString()
             });
-            ViewBag.Religiao = repoReli.List().Select(x => new SelectListItem()
+            TempData["reli"] = repoReli.List().Select(x => new SelectListItem()
             {
                 Text = x.Nome,
                 Value = x.ReligiaoId.ToString()
             });
-            ViewBag.Nascionalidade = repoNasci.List().Select(x => new SelectListItem()
+            TempData["naci"] = repoNasci.List().Select(x => new SelectListItem()
             {
                 Text = x.Nome,
                 Value = x.NacionalidadeId.ToString()

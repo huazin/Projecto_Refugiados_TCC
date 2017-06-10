@@ -64,6 +64,10 @@ namespace ProjetoRefugiados.Web.Infra.Repository
         {
             return Db.Refugiados.Where(p => p.CPF.Contains(cpf)).ToList();
         }
+        public IEnumerable<Refugiado> ListProf(string prof)
+        {
+            return Db.Refugiados.Where(p => p.CPF.Contains(prof) && p.Ativo == true).ToList();
+        }
 
         public void Remove(Refugiado remove)
         {

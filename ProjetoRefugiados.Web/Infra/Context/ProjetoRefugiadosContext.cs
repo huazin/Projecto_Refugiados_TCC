@@ -24,6 +24,7 @@ namespace ProjetoRefugiados.Web.Infra.Context
         public DbSet<CartaDeEncaminhamento> CartaoDeEncaminhamento { get; set; }
         public DbSet<Acolhedor> Acolhedores { get; set; }
         public DbSet<FamiliarAcolhedor> FamiliarAcolhedores { get; set; }
+        public DbSet<Exame> Exames { get; set; }
         //Secundarias
         public DbSet<Nacionalidade> Nacionalidades { get; set; }
         public DbSet<Pais> Paises { get; set; }
@@ -61,6 +62,7 @@ namespace ProjetoRefugiados.Web.Infra.Context
             modelBuilder.Configurations.Add(new CartaDeEncaminhamentoConfiguration());
             modelBuilder.Configurations.Add(new AcolhedorConfiguration());
             modelBuilder.Configurations.Add(new FamiliarAcolhedorConfiguration());
+            modelBuilder.Configurations.Add(new ExameConfiguration());
 
             //Secundarias
             modelBuilder.Configurations.Add(new NacionalidadeConfiguration());

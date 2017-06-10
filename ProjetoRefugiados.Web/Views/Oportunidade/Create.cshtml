@@ -3,7 +3,8 @@
 @{
     ViewBag.Title = "Criar";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    var id = ViewBag.id;
+    var id = (IEnumerable<SelectListItem>)TempData["id"];
+    TempData.Keep("id");
 }
 
 <h2>Novo</h2>

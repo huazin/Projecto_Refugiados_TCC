@@ -7,11 +7,15 @@
         new SelectListItem(){Value="M",Text="Masculino"},
         new SelectListItem(){Value="F",Text="Feminino"}
     };
-    var religiao = ViewBag.Religiao;
-    var nascionalidades = ViewBag.Nascionalidade;
-    var profissoes = ViewBag.Profissao;
-    var pais = ViewBag.Pais;
-}
+    var religiao = (IEnumerable<SelectListItem>)TempData["reli"];
+    var nascionalidades = (IEnumerable<SelectListItem>)TempData["naci"];
+    var profissoes = (IEnumerable<SelectListItem>)TempData["prof"];
+    //var pais = ViewBag.Pais;
+    var pais = (IEnumerable<SelectListItem>)TempData["pais"];
+    TempData.Keep("pais");
+    TempData.Keep("prof");
+    TempData.Keep("naci");
+    TempData.Keep("reli");
 
 <h2>Editar</h2>
 

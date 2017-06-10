@@ -49,7 +49,7 @@ namespace ProjetoRefugiados.Web.Controllers
         [Authorize(Roles = "Administrador,Estagiario,Atendente")]
         public ActionResult Create(int id)
         {
-            ViewBag.id = id;
+            TempData["id"] = id;
             return View();
         }
 
@@ -101,7 +101,7 @@ namespace ProjetoRefugiados.Web.Controllers
             {
                 carta.RefugiadoId = repoRefu.FindByCPF(carta.CPF).RefugiadoId;
                 repoCarta.Add(Mapper.Map<CartaDeEncaminhamento>(carta));
-                return RedirectToAction("~/Refugiado/Details/" + carta.RefugiadoId);
+                return RedirectToAction("Details/" + carta.RefugiadoId, "Refugiado");
             }
             return View(carta);
         }

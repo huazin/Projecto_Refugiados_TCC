@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "Deletar usuario";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (ViewBag.Error == "Não é possivel deletar o usuario que esteja usando")
+{
+    <hgroup class="title">
+        <h1>Falha ao deletar</h1>
+    </hgroup>
+    <div>
+        <p>
+            @ViewBag.Error
+        </p>
+    </div>
+}
+else
+{
+    <hgroup class="title">
+        <h1>@ViewBag.Title.</h1>
+    </hgroup>
+    <div>
+        <p>
+            Usuario Deletado com sucesso.
+        </p>
+    </div>
+}
+
+
+
