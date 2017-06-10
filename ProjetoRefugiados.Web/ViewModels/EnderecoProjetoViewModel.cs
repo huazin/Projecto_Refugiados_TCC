@@ -12,10 +12,10 @@ namespace ProjetoRefugiados.Web.ViewModels
         [Key, ForeignKey("Projeto")]
         public int ProjetoId { get; set; }
 
-        [Required(ErrorMessage = "Longadouro é obrigatorio!")]
+        [Required(ErrorMessage = "Logradouro é obrigatorio!")]
         public string Longadouro { get; set; }
 
-        [Required(ErrorMessage = "Longadouro é obrigatorio!")]
+        [Required(ErrorMessage = "Logradouro é obrigatorio!")]
         public string Cidade { get; set; }
 
         [Required(ErrorMessage = "Longadouro é obrigatorio!")]
@@ -23,7 +23,7 @@ namespace ProjetoRefugiados.Web.ViewModels
 
         public string Complemento { get; set; }
 
-        [Required(ErrorMessage = "Longadouro é obrigatorio!")]
+        [Required(ErrorMessage = "CEP é obrigatorio")]
         public int CEP { get; set; }
 
         [ScaffoldColumn(false)]

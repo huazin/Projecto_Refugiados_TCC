@@ -16,10 +16,9 @@ namespace ProjetoRefugiados.Web.Controllers
         }
 
         [Authorize(Roles = "Administrador")]
-        // GET: Administrador/Details/5
         public ActionResult ChangePassword(int id)
         {
-            return View("~/Manage/ChangePassword");
+            return RedirectToAction("ChangePassword", "Manage");
         }
 
         [Authorize(Roles = "Administrador")]

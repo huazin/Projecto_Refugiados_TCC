@@ -23,13 +23,13 @@ namespace ProjetoRefugiados.Web.Infra.EntityConfig
             Property(p => p.Sexo)
                 .IsRequired();
 
-            Property(p => p.Vascinacao)
+            Property(p => p.Vacinacao)
                 .IsRequired();
 
             Property(p => p.MembrosNaFamilia)
                 .IsRequired();
 
-            HasRequired(p => p.Nascionalidade)
+            HasRequired(p => p.Nacionalidade)
                 .WithMany()
                 .HasForeignKey(p => p.NacionalidadeId);
 

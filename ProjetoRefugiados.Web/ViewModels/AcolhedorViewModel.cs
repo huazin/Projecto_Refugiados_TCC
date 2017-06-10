@@ -42,14 +42,14 @@ namespace ProjetoRefugiados.Web.ViewModels
         ErrorMessage = "Data invalida")]
         public DateTime DataNascimento { get; set; }
 
-        [DisplayName("Posui alguma deficiencia?")]
+        [DisplayName("Possui alguma deficiência?")]
         public bool Deficiencia { get; set; }
         [DisplayName("Qual?")]
         public string DeficienciaId { get; set; }
 
         [ScaffoldColumn(false)]
         public virtual Cid DeficienciaCid { get; set; }
-        [DisplayName("Uso de Remedio controlado? Qual?")]
+        [DisplayName("Faz uso de medicação controlada, qual?")]
         public string RemedioControlado { get; set; }
 
         //Escolaridade
@@ -81,26 +81,26 @@ namespace ProjetoRefugiados.Web.ViewModels
         [DisplayName("Acesso a Energia via?")]
         public string AcessoEnergia { get; set; }
 
-        [DisplayName("Possui Agua canalizada?")]
+        [DisplayName("Possui água canalizada?")]
         public bool AguaCanalizada { get; set; }
 
-        [DisplayName("Forma de abastecimento dágua:")]
+        [DisplayName("Forma de abastecimento d'água:")]
         public string FormaAbastecimentoAgua { get; set; }
 
         [DisplayName("Escoamento sanitario:")]
         public string EscoamentoSanitario { get; set; }
 
-        [DisplayName("Numero de comodos na casa:")]
+        [DisplayName("Numero de cômodos na casa:")]
         public int NumerosDeComodos { get; set; }
 
-        [DisplayName("O local possui acebilidade para portadores de deficiencia fisica?")]
+        [DisplayName("O local possui acessibilidade para portadores de deficiência?")]
         public bool Acebilidade { get; set; }
 
-        [DisplayName("o local esta em area de risco de desabamento ou alagamento?")]
+        [DisplayName("o local está em área de risco de desabamento ou alagamento?")]
         public bool AreaDesabamentoOuAlagamento { get; set; }
 
         //Observação do acolhedor
-        [DisplayName("Observação do acolhedor:")]
+        [DisplayName("Observações do acolhedor:")]
         public string Obervacao { get; set; }
 
         [ScaffoldColumn(false)]

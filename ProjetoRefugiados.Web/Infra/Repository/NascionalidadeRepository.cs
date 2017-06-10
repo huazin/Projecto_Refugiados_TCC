@@ -8,10 +8,10 @@ using System.Web;
 
 namespace ProjetoRefugiados.Web.Infra.Repository
 {
-    public class NascionalidadeRepository : ICrud<Nascionalidade>
+    public class NascionalidadeRepository : ICrud<Nacionalidade>
     {
         public ProjetoRefugiadosContext Db = new ProjetoRefugiadosContext();
-        public void Add(Nascionalidade add)
+        public void Add(Nacionalidade add)
         {
             Db.Nacionalidades.Add(add);
             Db.SaveChanges();
@@ -22,23 +22,23 @@ namespace ProjetoRefugiados.Web.Infra.Repository
             Db.Dispose();
         }
 
-        public void Edit(Nascionalidade edit)
+        public void Edit(Nacionalidade edit)
         {
             Db.Entry(edit).State = EntityState.Modified;
             Db.SaveChanges();
         }
 
-        public Nascionalidade FindById(int key)
+        public Nacionalidade FindById(int key)
         {
             return Db.Nacionalidades.Find(key);
         }
 
-        public IEnumerable<Nascionalidade> List()
+        public IEnumerable<Nacionalidade> List()
         {
             return Db.Nacionalidades.ToList();
         }
 
-        public void Remove(Nascionalidade remove)
+        public void Remove(Nacionalidade remove)
         {
             Db.Nacionalidades.Remove(remove);
             Db.SaveChanges();

@@ -74,6 +74,10 @@ namespace ProjetoRefugiados.Web.Models
         public string CPF { get; set; }
 
         [Required]
+        [Display(Name = "Cargo")]
+        public string Role { get; set; }
+
+        [Required]
         [Display(Name = "Nome")]
         public string Nome { get; set; }
 
@@ -120,5 +124,11 @@ namespace ProjetoRefugiados.Web.Models
         [Required]
         [Display(Name = "CPF")]
         public string Email { get; set; }
+    }
+    public class RemoveUsuarioViewModel
+    {
+        [Required]
+        [Display(Name = "CPF")]
+        public string CPF { get; set; }
     }
 }

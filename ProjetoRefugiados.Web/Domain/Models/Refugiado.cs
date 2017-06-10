@@ -16,13 +16,13 @@ namespace ProjetoRefugiados.Web.Domain.Models
         public int NacionalidadeId { get; set; }
         public int ProfissaoId { get; set; }
         public int PaisId { get; set; }
-        public bool Vascinacao { get; set; }
+        public bool Vacinacao { get; set; }
         public int MembrosNaFamilia { get; set; }
         public DateTime DataDeModificacao { get; set; }
         public DateTime DataDeNascimento { get; set; }
         public bool Ativo { get; set; }
         public virtual Religiao Religiao { get; set; }
-        public virtual Nascionalidade Nascionalidade { get; set; }
+        public virtual Nacionalidade Nacionalidade { get; set; }
         public virtual Profissao Profissao { get; set; }
         public virtual Pais Pais { get; set; }
         public virtual Endereco Endereco { get; set; }

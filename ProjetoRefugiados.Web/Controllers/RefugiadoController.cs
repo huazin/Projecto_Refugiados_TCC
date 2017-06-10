@@ -73,7 +73,7 @@ namespace ProjetoRefugiados.Web.Controllers
             ViewBag.Nascionalidade = repoNasci.List().Select(x => new SelectListItem()
             {
                 Text = x.Nome,
-                Value = x.NascionalidadeId.ToString()
+                Value = x.NacionalidadeId.ToString()
             });
             return View();
         }
@@ -114,7 +114,7 @@ namespace ProjetoRefugiados.Web.Controllers
             ViewBag.Nascionalidade = repoNasci.List().Select(x => new SelectListItem()
             {
                 Text = x.Nome,
-                Value = x.NascionalidadeId.ToString()
+                Value = x.NacionalidadeId.ToString()
             });
             return View(Mapper.Map<RefugiadoViewModel>(repo.FindById(id)));
         }

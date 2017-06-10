@@ -238,7 +238,7 @@ namespace ProjetoRefugiados.Web.Controllers
                 {
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
                 }
-                return RedirectToAction("Index", new { Message = ManageMessageId.ChangePasswordSuccess });
+                return RedirectToAction("Index", "Administrador");
             }
             AddErrors(result);
             return View(model);

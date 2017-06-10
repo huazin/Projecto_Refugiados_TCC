@@ -5,9 +5,9 @@ using System.Web;
 
 namespace ProjetoRefugiados.Web.Domain.Models.Secudarias
 {
-    public class Nascionalidade
+    public class Nacionalidade
     {
-        public int NascionalidadeId { get; set; }
+        public int NacionalidadeId { get; set; }
         public string Nome { get; set; }
 
         public virtual IEnumerable<Refugiado> Refugiados { get; set; }

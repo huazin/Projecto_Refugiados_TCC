@@ -38,8 +38,8 @@ namespace ProjetoRefugiados.Web.ViewModels
         [DisplayName("Religião")]
         public int ReligiaoId { get; set; }
 
-        [Required(ErrorMessage = "Nascionalidade é obrigatorio")]
-        [DisplayName("Nascionalidade")]
+        [Required(ErrorMessage = "Nacionalidade é obrigatorio")]
+        [DisplayName("Nacionalidade")]
         public int NacionalidadeId { get; set; }
 
         [Required(ErrorMessage = "Profissão é obrigatorio")]
@@ -50,8 +50,8 @@ namespace ProjetoRefugiados.Web.ViewModels
         [DisplayName("Pais de Origem")]
         public int PaisId { get; set; }
 
-        [DisplayName("Possui carteira de Vascinação?")]
-        public bool Vascinacao { get; set; }
+        [DisplayName("Possui carteira de Vacinação?")]
+        public bool Vacinacao { get; set; }
 
         [Required(ErrorMessage = "Quantidade de membros na familia é obrigatorio")]
         [Range(0, 20, ErrorMessage = "Numeração invalida")]
@@ -74,7 +74,7 @@ namespace ProjetoRefugiados.Web.ViewModels
         public virtual ReligiaoViewModel Religiao { get; set; }
 
         [ScaffoldColumn(false)]
-        public virtual NascionalidadeViewModel Nascionalidade { get; set; }
+        public virtual NacionalidadeViewModel Nascionalidade { get; set; }
 
         [ScaffoldColumn(false)]
         public virtual ProfissaoViewModel Profissao { get; set; }

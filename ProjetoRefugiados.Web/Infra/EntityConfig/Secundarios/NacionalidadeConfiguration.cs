@@ -7,11 +7,11 @@ using System.Web;
 
 namespace ProjetoRefugiados.Web.Infra.EntityConfig.Secundarios
 {
-    public class NascionalidadeConfiguration : EntityTypeConfiguration<Nascionalidade>
+    public class NacionalidadeConfiguration : EntityTypeConfiguration<Nacionalidade>
     {
-        public NascionalidadeConfiguration()
+        public NacionalidadeConfiguration()
         {
-            HasKey(p => p.NascionalidadeId);
+            HasKey(p => p.NacionalidadeId);
 
             Property(p => p.Nome)
                 .IsRequired();

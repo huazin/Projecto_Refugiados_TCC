@@ -157,14 +157,14 @@ namespace ProjetoRefugiados.Web.Controllers
                 if (result.Succeeded)
                 {
                     //await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Enviar um email com este link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirmar sua conta", "Confirme sua conta clicando <a href=\"" + callbackUrl + "\">aqui</a>");
-
-                    return RedirectToAction("Index", "Home");
+                    var roleresult = UserManager.AddToRole(user.Id, model.Role);
+                    return RedirectToAction("Index", "Administrador");
                 }
                 AddErrors(result);
             }
@@ -230,12 +230,42 @@ namespace ProjetoRefugiados.Web.Controllers
             return View();
         }
 
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> RemoveUsuario(RemoveUsuarioViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+            var user = await UserManager.FindByNameAsync(model.CPF);
+            if (user == null)
+            {
+                // Não revelar que o usuário não existe
+                return RedirectToAction("ResetPasswordConfirmation", "Account");
+            }
+            var remove = await UserManager.DeleteAsync(user);
+            if (remove.Succeeded)
+            {
+                return RedirectToAction("Delete", "Account");
+            }
+            AddErrors(remove);
+            return View();
+        }
+
         //
         // GET: /Account/ResetPassword
         [AllowAnonymous]
-        public ActionResult ResetPassword(string code)
+        public ActionResult RemoveUsuario()
         {
-            return code == null ? View("Error") : View();
+            return View();
+        }
+
+        [AllowAnonymous]
+        public ActionResult ResetPassword()
+        {
+            return View();
         }
 
         //
@@ -255,7 +285,8 @@ namespace ProjetoRefugiados.Web.Controllers
                 // Não revelar que o usuário não existe
                 return RedirectToAction("ResetPasswordConfirmation", "Account");
             }
-            var result = await UserManager.ResetPasswordAsync(user.Id, model.Code, model.Password);
+            string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
+            var result = await UserManager.ResetPasswordAsync(user.Id, code, model.Password);
             if (result.Succeeded)
             {
                 return RedirectToAction("ResetPasswordConfirmation", "Account");

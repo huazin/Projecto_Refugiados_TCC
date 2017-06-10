@@ -28,7 +28,7 @@ namespace ProjetoRefugiados.Web.ViewModels
         public string AlergiasId { get; set; }
         public virtual CidViewModel Alergias { get; set; }
 
-        [DisplayName("Doencas Infec:")]
+        [DisplayName("Doenlas Infec.:")]
         public string DoencasInfectId { get; set; }
         public virtual CidViewModel DoencasInfecto { get; set; }
 

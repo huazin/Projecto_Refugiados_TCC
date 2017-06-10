@@ -13,8 +13,8 @@ namespace ProjetoRefugiados.Web.ViewModels
         [Key, ForeignKey("Refugiado")]
         public int RefugiadoId { get; set; }
 
-        [Required(ErrorMessage = "Longadouro é obrigatorio!")]
-        public string Longadouro { get; set; }
+        [Required(ErrorMessage = "Logradouro é obrigatorio!")]
+        public string Logradouro { get; set; }
 
         [Required(ErrorMessage = "Longadouro é obrigatorio!")]
         public string Cidade { get; set; }

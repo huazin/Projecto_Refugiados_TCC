@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Projeto Refugiados</title>
+    <title>@ViewBag.Title - Projeto Enfermagem</title>
     @Styles.Render("~/Content/css")
     @Styles.Render("~/Content/AceCss")
     @Scripts.Render("~/bundles/modernizr")
@@ -25,7 +25,7 @@
                 <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">
                     <small>
                         <i class="fa fa-book"></i>
-                        Projeto Refugiados
+                        Projeto Enfermagem
                     </small>
                 </a>
             </div>
@@ -121,32 +121,70 @@
                             </a>
                         </li>
                     }
-                    @if(User.IsInRole("Administrador") || User.IsInRole("Estagiario") || User.IsInRole("Enfermeiro"))
-                    { 
-                    <li>
-                        <a href="~/Triagem/Index">
-                            <i class="menu-icon fa fa-heartbeat"></i>
-                            <span class="menu-text">Triagem</span>
-                        </a>
-                    </li>
+                    @if (User.IsInRole("Administrador") || User.IsInRole("Estagiario") || User.IsInRole("Enfermeiro"))
+                    {
+                        <li>
+                            <a href="~/Triagem/Index">
+                                <i class="menu-icon fa fa-heartbeat"></i>
+                                <span class="menu-text">Triagem</span>
+                            </a>
+                        </li>
                     }
                     @if (User.IsInRole("Administrador") || User.IsInRole("Estagiario") || User.IsInRole("Atendente"))
                     {
-                    <li>
-                        <a href="~/Projeto/Index">
-                            <i class="menu-icon fa fa-industry"></i>
-                            <span class="menu-text">Projetos</span>
-                        </a>
-                    </li>
+                        <li>
+                            <a href="~/Projeto/Index">
+                                <i class="menu-icon fa fa-industry"></i>
+                                <span class="menu-text">Projetos</span>
+                            </a>
+                        </li>
                     }
-                    @if(User.IsInRole("Administrador"))
+                    @if (User.IsInRole("Administrador"))
                     {
-                    <li>
-                        <a href="~/Administrador/Index">
-                            <i class="menu-icon fa fa-book"></i>
-                            <span class="menu-text">Administração</span>
-                        </a>
-                    </li>
+                        @*<li>
+                                <a href="~/Administrador/Index">
+                                    <i class="menu-icon fa fa-book"></i>
+                                    <span class="menu-text">Administração</span>
+                                </a>
+                            </li>*@
+                        <li class="">
+                            <a href="#" class="dropdown-toggle">
+                                <i class="menu-icon fa fa-book"></i>
+                                <span class="menu-text">Administração</span>
+                                <b class="arrow fa fa-angle-down"></b>
+                            </a>
+                            <b class="arrow"></b>
+                            <ul class="submenu nav-hide" style="display: none;">
+                                <li class="">
+                                    <a href="~/Manage/ChangePassword">
+                                        <i class="menu-icon fa fa-unlock"></i>
+                                        Muda senha
+                                    </a>
+                                    <b class="arrow"></b>
+                                </li>
+                                <li class="">
+                                    <a href="~/Account/ResetPassword">
+                                        <i class="menu-icon fa fa-unlock"></i>
+                                        Redefinir senha
+                                    </a>
+                                    <b class="arrow"></b>
+                                </li>
+                                <li class="">
+                                    <a href="~/Account/Register">
+                                        <i class="menu-icon fa fa-plus"></i>
+                                        Criar novo usuario
+                                    </a>
+                                    <b class="arrow"></b>
+                                </li>
+                                <li class="">
+                                    <a href="~/Refugiado/Index">
+                                        <i class="menu-icon fa fa-trash"></i>
+                                        Deletar usuario
+                                    </a>
+                                    <b class="arrow"></b>
+                                </li>
+                            </ul>
+                        </li>
                     }
                 </ul>
             }
@@ -191,7 +229,7 @@
                 <div class="footer-content">
                     <footer>
                         <span class="bigger-120">
-                            Projeto Refugiados &copy; 2017
+                            Projeto Enfermagem &copy; 2017
                         </span>
                     </footer>
                 </div>

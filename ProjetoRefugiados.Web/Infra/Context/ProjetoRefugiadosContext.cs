@@ -25,7 +25,7 @@ namespace ProjetoRefugiados.Web.Infra.Context
         public DbSet<Acolhedor> Acolhedores { get; set; }
         public DbSet<FamiliarAcolhedor> FamiliarAcolhedores { get; set; }
         //Secundarias
-        public DbSet<Nascionalidade> Nacionalidades { get; set; }
+        public DbSet<Nacionalidade> Nacionalidades { get; set; }
         public DbSet<Pais> Paises { get; set; }
         public DbSet<Profissao> Profissoes { get; set; }
         public DbSet<Religiao> Religoes { get; set; }
@@ -63,7 +63,7 @@ namespace ProjetoRefugiados.Web.Infra.Context
             modelBuilder.Configurations.Add(new FamiliarAcolhedorConfiguration());
 
             //Secundarias
-            modelBuilder.Configurations.Add(new NascionalidadeConfiguration());
+            modelBuilder.Configurations.Add(new NacionalidadeConfiguration());
             modelBuilder.Configurations.Add(new PaisConfiguration());
             modelBuilder.Configurations.Add(new ProfissaoConfiguration());
             modelBuilder.Configurations.Add(new ReligiaoConfiguration());

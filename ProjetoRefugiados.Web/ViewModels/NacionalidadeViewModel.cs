@@ -7,10 +7,10 @@ using System.Web;
 
 namespace ProjetoRefugiados.Web.ViewModels
 {
-    public class NascionalidadeViewModel
+    public class NacionalidadeViewModel
     {
         [Key]
-        public int NascionalidadeId { get; set; }
+        public int NacionalidadeId { get; set; }
         public string Nome { get; set; }
         public virtual IEnumerable<RefugiadoViewModel> Refugiados { get; set; }
     }

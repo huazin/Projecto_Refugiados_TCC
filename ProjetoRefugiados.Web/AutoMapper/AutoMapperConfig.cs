@@ -41,7 +41,7 @@ namespace ProjetoRefugiados.Web.AutoMapper
                 x.CreateMap<ReligiaoViewModel, Religiao>().MaxDepth(2);
                 x.CreateMap<PaisViewModel, Pais>().MaxDepth(2);
                 x.CreateMap<ProfissaoViewModel, Profissao>().MaxDepth(2);
-                x.CreateMap<NascionalidadeViewModel, Nascionalidade>().MaxDepth(2);
+                x.CreateMap<NacionalidadeViewModel, Nacionalidade>().MaxDepth(2);
                 x.CreateMap<EnderecoViewModel, Endereco>().MaxDepth(2);
                 x.CreateMap<CidViewModel, Cid>().MaxDepth(2);
                 x.CreateMap<EnderecoProjetoViewModel, EnderecoProjeto>().MaxDepth(2);
@@ -50,7 +50,7 @@ namespace ProjetoRefugiados.Web.AutoMapper
                 x.CreateMap<Endereco, EnderecoViewModel>().MaxDepth(2);
                 x.CreateMap<Religiao, ReligiaoViewModel>().MaxDepth(2);
                 x.CreateMap<Pais, PaisViewModel>().MaxDepth(2);
-                x.CreateMap<Nascionalidade, NascionalidadeViewModel>().MaxDepth(2);
+                x.CreateMap<Nacionalidade, NacionalidadeViewModel>().MaxDepth(2);
                 x.CreateMap<Cid, CidViewModel>().MaxDepth(2);
                 x.CreateMap<EnderecoProjeto, EnderecoProjetoViewModel>().MaxDepth(2);
             });

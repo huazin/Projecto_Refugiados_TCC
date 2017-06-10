@@ -221,7 +221,7 @@
     <Compile Include="Domain\Models\Secudarias\Cid.cs" />
     <Compile Include="Domain\Models\Secudarias\Endereco.cs" />
     <Compile Include="Domain\Models\Secudarias\EnderecoProjeto.cs" />
-    <Compile Include="Domain\Models\Secudarias\Nascionalidade.cs" />
+    <Compile Include="Domain\Models\Secudarias\Nacionalidade.cs" />
     <Compile Include="Domain\Models\Secudarias\Pais.cs" />
     <Compile Include="Domain\Models\Secudarias\Profissao.cs" />
     <Compile Include="Domain\Models\Secudarias\Religiao.cs" />
@@ -238,7 +238,7 @@
     <Compile Include="Infra\EntityConfig\Secundarios\CidConfiguration.cs" />
     <Compile Include="Infra\EntityConfig\Secundarios\EnderecoConfiguration.cs" />
     <Compile Include="Infra\EntityConfig\Secundarios\EnderecoProjetoConfiguration.cs" />
-    <Compile Include="Infra\EntityConfig\Secundarios\NascionalidadeConfiguration.cs" />
+    <Compile Include="Infra\EntityConfig\Secundarios\NacionalidadeConfiguration.cs" />
     <Compile Include="Infra\EntityConfig\Secundarios\PaisConfiguration.cs" />
     <Compile Include="Infra\EntityConfig\RefugiadoConfiguration.cs" />
     <Compile Include="Infra\EntityConfig\Secundarios\ProfissaoConfiguration.cs" />
@@ -271,7 +271,7 @@
     <Compile Include="ViewModels\EnderecoProjetoViewModel.cs" />
     <Compile Include="ViewModels\EnderecoViewModel.cs" />
     <Compile Include="ViewModels\FamiliarAcolhedorViewModel.cs" />
-    <Compile Include="ViewModels\NascionalidadeViewModel.cs" />
+    <Compile Include="ViewModels\NacionalidadeViewModel.cs" />
     <Compile Include="ViewModels\OportunidadeViewModel.cs" />
     <Compile Include="ViewModels\PaisViewModel.cs" />
     <Compile Include="ViewModels\ProfissaoViewModel.cs" />
@@ -381,7 +381,6 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Adm\NovoFuncionario.cshtml" />
     <Content Include="Views\Refugiado\Index.cshtml" />
     <Content Include="Views\Refugiado\Create.cshtml" />
     <Content Include="Views\Refugiado\Edit.cshtml" />
@@ -404,10 +403,11 @@
     <Content Include="Views\Acolhedor\Edit.cshtml" />
     <Content Include="Views\Acolhedor\Details.cshtml" />
     <Content Include="Views\Error\Index.cshtml" />
+    <Content Include="Views\Administrador\Index.cshtml" />
+    <Content Include="Views\Account\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Administrador\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
