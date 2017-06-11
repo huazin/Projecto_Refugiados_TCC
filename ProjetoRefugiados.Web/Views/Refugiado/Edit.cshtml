@@ -16,6 +16,7 @@
     TempData.Keep("prof");
     TempData.Keep("naci");
     TempData.Keep("reli");
+}
 
 <h2>Editar</h2>
 
@@ -102,11 +103,11 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Vascinacao, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Vacinacao, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <div class="checkbox">
-                    @Html.EditorFor(model => model.Vascinacao)
-                    @Html.ValidationMessageFor(model => model.Vascinacao, "", new { @class = "text-danger" })
+                    @Html.EditorFor(model => model.Vacinacao)
+                    @Html.ValidationMessageFor(model => model.Vacinacao, "", new { @class = "text-danger" })
                 </div>
             </div>
         </div>

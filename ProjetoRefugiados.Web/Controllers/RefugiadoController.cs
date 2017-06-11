@@ -21,7 +21,7 @@ namespace ProjetoRefugiados.Web.Controllers
         public readonly PaisRepository repoPais = new PaisRepository();
         public readonly CartaDeEncaminhamentoRepository repoCarta = new CartaDeEncaminhamentoRepository();
 
-        [Authorize(Roles = "Atendente,Enfermeiro,Administrador,Estagiario")]
+        [Authorize(Roles = "Atendente,Enfermeiro,Administrador,Estagiario,Medico")]
         // GET: Refugiado
         public ActionResult Index(int? id, int? ativador)
         {
@@ -33,7 +33,7 @@ namespace ProjetoRefugiados.Web.Controllers
             return View(Mapper.Map<IEnumerable<RefugiadoViewModel>>(repo.List()));
         }
 
-        [Authorize(Roles = "Atendente,Enfermeiro,Administrador,Estagiario")]
+        [Authorize(Roles = "Atendente,Enfermeiro,Administrador,Estagiario,Medico")]
         [HttpPost]
         public ActionResult Index(string tipo, string id)
         {
@@ -46,14 +46,14 @@ namespace ProjetoRefugiados.Web.Controllers
             return View(Mapper.Map<IEnumerable<RefugiadoViewModel>>(repo.ListCpf(id)));
         }
 
-        [Authorize(Roles = "Atendente,Enfermeiro,Administrador,Estagiario")]
+        [Authorize(Roles = "Atendente,Enfermeiro,Administrador,Estagiario,Medico")]
         // GET: Refugiado/Details/5
         public ActionResult Details(int id)
         {
             return View(Mapper.Map<RefugiadoViewModel>(repo.FindById(id)));
         }
 
-        [Authorize(Roles = "Atendente,Enfermeiro,Administrador,Estagiario")]
+        [Authorize(Roles = "Atendente,Enfermeiro,Administrador,Estagiario,Medico")]
         // GET: Refugiado/Create
         public ActionResult Create()
         {
@@ -81,7 +81,7 @@ namespace ProjetoRefugiados.Web.Controllers
             return View();
         }
 
-        [Authorize(Roles = "Atendente,Enfermeiro,Administrador,Estagiario")]
+        [Authorize(Roles = "Atendente,Enfermeiro,Administrador,Estagiario,Medico")]
         // POST: Refugiado/Create
         [HttpPost]
         public ActionResult Create(RefugiadoViewModel refugiado)
@@ -95,7 +95,7 @@ namespace ProjetoRefugiados.Web.Controllers
             return View(refugiado);
         }
 
-        [Authorize(Roles = "Atendente,Enfermeiro,Administrador,Estagiario")]
+        [Authorize(Roles = "Atendente,Enfermeiro,Administrador,Estagiario,Medico")]
         // GET: Refugiado/Edit/5
         public ActionResult Edit(int id)
         {
@@ -122,7 +122,7 @@ namespace ProjetoRefugiados.Web.Controllers
             return View(Mapper.Map<RefugiadoViewModel>(repo.FindById(id)));
         }
 
-        [Authorize(Roles = "Atendente,Enfermeiro,Administrador,Estagiario")]
+        [Authorize(Roles = "Atendente,Enfermeiro,Administrador,Estagiario,Medico")]
         // POST: Refugiado/Edit/5
         [HttpPost]
         public ActionResult Edit(RefugiadoViewModel refugiado)

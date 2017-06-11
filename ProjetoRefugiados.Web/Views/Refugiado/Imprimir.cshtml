@@ -1,7 +1,8 @@
 ﻿@model ProjetoRefugiados.Web.ViewModels.CartaDeEncaminhamentoViewModel
 @{
     Layout = "~/Views/Shared/_PDF.cshtml";
-    ;// ViewBag.Title = "Carta de encaminhamento";
+    var Mes = new string[]{ "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro" };
+
 }
 <style type="text/css">
     h1 {font-size: 40px;}
@@ -57,7 +58,7 @@
         </p>
     </div>
     <div class="col-xs-12">
-        <p>São Paulo, @DateTime.Now.Day de @DateTime.Now.Month de @DateTime.Now.Year.</p>
+        <p>São Paulo, @DateTime.Now.Day de @Mes[@DateTime.Now.Month - 1] de @DateTime.Now.Year.</p>
     </div>
     <div>
         <hr />

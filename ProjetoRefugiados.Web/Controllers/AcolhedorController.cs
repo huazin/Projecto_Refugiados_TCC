@@ -66,7 +66,7 @@ namespace ProjetoRefugiados.Web.Controllers
                 repo.Add(Mapper.Map<Acolhedor>(acolhedor));
                 var acolhedorTemp = repo.ListCpf(acolhedor.Cpf);
                 int id = acolhedorTemp.Where(p => p.Ativo == true).Single().AcolhedorId;
-                return (Details(id));
+                return View("Index");
             }
             return View(acolhedor);
         }

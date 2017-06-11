@@ -103,7 +103,7 @@
                             <span class="menu-text">Home</span>
                         </a>
                     </li>
-                    @if (User.IsInRole("Administrador") || User.IsInRole("Estagiario") || User.IsInRole("Atendente"))
+                    @if (User.IsInRole("Administrador") || User.IsInRole("Estagiario") || User.IsInRole("Atendente") || User.IsInRole("Medico"))
                     {
                         <li>
                             <a href="~/Refugiado/Index">
